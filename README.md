@@ -56,8 +56,7 @@ node -v
 ```
 npm -v
 ```
-- Fork this repo.
-- Clone your fork.
+- Clone this repo.
 - Run `npm ci` in the root directory. This command will install dependencies based on the exact versions specified in the package-lock.json. It ensures a consistent and reproducible environment by installing dependencies exactly as specified, making it ideal for use in development, testing, and deployment workflows.
 
 You can use `npm ci` or `npm i` depending on your specific needs and requirements for dependency management.
