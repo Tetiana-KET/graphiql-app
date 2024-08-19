@@ -18,14 +18,14 @@ This project is an educational initiative aimed at developing a lightweight appl
 - **Internationalization (i18n)**: Support multiple languages to make the application accessible to a broader audience.
 - **Responsive Design**: Ensure the application is fully responsive, providing an optimal experience across various devices and screen sizes starting from 320px.
   
-### Key pages in the application include:
+### Key pages in the application include
 - Sign In 🔑 / Sign Up 📝
 - Welcome page: 🎉
 - RESTful client page: 🌐
 - GraphiQL client page: 🛠️
 - History page: 📜
   
-### Project screenshots:
+### Project screenshots
 
 ### Technology stack
 
