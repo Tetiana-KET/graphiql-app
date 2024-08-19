@@ -9,7 +9,7 @@ This project is an educational initiative aimed at developing a lightweight appl
 - **React Best Practices**: Reinforce foundational React concepts, with a focus on hooks, component architecture, and state management.
 - **TypeScript Proficiency**: Improve proficiency in TypeScript, ensuring type safety and better code quality throughout the project.
 - **Quality and Testing**: Implement strict coding standards and aim for a minimum of 80% test coverage to ensure high code quality and reliability.
-- 
+  
 ### Key Features
 - **REST and GraphQL Suppor**t: Enable users to send requests to both REST and GraphQL APIs.
 - **User Authentication**: Include user authentication for accessing protected routes and storing user preferences.
@@ -17,14 +17,14 @@ This project is an educational initiative aimed at developing a lightweight appl
 - **Error Handling**: Provide robust error handling mechanisms for API requests and user inputs.
 - **Internationalization (i18n)**: Support multiple languages to make the application accessible to a broader audience.
 - **Responsive Design**: Ensure the application is fully responsive, providing an optimal experience across various devices and screen sizes starting from 320px.
-- 
+  
 ### Key pages in the application include:
 - Sign In 🔑 / Sign Up 📝
 - Welcome page: 🎉
 - RESTful client page: 🌐
 - GraphiQL client page: 🛠️
 - History page: 📜
-- 
+  
 ### Project screenshots:
 
 ### Technology stack
