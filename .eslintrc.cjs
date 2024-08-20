@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true },
+  env: { browser: true, es2022: true },
   extends: [
     'airbnb',
     'airbnb/hooks',
@@ -13,13 +13,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'next/core-web-vitals',
   ],
-  ignorePatterns: [
-    'dist',
-    '.eslintrc.cjs',
-    'node_modules',
-    'vitest.config.ts',
-    'next.config.js',
-  ],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'node_modules', 'vitest.config.ts'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',

@@ -1,0 +1,71 @@
+.notFoundPage {
+  position: relative;
+  z-index: 5;
+  height: 100%;
+  max-height: 83vh;
+  min-width: 90vw;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notFoundPageText {
+  font-size: 75px;
+  line-height: 85px;
+  font-weight: 900;
+  margin: 30px auto;
+}
+
+.homeButton {
+  width: 170px;
+  height: 60px;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  z-index: 1;
+  border: transparent;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+.homeButton:before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 40px;
+  filter: blur(20px);
+  animation: animate 8s linear infinite;
+  transition: all 1s;
+}
+
+@media (hover: hover) {
+  .homeButton:hover:before {
+    background: linear-gradient(90deg, #083448, #740544, #908205, #064f71);
+  }
+}
+
+@media (max-width: 600px) {
+  .notFoundPageText {
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 900;
+    margin-bottom: 0;
+  }
+}
