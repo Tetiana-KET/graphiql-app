@@ -1,3 +1,9 @@
+import { EndpointTabs } from './components/EndpointTabs/EndpointTabs';
+
 export default function GraphPage() {
-  return <div> I am GRAPH page</div>;
+  return (
+    <div className="flex">
+      <EndpointTabs />
+    </div>
+  );
 }
