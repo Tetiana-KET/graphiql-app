@@ -1,0 +1,24 @@
+@import 'variables';
+
+.error-message {
+  position: relative;
+  z-index: 5;
+  justify-content: center;
+  margin: auto;
+  color: $main-color;
+  text-align: center;
+  line-height: 55px;
+  font-size: 40px;
+  font-weight: 900;
+  text-shadow: rgba(247, 17, 5, 0.9) 2px 2px 3px;
+}
+
+.error-img-wrap {
+  margin: 30px auto;
+  max-width: 350px;
+}
+
+.error-img-wrap img {
+  max-width: 100%;
+  border-radius: 50px;
+}

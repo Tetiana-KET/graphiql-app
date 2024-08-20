@@ -5,9 +5,5 @@ interface ErrorErrorProps {
 }
 
 export default function ErrorError({ error }: ErrorErrorProps) {
-  return (
-    <>
-      <h1>{error.message}</h1>
-    </>
-  );
+  return <h1>{error.message}</h1>;
 }

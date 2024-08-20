@@ -1,6 +1,7 @@
+import { ReactNode } from 'react';
 import styles from './Loader.module.scss';
 
-function Loader(): JSX.Element {
+function Loader(): ReactNode {
   return (
     <section className={styles.loaderContainer} data-testid="loader">
       <div className={styles.loader} />

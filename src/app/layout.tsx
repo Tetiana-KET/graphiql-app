@@ -1,10 +1,12 @@
 /* eslint react-refresh/only-export-components: "off" */
 import type { Metadata } from 'next';
+import { ReactNode } from 'react';
 
-import Header from '@/components/Header/Header';
-import Footer from '@/components/Footer/Footer';
+import Header from '@/app/_components/Header/Header';
+import Footer from '@/app/_components/Footer/Footer';
 
-import './globals.scss';
+import '@/app/_styles/layout.scss';
+import '@styles/globals.scss';
 
 export const metadata: Metadata = {
   title: 'REST/GraphiQL Client',
@@ -14,9 +16,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
       <body>
