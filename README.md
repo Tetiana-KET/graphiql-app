@@ -35,11 +35,11 @@ This project is an educational initiative aimed at developing a lightweight appl
 - Styling: [**SCSS**](https://sass-lang.com/)
 - Linters: [**ESLint**](https://eslint.org/), [**Prettier**](https://prettier.io/)
 - Pre-push/Pre-commit: [**Husky**](https://typicode.github.io/husky/)
-- UI library: [**NextUI**]([https://mui.com/material-ui/](https://nextui.org/docs/guide/introduction#what-is-nextui))
+- UI library: [**NextUI**](https://nextui.org/docs/guide/introduction#what-is-nextui)
 - API: 
 - Tests: 
 - Routing: [**Next.js App Router**](https://nextjs.org/docs/app/building-your-application/routing)) 
-- Hosting: [**Netlify**](https://www.netlify.com/)
+- ??? Hosting: [**Netlify**](https://www.netlify.com/)  [**Vercel**](https://vercel.com/)
 - Task Board: [**GitHub Pages**](https://github.com/users/Tetiana-KET/projects/3/views/2))
 - Code style: [**Wiki**]()
 
