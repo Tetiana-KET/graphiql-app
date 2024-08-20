@@ -1,6 +1,7 @@
+import { ReactNode } from 'react';
 import styles from './Header.module.scss';
 
-function Header(): JSX.Element {
+function Header(): ReactNode {
   return (
     <header className={styles.header} data-testid="header">
       <div className={styles.headerContainer}>

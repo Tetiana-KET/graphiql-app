@@ -1,11 +1,10 @@
+@import '@styles/variables';
+
 .header {
-  position: absolute;
-  left: 0;
-  right: 0;
+  position: sticky;
   top: 0;
-  z-index: 3;
-  border-bottom: 1px solid var(--accent-color);
-  box-shadow: var(--box-shadow);
+  border-bottom: 1px solid $accent-color;
+  box-shadow: $box-shadow;
 }
 
 .header-container {
