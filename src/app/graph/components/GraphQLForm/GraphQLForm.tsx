@@ -1,23 +1,12 @@
 'use client';
 
-import { GraphQLFormData } from '@/models/FormInterfaces';
 import { Button, Checkbox, Input } from '@nextui-org/react';
-import { useForm } from 'react-hook-form';
+import { useGraphQLForm } from './hooks/useGraphQLForm';
 import { useSDLAsURL } from './hooks/useSDLAsURL';
 
 export function GraphQLForm() {
-  const {
-    register,
-    watch,
-    setValue,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<GraphQLFormData>();
-
-  const onSubmit = (formData: GraphQLFormData) => {
-    // eslint-disable-next-line no-console
-    console.log(formData);
-  };
+  const { register, watch, setValue, handleSubmit, errors, onSubmit } =
+    useGraphQLForm();
 
   const { handleSDLChange, isSDLAsURL, URLValue, SDLValue } = useSDLAsURL({
     watch,
