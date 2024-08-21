@@ -12,6 +12,7 @@ module.exports = {
     'prettier',
     'plugin:prettier/recommended',
     'next/core-web-vitals',
+    // 'plugin:i18next/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs', 'node_modules', 'vitest.config.ts'],
   parser: '@typescript-eslint/parser',
@@ -32,6 +33,7 @@ module.exports = {
     '@typescript-eslint',
     'prettier',
     'unused-imports',
+    'i18next',
   ],
   settings: {
     react: {
