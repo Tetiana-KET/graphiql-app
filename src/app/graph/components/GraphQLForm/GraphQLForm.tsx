@@ -3,7 +3,7 @@
 import { GraphQLFormData } from '@/views/someInterface';
 import { Button, Checkbox, Input } from '@nextui-org/react';
 import { useForm } from 'react-hook-form';
-import { useSdlAsUrl } from './hooks/useSdlAsUrl';
+import { useSDLAsURL } from './hooks/useSDLAsURL';
 
 export function GraphQLForm() {
   const {
@@ -19,7 +19,7 @@ export function GraphQLForm() {
     console.log(formData);
   };
 
-  const { handleSDLChange, isSameSDL, URLValue, SDLValue } = useSdlAsUrl({
+  const { handleSDLChange, isSDLAsURL, URLValue, SDLValue } = useSDLAsURL({
     watch,
     setValue,
   });
@@ -37,8 +37,8 @@ export function GraphQLForm() {
             errorMessage={errors.URL?.message}
           />
           <Input
-            value={isSameSDL ? `${URLValue}?sdl` : SDLValue || ''}
-            isDisabled={isSameSDL}
+            value={isSDLAsURL ? `${URLValue}?sdl` : SDLValue || ''}
+            isDisabled={isSDLAsURL}
             label="SDL"
             placeholder="Enter your SDL"
             type="text"
@@ -48,7 +48,7 @@ export function GraphQLForm() {
           <Checkbox
             defaultSelected
             size="sm"
-            isSelected={isSameSDL}
+            isSelected={isSDLAsURL}
             onChange={handleSDLChange}
           >
             URL and SDL are the same
