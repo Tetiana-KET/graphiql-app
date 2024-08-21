@@ -1,9 +1,9 @@
-import { EndpointTabs } from './components/EndpointTabs/EndpointTabs';
+import { GraphQLForm } from './components/GraphQLForm/GraphQLForm';
 
 export default function GraphPage() {
   return (
     <div className="flex">
-      <EndpointTabs />
+      <GraphQLForm />
     </div>
   );
 }
