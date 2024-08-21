@@ -8,13 +8,13 @@ interface UseSDLAsURLProps {
 }
 
 export const useSDLAsURL = ({ watch, setValue }: UseSDLAsURLProps) => {
-  const [isSDLAsURL, setIsSameSDL] = useState(true);
+  const [isSDLAsURL, setIsSDLAsURL] = useState(true);
 
   const URLValue = watch('URL') || '';
   const SDLValue = watch('SDL');
 
   const handleSDLChange = () => {
-    setIsSameSDL(!isSDLAsURL);
+    setIsSDLAsURL(!isSDLAsURL);
   };
 
   useEffect(() => {
