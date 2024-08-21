@@ -38,7 +38,6 @@ export function GraphQLForm() {
           />
           <Input
             value={isSDLAsURL ? `${URLValue}?sdl` : SDLValue || ''}
-            isDisabled={isSDLAsURL}
             label="SDL"
             placeholder="Enter your SDL"
             type="text"

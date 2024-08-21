@@ -1,5 +1,5 @@
 import { GraphQLFormData } from '@/models/FormInterfaces';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { UseFormSetValue, UseFormWatch } from 'react-hook-form';
 
 interface UseSDLAsURLProps {
@@ -15,11 +15,13 @@ export const useSDLAsURL = ({ watch, setValue }: UseSDLAsURLProps) => {
 
   const handleSDLChange = () => {
     setIsSameSDL(!isSDLAsURL);
-    if (!isSDLAsURL) {
-      setValue('SDL', '');
-    } else {
+  };
+
+  useEffect(() => {
+    if (isSDLAsURL) {
       setValue('SDL', `${URLValue}?sdl`);
     }
-  };
+  }, [URLValue, isSDLAsURL, setValue]);
+
   return { handleSDLChange, isSDLAsURL, URLValue, SDLValue };
 };
