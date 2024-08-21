@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NextUIProvider>
+        <NextUIProvider className="flex flex-col flex-1">
           <Header />
           <main className="page-container">{children}</main>
           <Footer />
