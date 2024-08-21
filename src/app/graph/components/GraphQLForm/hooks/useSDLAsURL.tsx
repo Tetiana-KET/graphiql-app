@@ -1,4 +1,4 @@
-import { GraphQLFormData } from '@/views/someInterface';
+import { GraphQLFormData } from '@/models/FormInterfaces';
 import { useState } from 'react';
 import { UseFormSetValue, UseFormWatch } from 'react-hook-form';
 

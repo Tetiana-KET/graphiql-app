@@ -1,6 +1,6 @@
 'use client';
 
-import { GraphQLFormData } from '@/views/someInterface';
+import { GraphQLFormData } from '@/models/FormInterfaces';
 import { Button, Checkbox, Input } from '@nextui-org/react';
 import { useForm } from 'react-hook-form';
 import { useSDLAsURL } from './hooks/useSDLAsURL';
