@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import styles from '@/app/_styles/NotFoundPage.module.scss';
+import styles from './_styles/NotFoundPage.module.scss';
 
 export default function NotFoundPage(): ReactNode {
   return (
