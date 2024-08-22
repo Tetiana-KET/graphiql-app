@@ -5,7 +5,7 @@ import { javascript } from '@codemirror/lang-javascript';
 import { Button } from '@nextui-org/react';
 import CodeMirror from '@uiw/react-codemirror';
 import { UseFormRegister, UseFormSetValue } from 'react-hook-form';
-import { useCodeMirrorBoard } from '../../hooks/useCodeMirrorBoard';
+import { useCodeMirrorBoard } from './hooks/useCodeMirrorBoard';
 
 export interface CodeMirrorBoardProps {
   register: UseFormRegister<GraphQLFormData>;
