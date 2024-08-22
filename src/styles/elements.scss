@@ -15,12 +15,12 @@ ul {
 .button {
   width: 150px;
   height: 50px;
-  background-color: $accent-color;
-  border: 3px solid $accent-color-hover;
+  padding: 5px 10px;
+  background-color: $light-grey-bg-color;
   border-radius: 5px;
   color: $main-color;
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   line-height: normal;
   letter-spacing: 1px;
@@ -31,6 +31,7 @@ ul {
 @media (hover: hover) {
   .button:hover {
     background-color: $accent-color-hover;
+    color: $light-color;
     box-shadow: 0 0 5px 3px rgb(253 252 252 / 20%);
   }
 }

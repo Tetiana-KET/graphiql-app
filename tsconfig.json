@@ -39,7 +39,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "./dist/types/**/*.ts",
-    "next.config.mjs"
+    "next.config.mjs",
+    "src/app/[locale]/**/*"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }

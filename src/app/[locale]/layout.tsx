@@ -3,11 +3,11 @@
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
-import Footer from '@/app/_components/Footer/Footer';
-import Header from '@/app/_components/Header/Header';
-import '@/app/_styles/layout.scss';
+import './_styles/layout.scss';
 import { NextUIProvider } from '@nextui-org/react';
 import '@styles/globals.scss';
+import Header from './_components/Header/Header';
+import Footer from './_components/Footer/Footer';
 
 export const metadata: Metadata = {
   title: 'REST/GraphiQL Client',

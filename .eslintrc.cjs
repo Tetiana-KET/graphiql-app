@@ -12,6 +12,7 @@ module.exports = {
     'prettier',
     'plugin:prettier/recommended',
     'next/core-web-vitals',
+    // 'plugin:i18next/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs', 'node_modules', 'vitest.config.ts'],
   parser: '@typescript-eslint/parser',
@@ -32,6 +33,7 @@ module.exports = {
     '@typescript-eslint',
     'prettier',
     'unused-imports',
+    'i18next',
   ],
   settings: {
     react: {
@@ -83,7 +85,15 @@ module.exports = {
 
     'max-classes-per-file': ['error', 1],
     'import/prefer-default-export': 'off',
-    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: false,
+        optionalDependencies: false,
+        peerDependencies: false,
+      },
+    ],
+
     curly: ['error', 'all'],
     quotes: ['error', 'single', { allowTemplateLiterals: true }],
     semi: ['error', 'always'],
