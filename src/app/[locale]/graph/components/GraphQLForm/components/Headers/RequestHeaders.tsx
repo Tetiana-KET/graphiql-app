@@ -1,24 +1,16 @@
 import { GraphQLFormData } from '@/models/FormInterfaces';
 import { Button, Input } from '@nextui-org/react';
-import { Control, useFieldArray, UseFormRegister } from 'react-hook-form';
+import { Control, UseFormRegister } from 'react-hook-form';
+import { useRequestHeaders } from './hooks/useRequestHeaders';
 
 interface RequestHeadersProps {
   control: Control<GraphQLFormData>;
   register: UseFormRegister<GraphQLFormData>;
 }
 export function RequestHeaders({ control, register }: RequestHeadersProps) {
-  const { fields, append, remove } = useFieldArray({
+  const { fields, addVariable, removeVariable } = useRequestHeaders({
     control,
-    name: 'headers',
   });
-
-  const addVariable = () => {
-    append({ key: '', value: '' });
-  };
-
-  const removeVariable = () => {
-    remove(fields.length - 1);
-  };
 
   return (
     <div className="flex flex-col gap-2">
@@ -28,19 +20,11 @@ export function RequestHeaders({ control, register }: RequestHeadersProps) {
           <Button color="primary" type="button" size="sm" onClick={addVariable}>
             Add variable
           </Button>
-          <Button
-            color="primary"
-            type="button"
-            size="sm"
-            onClick={removeVariable}
-          >
-            Remove the last
-          </Button>
         </div>
       </div>
 
       {fields.map((field, index) => (
-        <div className="flex gap-2" key={field.id}>
+        <div className="flex gap-2 " key={field.id}>
           <Input
             size="sm"
             type="text"
@@ -55,6 +39,14 @@ export function RequestHeaders({ control, register }: RequestHeadersProps) {
             placeholder="Ex. 1"
             {...register(`headers.${index}.value`)}
           />
+          <Button
+            color="danger"
+            type="button"
+            size="sm"
+            onClick={() => removeVariable(index)}
+          >
+            Delete
+          </Button>
         </div>
       ))}
     </div>
