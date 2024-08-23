@@ -14,7 +14,13 @@ module.exports = {
     'next/core-web-vitals',
     // 'plugin:i18next/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'node_modules', 'vitest.config.ts'],
+  ignorePatterns: [
+    'dist',
+    '.eslintrc.cjs',
+    'node_modules',
+    'vitest.config.ts',
+    'postcss.config.mjs',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',

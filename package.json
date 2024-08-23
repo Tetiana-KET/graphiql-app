@@ -10,9 +10,9 @@
     "lint:fix": "eslint . --fix",
     "preview": "next build && next start",
     "prettier": "prettier --check --ignore-unknown .",
-    "format:fix": "prettier --write --ignore-unknown .",
+    "prettier:fix": "prettier --write --ignore-unknown .",
     "types-check": "tsc --noEmit",
-    "prettier:fix": "npm run lint:fix && npm run prettier:fix",
+    "format:fix": "npm run lint:fix && npm run prettier:fix",
     "validate:all": "npm run lint && npm run prettier && npm run types-check",
     "prepare": "husky"
   },

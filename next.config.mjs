@@ -3,17 +3,9 @@
 const nextConfig = {
   reactStrictMode: true,
   distDir: './dist',
-
   async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/welcome',
-        permanent: true,
-      },
-    ];
+    return [];
   },
-
   webpack: (config) => {
     const rules = config.module.rules
       .find((rule) => typeof rule.oneOf === 'object')
