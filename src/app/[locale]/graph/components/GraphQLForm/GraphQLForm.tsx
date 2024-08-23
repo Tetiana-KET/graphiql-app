@@ -43,7 +43,7 @@ export function GraphQLForm() {
           >
             URL and SDL are the same
           </Checkbox>
-          <h4>Passe your queries</h4>
+          <h4>Pass your queries</h4>
           <CodeMirrorBoard register={register} setValue={setValue} />
           <div className="flex gap-2 justify-end">
             <Button fullWidth color="primary" type="submit">
