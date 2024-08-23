@@ -27,7 +27,7 @@ export const useCodeMirrorBoard = ({ setValue }: UseCodeMirrorBoardProps) => {
     setQuery(value);
   };
 
-  const manualPrettify = (qglQuery: string): string => {
+  const customPrettifyGQL = (qglQuery: string): string => {
     return qglQuery
       .split('\n')
       .map((line) => line.trim())
@@ -45,7 +45,7 @@ export const useCodeMirrorBoard = ({ setValue }: UseCodeMirrorBoardProps) => {
 
   const prettifyCode = useCallback(() => {
     try {
-      const prettified = manualPrettify(query);
+      const prettified = customPrettifyGQL(query);
       setQuery(prettified);
       setValue('query', prettified);
     } catch (error) {
