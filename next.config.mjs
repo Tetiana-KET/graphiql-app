@@ -1,11 +1,11 @@
 /* eslint-disable no-param-reassign */
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  distDir: './dist',
-  async redirects() {
-    return [];
-  },
+  // reactStrictMode: true,
+  // distDir: './dist',
+  // async redirects() {
+  //   return [];
+  // },
   webpack: (config) => {
     const rules = config.module.rules
       .find((rule) => typeof rule.oneOf === 'object')

@@ -7,7 +7,7 @@ export default async function WelcomePage() {
       <div> I am MAIN DEFAULT page, laying in [locale]</div>
       <p>{'  '}</p>
       <WelcomeContent />
-      <Link href="/en/graph" className="button">
+      <Link href="/graph" className="button">
         {' '}
         Graph
       </Link>
