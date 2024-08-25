@@ -1,15 +1,23 @@
 import Link from 'next/link';
 import WelcomeContent from './_components/Welcome/Welcome';
+import initTranslations from '../i18n';
 
-export default async function WelcomePage() {
+const i18nNamespaces = ['welcome'];
+
+export default async function Home({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const { t } = await initTranslations(locale, i18nNamespaces);
+
   return (
     <div>
-      <div> I am MAIN DEFAULT page, laying in [locale]</div>
+      <div>{t('welcomeContentHeader')}</div>
       <p>{'  '}</p>
       <WelcomeContent />
       <Link href="/graph" className="button">
-        {' '}
-        Graph
+        {t('LinkToGraph')}
       </Link>
     </div>
   );

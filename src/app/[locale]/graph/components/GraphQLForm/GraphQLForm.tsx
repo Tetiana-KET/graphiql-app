@@ -14,6 +14,9 @@ export function GraphQLForm() {
     setValue,
   });
 
+  const urlPlaceholderText = 'Enter your URL';
+  const SDLPlaceholderText = 'Enter your SDL';
+
   return (
     <div className="flex w-full flex-col">
       <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
@@ -22,7 +25,7 @@ export function GraphQLForm() {
             isRequired
             type="text"
             label="URL"
-            placeholder="Enter your URL"
+            placeholder={urlPlaceholderText}
             {...register('URL')}
             errorMessage={errors.URL?.message}
           />
@@ -30,7 +33,7 @@ export function GraphQLForm() {
             disabled={isSDLAsURL}
             value={isSDLAsURL ? `${URLValue}?sdl` : SDLValue || ''}
             label="SDL"
-            placeholder="Enter your SDL"
+            placeholder={SDLPlaceholderText}
             type="text"
             {...register('SDL')}
             errorMessage={errors.SDL?.message}
