@@ -3,12 +3,16 @@
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { NextUIProvider } from '@nextui-org/react';
+import { dir } from 'i18next';
 
+import TranslationsProvider from '@/components/TranslationsProvider';
 import Header from './_components/Header/Header';
 import Footer from './_components/Footer/Footer';
 
 import '@styles/globals.scss';
 import './_styles/layout.scss';
+import i18nConfig from '../../../i18nConfig';
+import initTranslations from '../i18n';
 
 export const metadata: Metadata = {
   title: 'REST/GraphiQL Client',
@@ -16,18 +20,34 @@ export const metadata: Metadata = {
     'A light-weight versions of Postman and GrqphiQL combined in one app',
 };
 
-export default function RootLayout({
+export function generateStaticParams() {
+  return i18nConfig.locales.map((locale) => ({ locale }));
+}
+
+const i18nNamespaces = ['common'];
+
+export default async function RootLayout({
   children,
-}: Readonly<{ children: ReactNode }>) {
+  params: { locale },
+}: {
+  children: ReactNode;
+  params: { locale: string };
+}) {
+  const { resources } = await initTranslations(locale, i18nNamespaces);
   return (
-    // eslint-disable-next-line jsx-a11y/html-has-lang
-    <html>
+    <html lang={locale} dir={dir(locale)}>
       <body>
-        <NextUIProvider className="flex flex-col flex-1">
-          <Header />
-          <main className="page-container">{children}</main>
-          <Footer />
-        </NextUIProvider>
+        <TranslationsProvider
+          namespaces={i18nNamespaces}
+          locale={locale}
+          resources={resources}
+        >
+          <NextUIProvider className="flex flex-col flex-1">
+            <Header locale={locale} />
+            <main className="page-container">{children}</main>
+            <Footer locale={locale} />
+          </NextUIProvider>
+        </TranslationsProvider>
       </body>
     </html>
   );

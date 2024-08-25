@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import initTranslations from '@/app/i18n';
 import TranslationsProvider from '@/components/TranslationsProvider';
 import { GraphQLForm } from './components/GraphQLForm/GraphQLForm';
@@ -10,7 +9,7 @@ export default async function GraphPage({
 }: {
   params: { locale: string };
 }) {
-  const { t, resources } = await initTranslations(locale, i18nNamespaces);
+  const { resources } = await initTranslations(locale, i18nNamespaces);
   return (
     <TranslationsProvider
       namespaces={i18nNamespaces}
@@ -19,9 +18,6 @@ export default async function GraphPage({
     >
       <div className="flex">
         <GraphQLForm />
-        <Link href="/" className="button">
-          {t('common:welcome')}
-        </Link>
       </div>
     </TranslationsProvider>
   );
