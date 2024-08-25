@@ -4,9 +4,10 @@ import { Button, Checkbox, Input } from '@nextui-org/react';
 import { useGraphQLForm } from '../../hooks/useGraphQLForm';
 import { useSDLAsURL } from '../../hooks/useSDLAsURL';
 import CodeMirrorBoard from './components/CodeMirror/CodeMirrorBoard';
+import { RequestHeaders } from './components/Headers/RequestHeaders';
 
 export function GraphQLForm() {
-  const { register, watch, setValue, handleSubmit, errors, onSubmit } =
+  const { register, control, watch, setValue, handleSubmit, errors, onSubmit } =
     useGraphQLForm();
 
   const { handleSDLChange, isSDLAsURL, URLValue, SDLValue } = useSDLAsURL({
@@ -45,6 +46,7 @@ export function GraphQLForm() {
           </Checkbox>
           <h4>Pass your queries</h4>
           <CodeMirrorBoard register={register} setValue={setValue} />
+          <RequestHeaders control={control} register={register} />
           <div className="flex gap-2 justify-end">
             <Button fullWidth color="primary" type="submit">
               Save
