@@ -1,0 +1,5 @@
+{
+  "LinkToGraph": "Graph",
+  "mainHeader": "I am MAIN DEFAULT page, laying in [locale]",
+  "welcomeContentHeader": "I am WELCOME component, laying in _components"
+}

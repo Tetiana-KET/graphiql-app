@@ -1,0 +1,9 @@
+{
+  "footerHeader": "\nЯ ФУТЕР",
+  "headerHeader": "\nЯ ХЕДЕР",
+  "headerText": "Для строк с {{name}} просто используйте двойные фигурные скобки.",
+  "querriesTitle": "Передайте ваши запросы",
+  "save": "Сохранять",
+  "SDLPlaceholderText": "{{SDLPlaceholderText}}",
+  "urlPlaceholderText": "{{urlPlaceholderText}}"
+}

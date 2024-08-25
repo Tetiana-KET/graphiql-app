@@ -1,0 +1,5 @@
+{
+  "LinkToGraph": "图形",
+  "mainHeader": "我是主默认页面，位于 [locale]",
+  "welcomeContentHeader": "我是 WELCOME 组件，位于 _components 中"
+}

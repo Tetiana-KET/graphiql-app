@@ -1,0 +1,9 @@
+{
+  "footerHeader": "\n我是页脚",
+  "headerHeader": "\n我是 HEADER",
+  "headerText": "对于带有{{name}}的字符串，只需使用双花括号",
+  "querriesTitle": "传递您的疑问",
+  "save": "节省",
+  "SDLPlaceholderText": "{{SDLPlaceholderText}}",
+  "urlPlaceholderText": "{{urlPlaceholderText}}"
+}

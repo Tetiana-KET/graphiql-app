@@ -1,0 +1,5 @@
+{
+  "LinkToGraph": "Graph",
+  "mainHeader": "Ich bin die MAIN DEFAULT-Seite, gelegen in [Gebietsschema]",
+  "welcomeContentHeader": "Ich bin WILLKOMMEN Komponente, liegend in _components"
+}

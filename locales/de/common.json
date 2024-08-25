@@ -1,0 +1,9 @@
+{
+  "footerHeader": "\nIch bin FOOTER",
+  "headerHeader": "\nIch bin HEDER",
+  "headerText": "Für Zeichenfolgen mit {{name}} verwenden Sie einfach doppelte geschweifte Klammern",
+  "querriesTitle": "Übergeben Sie Ihre Anfragen",
+  "save": "Speichern",
+  "SDLPlaceholderText": "{{SDLPlaceholderText}}",
+  "urlPlaceholderText": "{{urlPlaceholderText}}"
+}

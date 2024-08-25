@@ -1,0 +1,9 @@
+{
+  "footerHeader": "\nI am FOOTER",
+  "headerHeader": "\nI am HEADER",
+  "headerText": "For strings with {{name}} just use double curly brackets",
+  "querriesTitle": "Pass your queries",
+  "save": "Save",
+  "SDLPlaceholderText": "{{SDLPlaceholderText}}",
+  "urlPlaceholderText": "{{urlPlaceholderText}}"
+}
