@@ -1,3 +1,8 @@
+'use client';
+
+import { useTranslation } from 'react-i18next';
+
 export default function WelcomeContent() {
-  return <div> I am WELCOME component, laying in _components</div>;
+  const { t } = useTranslation();
+  return <div>{t('welcomeContentHeader')}</div>;
 }

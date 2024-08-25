@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import TranslationsProvider from '@/components/TranslationsProvider';
 import WelcomeContent from './_components/Welcome/Welcome';
 import initTranslations from '../i18n';
 
@@ -9,16 +10,22 @@ export default async function Home({
 }: {
   params: { locale: string };
 }) {
-  const { t } = await initTranslations(locale, i18nNamespaces);
+  const { t, resources } = await initTranslations(locale, i18nNamespaces);
 
   return (
-    <div>
-      <div>{t('welcomeContentHeader')}</div>
-      <p>{'  '}</p>
-      <WelcomeContent />
-      <Link href="/graph" className="button">
-        {t('LinkToGraph')}
-      </Link>
-    </div>
+    <TranslationsProvider
+      namespaces={i18nNamespaces}
+      locale={locale}
+      resources={resources}
+    >
+      <div>
+        <div>{t('mainHeader')}</div>
+        <p>{'  '}</p>
+        <WelcomeContent />
+        <Link href="/graph" className="button">
+          {t('LinkToGraph')}
+        </Link>
+      </div>
+    </TranslationsProvider>
   );
 }
