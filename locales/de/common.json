@@ -1,1 +1,9 @@
-{"footerHeader":"\nIch bin FOOTER","headerHeader":"\nIch bin HEDER","querriesTitle":"Übergeben Sie Ihre Anfragen","save":"Speichern","SDLPlaceholderText":"{{SDLPlaceholderText}}","urlPlaceholderText":"{{urlPlaceholderText}}","welcome":"Willkommen"}
+{
+  "footerHeader": "\nIch bin FOOTER",
+  "headerHeader": "\nIch bin HEDER",
+  "querriesTitle": "Übergeben Sie Ihre Anfragen",
+  "save": "Speichern",
+  "SDLPlaceholderText": "{{SDLPlaceholderText}}",
+  "urlPlaceholderText": "{{urlPlaceholderText}}",
+  "welcome": "Willkommen"
+}

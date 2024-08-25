@@ -1,1 +1,9 @@
-{"footerHeader":"\nЯ ФУТЕР","headerHeader":"\nЯ ХЕДЕР","querriesTitle":"Передайте ваши запросы","save":"Сохранять","SDLPlaceholderText":"{{SDLPlaceholderText}}","urlPlaceholderText":"{{urlPlaceholderText}}","welcome":"Добро пожаловать"}
+{
+  "footerHeader": "\nЯ ФУТЕР",
+  "headerHeader": "\nЯ ХЕДЕР",
+  "querriesTitle": "Передайте ваши запросы",
+  "save": "Сохранять",
+  "SDLPlaceholderText": "{{SDLPlaceholderText}}",
+  "urlPlaceholderText": "{{urlPlaceholderText}}",
+  "welcome": "Добро пожаловать"
+}

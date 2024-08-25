@@ -1,1 +1,9 @@
-{"footerHeader":"\n我是页脚","headerHeader":"\n我是 HEADER","querriesTitle":"传递您的疑问","save":"节省","SDLPlaceholderText":"{{SDLPlaceholderText}}","urlPlaceholderText":"{{urlPlaceholderText}}","welcome":"欢迎"}
+{
+  "footerHeader": "\n我是页脚",
+  "headerHeader": "\n我是 HEADER",
+  "querriesTitle": "传递您的疑问",
+  "save": "节省",
+  "SDLPlaceholderText": "{{SDLPlaceholderText}}",
+  "urlPlaceholderText": "{{urlPlaceholderText}}",
+  "welcome": "欢迎"
+}
