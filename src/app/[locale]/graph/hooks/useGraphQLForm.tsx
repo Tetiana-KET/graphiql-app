@@ -4,11 +4,14 @@ import { useForm } from 'react-hook-form';
 export function useGraphQLForm() {
   const {
     register,
+    control,
     watch,
     setValue,
     handleSubmit,
     formState: { errors },
-  } = useForm<GraphQLFormData>();
+  } = useForm<GraphQLFormData>({
+    defaultValues: { headers: [{ key: '', value: '' }] },
+  });
 
   const onSubmit = (formData: GraphQLFormData) => {
     // eslint-disable-next-line no-console
@@ -17,6 +20,7 @@ export function useGraphQLForm() {
 
   return {
     register,
+    control,
     watch,
     setValue,
     handleSubmit,
