@@ -6,6 +6,7 @@ import { NextUIProvider } from '@nextui-org/react';
 import { dir } from 'i18next';
 
 import TranslationsProvider from '@/components/TranslationsProvider';
+import { i18nNamespaces } from '@/consts/i18nNameSpaces';
 import Header from './_components/Header/Header';
 import Footer from './_components/Footer/Footer';
 
@@ -23,8 +24,6 @@ export const metadata: Metadata = {
 export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
 }
-
-const i18nNamespaces = ['common', 'notFound', 'layout', 'welcome'];
 
 export default async function RootLayout({
   children,
