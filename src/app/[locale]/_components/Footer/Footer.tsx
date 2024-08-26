@@ -1,7 +1,7 @@
 import initTranslations from '@/app/i18n';
 import styles from './Footer.module.scss';
 
-const i18nNamespaces = ['common'];
+const i18nNamespaces = ['layout'];
 
 async function Footer({ locale }: { locale: string }) {
   const { t } = await initTranslations(locale, i18nNamespaces);
