@@ -58,8 +58,6 @@ export function GraphQLForm() {
             control={control}
             register={register}
           />
-          {/* <RequestVariables control={control} register={register} />
-          <RequestHeaders control={control} register={register} /> */}
           <div className="flex gap-2 justify-end">
             <Button fullWidth color="primary" type="submit">
               {t('common:save')}

@@ -1,1 +1,15 @@
-{"addVariable":"Add variable","example":"Example","key":"Key","prettifyCode":"Prettify code","queries":"Queries","querriesTitle":"Pass your queries","remove":"Remove","save":"Save","SDLPlaceholderText":"Enter your SDL\n","urlPlaceholderText":"Enter your URL","value":"Value","variables":"Variables","welcome":"Welcome"}
+{
+  "addVariable": "Add variable",
+  "example": "Example",
+  "key": "Key",
+  "prettifyCode": "Prettify code",
+  "queries": "Queries",
+  "querriesTitle": "Pass your queries",
+  "remove": "Remove",
+  "save": "Save",
+  "SDLPlaceholderText": "Enter your SDL\n",
+  "urlPlaceholderText": "Enter your URL",
+  "value": "Value",
+  "variables": "Variables",
+  "welcome": "Welcome"
+}
