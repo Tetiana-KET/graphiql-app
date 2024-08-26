@@ -1,3 +1,9 @@
+import RestForm from './components/RestForm';
+
 export default function RestPage() {
-  return <div> I am REST page</div>;
+  return (
+    <article className="flex w-full flex-col">
+      <RestForm />
+    </article>
+  );
 }
