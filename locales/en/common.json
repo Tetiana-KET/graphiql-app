@@ -1,1 +1,7 @@
-{"querriesTitle":"Pass your queries","save":"Save","SDLPlaceholderText":"Enter your SDL\n","urlPlaceholderText":"Enter your URL","welcome":"Welcome"}
+{
+  "querriesTitle": "Pass your queries",
+  "save": "Save",
+  "SDLPlaceholderText": "Enter your SDL\n",
+  "urlPlaceholderText": "Enter your URL",
+  "welcome": "Welcome"
+}

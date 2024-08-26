@@ -1,1 +1,6 @@
-{"footerHeader":"Ich bin eine Fußzeilenkomponente","headerHeader":"Ich bin Header-Komponente","signIn":"Anmelden","signOut":"Abmelden"}
+{
+  "footerHeader": "Ich bin eine Fußzeilenkomponente",
+  "headerHeader": "Ich bin Header-Komponente",
+  "signIn": "Anmelden",
+  "signOut": "Abmelden"
+}
