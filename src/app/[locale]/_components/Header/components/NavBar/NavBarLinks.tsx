@@ -1,7 +1,7 @@
 'use client';
 
 import { NavbarContent, NavbarItem } from '@nextui-org/react';
-import { usePathname } from 'next/navigation'; // Updated import for Next.js 13+
+import { usePathname } from 'next/navigation';
 import { navigationList } from '@/consts/navigationList';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
@@ -15,7 +15,7 @@ interface NavigationListItem {
 
 function NavBarLinks() {
   const { t } = useTranslation();
-  const pathname = usePathname(); // Use usePathname instead of useRouter
+  const pathname = usePathname();
 
   return (
     <NavbarContent className="hidden sm:flex gap-0" justify="center">
