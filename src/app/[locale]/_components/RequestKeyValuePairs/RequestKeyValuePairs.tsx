@@ -33,6 +33,7 @@ export function RequestKeyValuePairs({
       {fields.map((field, index) => (
         <div className="flex gap-2 items-center" key={field.id}>
           <Input
+            isRequired
             size="sm"
             type="text"
             label={t('common:key')}
@@ -40,9 +41,10 @@ export function RequestKeyValuePairs({
             {...register(`${type}.${index}.key`)}
           />
           <Input
+            isRequired
             size="sm"
             type="text"
-            label={t('common:valuer')}
+            label={t('common:value')}
             placeholder="1"
             {...register(`${type}.${index}.value`)}
           />

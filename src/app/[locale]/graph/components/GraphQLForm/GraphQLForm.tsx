@@ -1,7 +1,7 @@
 'use client';
 
 import { RequestKeyValuePairs } from '@/app/[locale]/_components/RequestKeyValuePairs/RequestKeyValuePairs';
-import { Button, Checkbox, Input } from '@nextui-org/react';
+import { Button, Checkbox, Divider, Input } from '@nextui-org/react';
 import { useTranslation } from 'react-i18next';
 import { useGraphQLForm } from '../../hooks/useGraphQLForm';
 import { useSDLAsURL } from '../../hooks/useSDLAsURL';
@@ -20,8 +20,12 @@ export function GraphQLForm() {
 
   return (
     <div className="flex w-full flex-col">
-      <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-        <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+      <h1 className="self-center mb-3">Make GraphQL request</h1>
+      <div className="flex w-1/2  flex-wrap md:flex-nowrap gap-4">
+        <form
+          className="flex w-full flex-col gap-4"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <Input
             isRequired
             type="text"
@@ -53,13 +57,14 @@ export function GraphQLForm() {
             control={control}
             register={register}
           />
+          <Divider orientation="horizontal" />
           <RequestKeyValuePairs
             type="variables"
             control={control}
             register={register}
           />
-          <div className="flex gap-2 justify-end">
-            <Button fullWidth color="primary" type="submit">
+          <div className="flex gap-2">
+            <Button color="primary" type="submit">
               {t('common:save')}
             </Button>
           </div>
