@@ -13,7 +13,7 @@ import NavBarLinks from '../NavBar/NavBarLinks';
 import { Logo } from './Logo';
 import ClientHeaderWrapper from '../ClientHeaderWrapper/ClientHeaderWrapper';
 
-const i18nNamespaces = ['common'];
+const i18nNamespaces = ['layout'];
 
 async function Header({ locale }: { locale: string }) {
   const { t } = await initTranslations(locale, i18nNamespaces);

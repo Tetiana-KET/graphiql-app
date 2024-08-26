@@ -11,6 +11,7 @@
     "preview": "next build && next start",
     "prettier": "prettier --check --ignore-unknown .",
     "prettier:fix": "prettier --write --ignore-unknown .",
+    "prettier:fix:locales": "prettier --write locales/**/*.json",
     "types-check": "tsc --noEmit",
     "format:fix": "npm run lint:fix && npm run prettier:fix",
     "validate:all": "npm run lint && npm run prettier && npm run types-check",

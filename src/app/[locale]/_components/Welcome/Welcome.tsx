@@ -7,8 +7,8 @@ export default function WelcomeContent() {
   const name = 'interpolation';
   return (
     <div>
-      {t('welcomeContentHeader')}
-      <p>{t('interpolatadText', { name })}</p>
+      {t('welcome:welcomeContentHeader')}
+      <p>{t('welcome:interpolatadText', { name })}</p>
     </div>
   );
 }
