@@ -7,4 +7,5 @@ export interface GraphQLFormData {
   SDL: string;
   query: string;
   variables: Header[];
+  headers: Header[];
 }

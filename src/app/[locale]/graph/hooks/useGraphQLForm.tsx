@@ -10,7 +10,10 @@ export function useGraphQLForm() {
     handleSubmit,
     formState: { errors },
   } = useForm<GraphQLFormData>({
-    defaultValues: { variables: [{ key: '', value: '' }] },
+    defaultValues: {
+      variables: [{ key: '', value: '' }],
+      headers: [{ key: '', value: '' }],
+    },
   });
 
   const onSubmit = (formData: GraphQLFormData) => {

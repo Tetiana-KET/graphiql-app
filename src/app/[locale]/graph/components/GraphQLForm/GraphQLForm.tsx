@@ -1,11 +1,11 @@
 'use client';
 
+import { RequestKeyValuePairs } from '@/app/[locale]/_components/RequestKeyValuePairs/RequestKeyValuePairs';
 import { Button, Checkbox, Input } from '@nextui-org/react';
 import { useTranslation } from 'react-i18next';
 import { useGraphQLForm } from '../../hooks/useGraphQLForm';
 import { useSDLAsURL } from '../../hooks/useSDLAsURL';
 import CodeMirrorBoard from './components/CodeMirror/CodeMirrorBoard';
-import { RequestVariables } from './components/RequestVariabels/RequestVariables';
 
 export function GraphQLForm() {
   const { t } = useTranslation();
@@ -48,7 +48,18 @@ export function GraphQLForm() {
             {t('graphQL:URLAndSDLAreTheSame')}
           </Checkbox>
           <CodeMirrorBoard register={register} setValue={setValue} />
-          <RequestVariables control={control} register={register} />
+          <RequestKeyValuePairs
+            type="headers"
+            control={control}
+            register={register}
+          />
+          <RequestKeyValuePairs
+            type="variables"
+            control={control}
+            register={register}
+          />
+          {/* <RequestVariables control={control} register={register} />
+          <RequestHeaders control={control} register={register} /> */}
           <div className="flex gap-2 justify-end">
             <Button fullWidth color="primary" type="submit">
               {t('common:save')}
