@@ -1,20 +1,13 @@
-import initTranslations from '@/app/i18n';
-import {
-  Button,
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-} from '@nextui-org/react';
+import { Navbar, NavbarBrand } from '@nextui-org/react';
 import Link from 'next/link';
 import styles from './Header.module.scss';
 import LanguageChanger from '../LanguageChanger/LanguageChanger';
 import NavBarLinks from './components/NavBar/NavBarLinks';
 import { Logo } from './components/Logo';
-import ClientHeaderWrapper from './ClientHeaderWrapper/ClientHeaderWrapper';
+import ClientHeaderWrapper from './components/ClientHeaderWrapper/ClientHeaderWrapper';
 import AuthButtons from './components/AuthButtons/AuthButtons';
 
-async function Header() {
+function Header() {
   return (
     <ClientHeaderWrapper>
       <Navbar isBordered className={styles.header} data-testid="header">

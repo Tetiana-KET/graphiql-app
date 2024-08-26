@@ -8,10 +8,13 @@ import styles from './AuthButtons.module.scss';
 
 function AuthButtons() {
   const { t } = useTranslation();
-  const [isHidden, setIsHidden] = useState();
+  const [isLogged] = useState(true);
+
   return (
     <NavbarContent justify="end">
-      <NavbarItem className={styles.buttonWrap}>
+      <NavbarItem
+        className={`${styles.buttonWrap} ${isLogged ? styles.buttonWrapHidden : ''}`}
+      >
         <Button
           as={Link}
           color="default"
@@ -19,11 +22,13 @@ function AuthButtons() {
           variant="flat"
           radius="sm"
         >
-          {t('signIn')}
+          {t('layout:signIn')}
         </Button>
       </NavbarItem>
 
-      <NavbarItem className={styles.buttonWrap}>
+      <NavbarItem
+        className={`${styles.buttonWrap} ${!isLogged ? styles.buttonWrapHidden : ''}`}
+      >
         <Button
           as={Link}
           color="default"
@@ -32,7 +37,7 @@ function AuthButtons() {
           radius="sm"
           className="lg:flex"
         >
-          {t('signOut')}
+          {t('layout:signOut')}
         </Button>
       </NavbarItem>
     </NavbarContent>
