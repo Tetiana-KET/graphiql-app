@@ -1,12 +1,15 @@
 'use client';
 
 import { Button, Checkbox, Input } from '@nextui-org/react';
+import { useTranslation } from 'react-i18next';
 import { useGraphQLForm } from '../../hooks/useGraphQLForm';
 import { useSDLAsURL } from '../../hooks/useSDLAsURL';
 import CodeMirrorBoard from './components/CodeMirror/CodeMirrorBoard';
 import { RequestHeaders } from './components/Headers/RequestHeaders';
 
 export function GraphQLForm() {
+  const { t } = useTranslation();
+
   const { register, control, watch, setValue, handleSubmit, errors, onSubmit } =
     useGraphQLForm();
 
@@ -23,7 +26,7 @@ export function GraphQLForm() {
             isRequired
             type="text"
             label="URL"
-            placeholder="Enter your URL"
+            placeholder={t('common:urlPlaceholderText')}
             {...register('URL')}
             errorMessage={errors.URL?.message}
           />
@@ -31,7 +34,7 @@ export function GraphQLForm() {
             disabled={isSDLAsURL}
             value={isSDLAsURL ? `${URLValue}?sdl` : SDLValue || ''}
             label="SDL"
-            placeholder="Enter your SDL"
+            placeholder={t('common:SDLPlaceholderText')}
             type="text"
             {...register('SDL')}
             errorMessage={errors.SDL?.message}
@@ -44,12 +47,12 @@ export function GraphQLForm() {
           >
             URL and SDL are the same
           </Checkbox>
-          <h4>Pass your queries</h4>
+          <h4>{t('graph:queries')}</h4>
           <CodeMirrorBoard register={register} setValue={setValue} />
           <RequestHeaders control={control} register={register} />
           <div className="flex gap-2 justify-end">
             <Button fullWidth color="primary" type="submit">
-              Save
+              {t('common:save')}
             </Button>
           </div>
         </form>

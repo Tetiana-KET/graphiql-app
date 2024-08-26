@@ -1,18 +1,22 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import styles from './_styles/NotFoundPage.module.scss';
+import { useTranslation } from 'react-i18next';
+import styles from './NotFoundPage.module.scss';
 
 export default function NotFoundPage(): ReactNode {
+  const { t } = useTranslation();
   return (
     <section className={styles.notFoundPage}>
-      <div className="error-message">
+      <div className={styles.errorMessage}>
         <p className={styles.notFoundPageText}>
-          OOPS! <br />
-          Something went wrong...
+          {t('notFound:oops')}! <br />
+          {t('notFound:message')}...
         </p>
 
-        <div className="error-img-wrap">
+        <div className={styles.errorImgWrap}>
           <Image
             src="/404-error-page.gif"
             unoptimized
@@ -27,7 +31,7 @@ export default function NotFoundPage(): ReactNode {
             type="button"
             data-testid="ReturnHomeBtn"
           >
-            Back Home
+            {t('notFound:homeBtn')}
           </button>
         </Link>
       </div>
