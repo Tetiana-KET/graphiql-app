@@ -1,1 +1,1 @@
-npm run validate:all
+npm run prettier:fix:locales && npm run validate:all
