@@ -1,6 +1,1 @@
-{
-  "footerHeader": "Ich bin eine Fußzeilenkomponente",
-  "headerHeader": "Ich bin Header-Komponente",
-  "signIn": "Anmelden",
-  "signOut": "Abmelden"
-}
+{"footerHeader":"Ich bin eine Fußzeilenkomponente","graphiQL":"GraphiQL","headerHeader":"Ich bin Header-Komponente","history":"Geschichte","restClient":"REST-Client","signIn":"Anmelden","signOut":"Abmelden"}

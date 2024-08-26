@@ -1,6 +1,1 @@
-{
-  "footerHeader": "Я компонент нижнего колонтитула",
-  "headerHeader": "Я — компонент заголовка",
-  "signIn": "Войти",
-  "signOut": "Выход"
-}
+{"footerHeader":"Я компонент нижнего колонтитула","graphiQL":"GraphiQL","headerHeader":"Я — компонент заголовка","history":"История","restClient":"REST-клиент","signIn":"Войти","signOut":"Выход"}

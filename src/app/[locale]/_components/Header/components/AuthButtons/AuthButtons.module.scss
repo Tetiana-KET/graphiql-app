@@ -1,0 +1,14 @@
+@import '@styles/variables';
+.button-wrap:hover a {
+  transition: all 0.5s;
+}
+
+.button-wrap[hidden] {
+  display: none;
+}
+
+@media (hover: hover) {
+  .button-wrap:hover a {
+    box-shadow: $box-shadow;
+  }
+}

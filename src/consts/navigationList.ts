@@ -1,5 +1,5 @@
 export const navigationList = [
-  { id: '1', title: 'REST Client ', path: '/rest' },
-  { id: '2', title: 'GraphiQL', path: '/graph' },
-  { id: '3', title: 'History', path: '/history' },
+  { id: '1', title: 'restClient', path: '/rest' },
+  { id: '2', title: 'graphiQL', path: '/graph' },
+  { id: '3', title: 'history', path: '/history' },
 ];

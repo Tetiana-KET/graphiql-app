@@ -9,14 +9,12 @@ import {
 import Link from 'next/link';
 import styles from './Header.module.scss';
 import LanguageChanger from '../LanguageChanger/LanguageChanger';
-import NavBarLinks from '../NavBar/NavBarLinks';
-import { Logo } from './Logo';
-import ClientHeaderWrapper from '../ClientHeaderWrapper/ClientHeaderWrapper';
+import NavBarLinks from './components/NavBar/NavBarLinks';
+import { Logo } from './components/Logo';
+import ClientHeaderWrapper from './ClientHeaderWrapper/ClientHeaderWrapper';
+import AuthButtons from './components/AuthButtons/AuthButtons';
 
-const i18nNamespaces = ['layout'];
-
-async function Header({ locale }: { locale: string }) {
-  const { t } = await initTranslations(locale, i18nNamespaces);
+async function Header() {
   return (
     <ClientHeaderWrapper>
       <Navbar isBordered className={styles.header} data-testid="header">
@@ -26,24 +24,7 @@ async function Header({ locale }: { locale: string }) {
           </Link>
         </NavbarBrand>
         <NavBarLinks />
-        <NavbarContent justify="end">
-          <NavbarItem>
-            <Button as={Link} color="primary" href="auth" variant="flat">
-              {t('signIn')}
-            </Button>
-          </NavbarItem>
-          <NavbarItem>
-            <Button
-              as={Link}
-              color="primary"
-              href="auth"
-              variant="flat"
-              className="hidden lg:flex"
-            >
-              {t('signOut')}
-            </Button>
-          </NavbarItem>
-        </NavbarContent>
+        <AuthButtons />
         <LanguageChanger />
       </Navbar>
     </ClientHeaderWrapper>
