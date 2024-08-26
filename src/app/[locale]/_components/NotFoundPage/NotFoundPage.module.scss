@@ -12,7 +12,7 @@
   align-items: center;
 }
 
-.notFound-page-text {
+.not-found-page-text {
   font-size: 75px;
   line-height: 85px;
   font-weight: 900;
@@ -86,7 +86,7 @@
 }
 
 @media (max-width: 600px) {
-  .notFound-page-text {
+  .not-found-page-text {
     font-size: 40px;
     line-height: 55px;
     font-weight: 900;
@@ -99,7 +99,7 @@
 }
 
 @media (max-width: 400px) {
-  .notFound-page-text {
+  .not-found-page-text {
     font-size: 10vw;
     line-height: 40px;
     font-weight: 900;
