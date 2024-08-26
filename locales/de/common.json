@@ -1,1 +1,17 @@
-{"add":"Hinzufügen","addVariable":"Variable hinzufügen","example":"Beispiel","headers":"Überschriften","key":"Schlüssel","prettifyCode":"Code verschönern","queries":"Abfragen","querriesTitle":"Übergeben Sie Ihre Anfragen","remove":"Entfernen","save":"Speichern","SDLPlaceholderText":"Geben Sie Ihren SDL ein\n","urlPlaceholderText":"Geben Sie Ihre URL ein","value":"Wert","variables":"Variablen","welcome":"Willkommen"}
+{
+  "add": "Hinzufügen",
+  "addVariable": "Variable hinzufügen",
+  "example": "Beispiel",
+  "headers": "Überschriften",
+  "key": "Schlüssel",
+  "prettifyCode": "Code verschönern",
+  "queries": "Abfragen",
+  "querriesTitle": "Übergeben Sie Ihre Anfragen",
+  "remove": "Entfernen",
+  "save": "Speichern",
+  "SDLPlaceholderText": "Geben Sie Ihren SDL ein\n",
+  "urlPlaceholderText": "Geben Sie Ihre URL ein",
+  "value": "Wert",
+  "variables": "Variablen",
+  "welcome": "Willkommen"
+}
