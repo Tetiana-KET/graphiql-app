@@ -1,1 +1,12 @@
-{"footerHeader":"\nЯ ФУТЕР","headerHeader":"\nЯ ХЕДЕР","querriesTitle":"Передайте ваши запросы","save":"Сохранять","SDLPlaceholderText":"Введите свой SDL\n","urlPlaceholderText":"Введите ваш URL-адрес","welcome":"Добро пожаловать"}
+{
+  "addVariable": "Добавить переменную",
+  "prettifyCode": "Форматировать код",
+  "queries": "Запросы",
+  "querriesTitle": "Передайте ваши запросы",
+  "remove": "Удалить",
+  "save": "Сохранить",
+  "SDLPlaceholderText": "Введите свой SDL\n",
+  "urlPlaceholderText": "Введите ваш URL-адрес",
+  "variables": "Переменные",
+  "welcome": "Добро пожаловать"
+}

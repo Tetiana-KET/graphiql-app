@@ -1,13 +1,13 @@
 import { GraphQLFormData } from '@/models/FormInterfaces';
 import { Control, useFieldArray } from 'react-hook-form';
 
-interface UseRequestHeadersProps {
+interface UseRequestVariablesProps {
   control: Control<GraphQLFormData>;
 }
-export const useRequestHeaders = ({ control }: UseRequestHeadersProps) => {
+export const useRequestVariables = ({ control }: UseRequestVariablesProps) => {
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'headers',
+    name: 'variables',
   });
 
   const addVariable = () => {

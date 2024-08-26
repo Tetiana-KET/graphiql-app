@@ -1,1 +1,6 @@
-{"interpolatadText":"Für Zeichenfolgen mit {{name}} verwenden Sie einfach doppelte geschweifte Klammern","LinkToGraph":"Graph","mainHeader":"Ich bin die Seite MAIN DEFAULT SERVER, gelegen in [locale]","welcomeContentHeader":"Ich bin die WELCOME CLIENT-Komponente, die in _components liegt"}
+{
+  "interpolatadText": "Für Zeichenfolgen mit {{name}} verwenden Sie einfach doppelte geschweifte Klammern",
+  "LinkToGraph": "Graph",
+  "mainHeader": "Ich bin die Seite MAIN DEFAULT SERVER, gelegen in [locale]",
+  "welcomeContentHeader": "Ich bin die WELCOME CLIENT-Komponente, die in _components liegt"
+}

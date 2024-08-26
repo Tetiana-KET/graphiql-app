@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useGraphQLForm } from '../../hooks/useGraphQLForm';
 import { useSDLAsURL } from '../../hooks/useSDLAsURL';
 import CodeMirrorBoard from './components/CodeMirror/CodeMirrorBoard';
-import { RequestHeaders } from './components/Headers/RequestHeaders';
+import { RequestVariables } from './components/RequestVariabels/RequestVariables';
 
 export function GraphQLForm() {
   const { t } = useTranslation();
@@ -45,11 +45,10 @@ export function GraphQLForm() {
             isSelected={isSDLAsURL}
             onChange={handleSDLChange}
           >
-            URL and SDL are the same
+            {t('graphQL:URLAndSDLAreTheSame')}
           </Checkbox>
-          <h4>{t('graph:queries')}</h4>
           <CodeMirrorBoard register={register} setValue={setValue} />
-          <RequestHeaders control={control} register={register} />
+          <RequestVariables control={control} register={register} />
           <div className="flex gap-2 justify-end">
             <Button fullWidth color="primary" type="submit">
               {t('common:save')}

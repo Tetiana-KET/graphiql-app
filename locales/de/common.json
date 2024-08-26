@@ -1,1 +1,12 @@
-{"footerHeader":"\nIch bin FOOTER","headerHeader":"\nIch bin HEDER","querriesTitle":"Übergeben Sie Ihre Anfragen","save":"Speichern","SDLPlaceholderText":"Geben Sie Ihren SDL ein\n","urlPlaceholderText":"Geben Sie Ihre URL ein","welcome":"Willkommen"}
+{
+  "addVariable": "Variable hinzufügen",
+  "prettifyCode": "Code verschönern",
+  "queries": "Abfragen",
+  "querriesTitle": "Übergeben Sie Ihre Anfragen",
+  "remove": "Entfernen",
+  "save": "Speichern",
+  "SDLPlaceholderText": "Geben Sie Ihren SDL ein\n",
+  "urlPlaceholderText": "Geben Sie Ihre URL ein",
+  "variables": "Variablen",
+  "welcome": "Willkommen"
+}

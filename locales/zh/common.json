@@ -1,1 +1,12 @@
-{"footerHeader":"\n我是页脚","headerHeader":"\n我是 HEADER","querriesTitle":"传递您的疑问","save":"节省","SDLPlaceholderText":"输入您的 SDL\n","urlPlaceholderText":"输入您的 URL","welcome":"欢迎"}
+{
+  "addVariable": "添加变量",
+  "prettifyCode": "美化代码",
+  "queries": "查询",
+  "querriesTitle": "传递您的疑问",
+  "remove": "消除",
+  "save": "节省",
+  "SDLPlaceholderText": "输入您的 SDL\n",
+  "urlPlaceholderText": "输入您的 URL",
+  "variables": "变量",
+  "welcome": "欢迎"
+}
