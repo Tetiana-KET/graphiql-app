@@ -52,6 +52,7 @@ module.exports = {
     },
   },
   rules: {
+    'unused-imports/no-unused-imports': 'error',
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/consistent-type-assertions': 'off',
