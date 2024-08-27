@@ -1,19 +1,19 @@
 /* eslint react-refresh/only-export-components: "off" */
 
-import type { Metadata } from 'next';
-import { ReactNode } from 'react';
 import { NextUIProvider } from '@nextui-org/react';
 import { dir } from 'i18next';
+import type { Metadata } from 'next';
+import { ReactNode } from 'react';
 
 import TranslationsProvider from '@/components/TranslationsProvider';
 import { i18nNamespaces } from '@/consts/i18nNameSpaces';
-import Header from './_components/Header/Header';
 import Footer from './_components/Footer/Footer';
+import Header from './_components/Header/Header';
 
 import '@styles/globals.scss';
-import './_styles/layout.scss';
 import i18nConfig from '../../../i18nConfig';
 import initTranslations from '../i18n';
+import './_styles/layout.scss';
 
 export const metadata: Metadata = {
   title: 'REST/GraphiQL Client',

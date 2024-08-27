@@ -1,1 +1,17 @@
-{"querriesTitle":"Pass your queries","save":"Save","SDLPlaceholderText":"Enter your SDL\n","urlPlaceholderText":"Enter your URL","welcome":"Welcome"}
+{
+  "add": "Add",
+  "addVariable": "Add variable",
+  "example": "Example",
+  "headers": "Headers",
+  "key": "Key",
+  "prettifyCode": "Prettify code",
+  "queries": "Queries",
+  "querriesTitle": "Pass your queries",
+  "remove": "Remove",
+  "save": "Save",
+  "SDLPlaceholderText": "Enter your SDL\n",
+  "urlPlaceholderText": "Enter your URL",
+  "value": "Value",
+  "variables": "Variables",
+  "welcome": "Welcome"
+}
