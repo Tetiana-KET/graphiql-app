@@ -6,12 +6,22 @@ import { useTranslation } from 'react-i18next';
 import { useGraphQLForm } from '../../hooks/useGraphQLForm';
 import { useSDLAsURL } from '../../hooks/useSDLAsURL';
 import CodeMirrorBoard from './components/CodeMirror/CodeMirrorBoard';
+import { ResponseStatus } from './components/ResponseStatus/ResponseStatus';
 
 export function GraphQLForm() {
   const { t } = useTranslation();
 
-  const { register, control, watch, setValue, handleSubmit, errors, onSubmit } =
-    useGraphQLForm();
+  const {
+    response,
+    getValues,
+    register,
+    control,
+    watch,
+    setValue,
+    handleSubmit,
+    errors,
+    onSubmit,
+  } = useGraphQLForm();
 
   const { handleSDLChange, isSDLAsURL, URLValue, SDLValue } = useSDLAsURL({
     watch,
@@ -19,9 +29,8 @@ export function GraphQLForm() {
   });
 
   return (
-    <div className="flex w-full flex-col">
-      <h1 className="self-center mb-3">Make GraphQL request</h1>
-      <div className="flex w-1/2  flex-wrap md:flex-nowrap gap-4">
+    <div className="flex w-full gap-2">
+      <div className="flex w-1/2  flex-wrap md:flex-nowrap gap-4 ">
         <form
           className="flex w-full flex-col gap-4"
           onSubmit={handleSubmit(onSubmit)}
@@ -54,6 +63,7 @@ export function GraphQLForm() {
             {t('graphQL:sdlAsUrl')}
           </Checkbox>
           <CodeMirrorBoard
+            getValues={getValues}
             errorMessage={errors.query?.message}
             register={register}
             setValue={setValue}
@@ -77,6 +87,9 @@ export function GraphQLForm() {
             </Button>
           </div>
         </form>
+      </div>
+      <div className="flex w-1/2  flex-wrap md:flex-nowrap gap-4 justify-center">
+        <ResponseStatus response={response} />
       </div>
     </div>
   );

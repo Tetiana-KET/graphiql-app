@@ -1,44 +1,37 @@
 import { GraphQLFormData } from '@/models/FormInterfaces';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { UseFormSetValue } from 'react-hook-form';
-
-const DEFAULT_GRAPHQL_QUERY = `
-    query GetUser {
-      user(id: "1") {
-        id
-        name
-        email
-      }
-    }
-  `;
 
 interface UseCodeMirrorBoardProps {
   setValue: UseFormSetValue<GraphQLFormData>;
 }
 
 export const useCodeMirrorBoard = ({ setValue }: UseCodeMirrorBoardProps) => {
-  const [query, setQuery] = useState(DEFAULT_GRAPHQL_QUERY);
-
-  useEffect(() => {
-    setValue('query', query);
-  }, [query, setValue]);
+  const [query, setQuery] = useState('');
 
   const handleBoardValue = (value: string) => {
     setQuery(value);
   };
 
-  const customPrettifyGQL = (qglQuery: string): string => {
-    return qglQuery
+  const customPrettifyGQL = (gqlQuery: string): string => {
+    let indentLevel = 0;
+    const indentSize = 2;
+
+    return gqlQuery
       .split('\n')
       .map((line) => line.trim())
       .map((line) => {
         if (line.startsWith('}')) {
-          return `  ${line}`;
+          indentLevel -= 1;
         }
-        if (line.startsWith('query') || line.startsWith('mutation')) {
-          return line;
+
+        const formattedLine = ' '.repeat(indentLevel * indentSize) + line;
+
+        if (line.endsWith('{')) {
+          indentLevel += 1;
         }
-        return `    ${line}`;
+
+        return formattedLine;
       })
       .join('\n');
   };

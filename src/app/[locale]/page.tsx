@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import WelcomeContent from './_components/Welcome/Welcome';
 import initTranslations from '../i18n';
+import WelcomeContent from './_components/Welcome/Welcome';
 
 const i18nNamespaces = ['welcome'];
 
@@ -16,7 +16,7 @@ export default async function Home({
       <div>{t('mainHeader')}</div>
       <p>{'  '}</p>
       <WelcomeContent />
-      <Link href="/graph" className="button">
+      <Link href="/GRAPHQL" className="button">
         {t('LinkToGraph')}
       </Link>
     </div>
