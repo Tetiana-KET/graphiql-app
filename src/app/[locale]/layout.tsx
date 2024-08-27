@@ -42,7 +42,7 @@ export default async function RootLayout({
           resources={resources}
         >
           <NextUIProvider className="flex flex-col flex-1">
-            <Header locale={locale} />
+            <Header />
             <main className="page-container">{children}</main>
             <Footer locale={locale} />
           </NextUIProvider>

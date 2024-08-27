@@ -12,7 +12,7 @@ export default async function Home({
   const { t } = await initTranslations(locale, i18nNamespaces);
 
   return (
-    <div>
+    <div className="welcome-wrapper">
       <div>{t('mainHeader')}</div>
       <p>{'  '}</p>
       <WelcomeContent />
