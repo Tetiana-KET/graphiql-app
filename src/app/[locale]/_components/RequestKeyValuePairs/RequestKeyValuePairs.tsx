@@ -1,6 +1,6 @@
 import { GraphQLFormData } from '@/models/FormInterfaces';
 import { Button, Input } from '@nextui-org/react';
-import { Control, UseFormRegister } from 'react-hook-form';
+import { Control, FieldErrors, UseFormRegister } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useRequestKeyValuePairs } from './hooks/useRequestKeyValuePairs';
 
@@ -8,11 +8,13 @@ interface RequestKeyValuePairsProps {
   type: 'headers' | 'variables';
   control: Control<GraphQLFormData>;
   register: UseFormRegister<GraphQLFormData>;
+  errors: FieldErrors<GraphQLFormData>;
 }
 export function RequestKeyValuePairs({
   type,
   control,
   register,
+  errors,
 }: RequestKeyValuePairsProps) {
   const { fields, addField, removeField } = useRequestKeyValuePairs({
     control,
@@ -39,6 +41,8 @@ export function RequestKeyValuePairs({
             label={t('common:key')}
             placeholder="id"
             {...register(`${type}.${index}.key`)}
+            isInvalid={errors?.[type]?.[index]?.key?.message !== undefined}
+            errorMessage={errors?.[type]?.[index]?.key?.message}
           />
           <Input
             isRequired
@@ -47,6 +51,8 @@ export function RequestKeyValuePairs({
             label={t('common:value')}
             placeholder="1"
             {...register(`${type}.${index}.value`)}
+            isInvalid={errors?.[type]?.[index]?.value?.message !== undefined}
+            errorMessage={errors?.[type]?.[index]?.value?.message}
           />
           <Button
             color="danger"
