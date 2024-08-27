@@ -32,6 +32,7 @@ export function GraphQLForm() {
             label="URL"
             placeholder={t('common:urlPlaceholderText')}
             {...register('URL')}
+            isInvalid={errors.URL?.message !== undefined}
             errorMessage={errors.URL?.message}
           />
           <Input
@@ -41,6 +42,7 @@ export function GraphQLForm() {
             placeholder={t('common:SDLPlaceholderText')}
             type="text"
             {...register('SDL')}
+            isInvalid={errors.SDL?.message !== undefined}
             errorMessage={errors.SDL?.message}
           />
           <Checkbox
@@ -49,19 +51,25 @@ export function GraphQLForm() {
             isSelected={isSDLAsURL}
             onChange={handleSDLChange}
           >
-            {t('graphQL:URLAndSDLAreTheSame')}
+            {t('graphQL:sdlAsUrl')}
           </Checkbox>
-          <CodeMirrorBoard register={register} setValue={setValue} />
+          <CodeMirrorBoard
+            errorMessage={errors.query?.message}
+            register={register}
+            setValue={setValue}
+          />
           <RequestKeyValuePairs
             type="headers"
             control={control}
             register={register}
+            errors={errors}
           />
           <Divider orientation="horizontal" />
           <RequestKeyValuePairs
             type="variables"
             control={control}
             register={register}
+            errors={errors}
           />
           <div className="flex gap-2">
             <Button color="primary" type="submit">

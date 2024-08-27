@@ -1,17 +1,1 @@
-{
-  "add": "Добавлять",
-  "addVariable": "Добавить переменную",
-  "example": "Пример",
-  "headers": "Заголовки",
-  "key": "Ключ",
-  "prettifyCode": "Форматировать код",
-  "queries": "Запросы",
-  "querriesTitle": "Передайте ваши запросы",
-  "remove": "Удалить",
-  "save": "Сохранить",
-  "SDLPlaceholderText": "Введите свой SDL\n",
-  "urlPlaceholderText": "Введите ваш URL-адрес",
-  "value": "Ценить",
-  "variables": "Переменные",
-  "welcome": "Добро пожаловать"
-}
+{"add":"Добавлять","addVariable":"Добавить переменную","example":"Пример","headers":"Заголовки","key":"Ключ","prettifyCode":"Форматировать код","queries":"Запросы","querriesTitle":"Передайте ваши запросы","remove":"Удалить","save":"Сохранить","SDLPlaceholderText":"Введите свой SDL\n","urlPlaceholderText":"Введите URL-адрес","value":"Значение","variables":"Переменные","welcome":"Добро пожаловать"}

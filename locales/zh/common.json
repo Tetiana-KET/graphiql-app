@@ -1,17 +1,1 @@
-{
-  "add": "添加",
-  "addVariable": "添加变量",
-  "example": "例子",
-  "headers": "标头",
-  "key": "钥匙",
-  "prettifyCode": "美化代码",
-  "queries": "查询",
-  "querriesTitle": "传递您的疑问",
-  "remove": "消除",
-  "save": "节省",
-  "SDLPlaceholderText": "输入您的 SDL\n",
-  "urlPlaceholderText": "输入您的 URL",
-  "value": "价值",
-  "variables": "变量",
-  "welcome": "欢迎"
-}
+{"add":"添加","addVariable":"添加变量","example":"例子","headers":"标头","key":"钥匙","prettifyCode":"美化代码","queries":"查询","querriesTitle":"传递您的疑问","remove":"消除","save":"节省","SDLPlaceholderText":"输入您的 SDL\n","urlPlaceholderText":"输入您的 URL","value":"价值","variables":"变量","welcome":"欢迎"}
