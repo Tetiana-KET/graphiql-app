@@ -5,6 +5,7 @@ import { javascript } from '@codemirror/lang-javascript';
 import { Button } from '@nextui-org/react';
 import CodeMirror from '@uiw/react-codemirror';
 import { UseFormRegister, UseFormSetValue } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { useCodeMirrorBoard } from './hooks/useCodeMirrorBoard';
 
 export interface CodeMirrorBoardProps {
@@ -16,9 +17,11 @@ function CodeMirrorBoard({ register, setValue }: CodeMirrorBoardProps) {
   const { query, handleBoardValue, prettifyCode } = useCodeMirrorBoard({
     setValue,
   });
+  const { t } = useTranslation();
 
   return (
     <div>
+      <h4>{t('common:queries')}</h4>
       <CodeMirror
         {...register('query')}
         value={query}
@@ -33,7 +36,7 @@ function CodeMirrorBoard({ register, setValue }: CodeMirrorBoardProps) {
           color="primary"
           onClick={prettifyCode}
         >
-          Prettify Code
+          {t('common:prettifyCode')}
         </Button>
       </div>
     </div>
