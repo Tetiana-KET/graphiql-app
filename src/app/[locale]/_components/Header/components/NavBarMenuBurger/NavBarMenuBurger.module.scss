@@ -9,7 +9,7 @@
   cursor: pointer;
   transition: all 0.5s;
 
-    &.active {
+  &.active {
     background-color: rgba(0, 0, 0, 0.5);
     color: aliceblue;
     pointer-events: none;

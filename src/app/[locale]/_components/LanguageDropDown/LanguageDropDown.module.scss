@@ -1,9 +1,9 @@
 .dropdownTrigger {
   padding: 0 10px !important;
-}
 
-.dropdownTrigger:focus-visible {
-  outline: none;
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 @media (hover: hover) {
