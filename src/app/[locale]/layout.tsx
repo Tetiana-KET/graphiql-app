@@ -44,7 +44,7 @@ export default async function RootLayout({
           <NextUIProvider className="flex flex-col flex-1">
             <Header />
             <main className="page-container">{children}</main>
-            <Footer locale={locale} />
+            <Footer />
           </NextUIProvider>
         </TranslationsProvider>
       </body>

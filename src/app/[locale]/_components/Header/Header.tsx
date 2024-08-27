@@ -33,6 +33,9 @@ function Header() {
       isBordered
       ref={headerRef}
       className={`${styles.header} ${styles.headerWrapper} ${isSticky ? styles.stickyHeader : ''}`}
+      classNames={{
+        wrapper: 'max-w-[1400px]',
+      }}
       data-testid="header"
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
