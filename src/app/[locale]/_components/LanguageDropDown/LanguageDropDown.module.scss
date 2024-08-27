@@ -1,0 +1,13 @@
+.dropdownTrigger {
+  padding: 0 10px !important;
+}
+
+.dropdownTrigger:focus-visible {
+  outline: none;
+}
+
+@media (hover: hover) {
+  .dropdownTrigger:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}

@@ -5,7 +5,8 @@ import { usePathname } from 'next/navigation';
 import { navigationList } from '@/consts/navigationList';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import styles from './NavBarLinks.module.css';
+import styles from './NavBarLinks.module.scss';
+import LanguageDropDown from '../../../LanguageDropDown/LanguageDropDown';
 
 interface NavigationListItem {
   id: string;
@@ -34,6 +35,7 @@ function NavBarLinks() {
           </NavbarItem>
         );
       })}
+      <LanguageDropDown />
     </NavbarContent>
   );
 }
