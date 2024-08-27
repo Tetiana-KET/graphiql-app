@@ -10,8 +10,8 @@
   "remove": "Удалить",
   "save": "Сохранить",
   "SDLPlaceholderText": "Введите свой SDL\n",
-  "urlPlaceholderText": "Введите ваш URL-адрес",
-  "value": "Ценить",
+  "urlPlaceholderText": "Введите URL-адрес",
+  "value": "Значение",
   "variables": "Переменные",
   "welcome": "Добро пожаловать"
 }

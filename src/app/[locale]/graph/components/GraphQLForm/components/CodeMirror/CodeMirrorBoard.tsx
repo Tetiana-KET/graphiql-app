@@ -11,9 +11,14 @@ import { useCodeMirrorBoard } from './hooks/useCodeMirrorBoard';
 export interface CodeMirrorBoardProps {
   register: UseFormRegister<GraphQLFormData>;
   setValue: UseFormSetValue<GraphQLFormData>;
+  errorMessage?: string;
 }
 
-function CodeMirrorBoard({ register, setValue }: CodeMirrorBoardProps) {
+function CodeMirrorBoard({
+  register,
+  setValue,
+  errorMessage,
+}: CodeMirrorBoardProps) {
   const { query, handleBoardValue, prettifyCode } = useCodeMirrorBoard({
     setValue,
   });
@@ -28,6 +33,7 @@ function CodeMirrorBoard({ register, setValue }: CodeMirrorBoardProps) {
         extensions={[javascript({ jsx: true })]}
         onChange={handleBoardValue}
       />
+      <div>{errorMessage || ''}</div>
       <div className="flex gap-2">
         <Button
           className="mt-2"
