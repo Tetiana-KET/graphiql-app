@@ -8,13 +8,13 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.5s;
-}
 
-.navBurgerLink.active {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: aliceblue;
-  pointer-events: none;
-  font-weight: 700;
+    &.active {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: aliceblue;
+    pointer-events: none;
+    font-weight: 700;
+  }
 }
 
 @media (hover: hover) {
