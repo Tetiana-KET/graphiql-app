@@ -5,14 +5,9 @@ import { navigationList } from '@/consts/navigationList';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { NavbarMenu, NavbarMenuItem } from '@nextui-org/react';
+import { NavigationListItem } from '@/models/NavigationListItem';
 import styles from './NavBarMenuBurger.module.scss';
 import LanguageDropDown from '../../../LanguageDropDown/LanguageDropDown';
-
-interface NavigationListItem {
-  id: string;
-  title: string;
-  path: string;
-}
 
 interface NavBarMenuBurgerProps {
   setIsMenuOpen: (open: boolean) => void;
