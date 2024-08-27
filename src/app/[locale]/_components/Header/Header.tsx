@@ -34,7 +34,7 @@ function Header() {
       ref={headerRef}
       className={`${styles.header} ${styles.headerWrapper} ${isSticky ? styles.stickyHeader : ''}`}
       classNames={{
-        wrapper: 'max-w-[1400px]',
+        wrapper: 'max-w-[1440px]',
       }}
       data-testid="header"
       isMenuOpen={isMenuOpen}

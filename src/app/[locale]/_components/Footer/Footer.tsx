@@ -8,7 +8,7 @@ function Footer() {
       data-testid="footer"
     >
       <div
-        className={`${styles.footerContainer} justify-between max-w-[1400px] text-medium px-6 py-2`}
+        className={`${styles.footerContainer} justify-between max-w-[1440px] text-medium px-6 py-2`}
       >
         <ul className={styles.developersItems}>
           <li className={styles.developerItem}>
