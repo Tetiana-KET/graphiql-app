@@ -15,7 +15,7 @@ export default function SignIn() {
 
   useEffect(() => {
     if (loading) {
-      // maybe trigger a loading screen
+      // TODO trigger a loading screen
       return;
     }
 
@@ -24,6 +24,7 @@ export default function SignIn() {
     }
 
     if (error) {
+      // TODO: some error notification
       console.error(error);
     }
   }, [user, loading, error]);
@@ -47,7 +48,7 @@ export default function SignIn() {
         />
         <button
           type="button"
-          className="login__btn"
+          className={styles.loginBtn}
           onClick={() => logInWithEmailAndPassword(email, password)}
         >
           Login
@@ -60,10 +61,7 @@ export default function SignIn() {
           Login with Google
         </button>
         <div>
-          <Link href="/reset">Forgot Password</Link>
-        </div>
-        <div>
-          Don&apos;t have an account? <Link href="/register">Register</Link>{' '}
+          Don&apos;t have an account? <Link href="/signUp">Register</Link>
           now.
         </div>
       </div>

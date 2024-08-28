@@ -4,7 +4,7 @@ import { Button, NavbarContent, NavbarItem } from '@nextui-org/react';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '@/firebase';
+import { auth, logout } from '@/firebase';
 import styles from './AuthButtons.module.scss';
 
 function AuthButtons() {
@@ -44,6 +44,7 @@ function AuthButtons() {
           variant="flat"
           radius="sm"
           className="lg:flex"
+          onClick={logout}
         >
           {t('layout:signOut')}
         </Button>
