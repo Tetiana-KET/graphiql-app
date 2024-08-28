@@ -21,6 +21,7 @@ export function GraphQLForm() {
     handleSubmit,
     errors,
     onSubmit,
+    isBusy,
   } = useGraphQLForm();
 
   const { handleSDLChange, isSDLAsURL, URLValue, SDLValue } = useSDLAsURL({
@@ -82,14 +83,14 @@ export function GraphQLForm() {
             errors={errors}
           />
           <div className="flex gap-2">
-            <Button color="primary" type="submit">
+            <Button color="primary" type="submit" disabled={isBusy}>
               {t('common:save')}
             </Button>
           </div>
         </form>
       </div>
       <div className="flex w-1/2  flex-wrap md:flex-nowrap gap-4 justify-center">
-        <ResponseStatus response={response} />
+        <ResponseStatus response={response} isBusy={isBusy} />
       </div>
     </div>
   );

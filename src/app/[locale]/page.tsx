@@ -16,7 +16,7 @@ export default async function Home({
       <div>{t('mainHeader')}</div>
       <p>{'  '}</p>
       <WelcomeContent />
-      <Link href="/GRAPHQL" className="button">
+      <Link href="/graphql" className="button">
         {t('LinkToGraph')}
       </Link>
     </div>
