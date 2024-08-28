@@ -46,7 +46,7 @@ function Header() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Link href="/">
+          <Link href="/" className="header_logo-wrapper">
             <Logo />
           </Link>
         </NavbarBrand>
