@@ -8,7 +8,7 @@ import styles from './AuthButtons.module.scss';
 
 function AuthButtons() {
   const { t } = useTranslation();
-  const [isLogged] = useState(true);
+  const [isLogged] = useState(false);
 
   return (
     <NavbarContent justify="end">
