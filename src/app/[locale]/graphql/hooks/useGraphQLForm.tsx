@@ -4,7 +4,7 @@ import {
   DEFAULT_SCHEMA_QUERY,
 } from '@/models/GraphQLFormDefaultData';
 import { fetchGraphQLData } from '@/utils/executeGraphQLRequest';
-import { getGraphQLRequestData } from '@/utils/fetchGraphQLData';
+import { graphQLDataToURL } from '@/utils/graphQLDataToURL';
 import { graphQLSchema } from '@/validation/graphQLSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
@@ -34,7 +34,7 @@ export function useGraphQLForm() {
 
   const onSubmit = async (formData: GraphQLFormData) => {
     setIsBusy(true);
-    const result = await fetchGraphQLData(getGraphQLRequestData(formData));
+    const result = await fetchGraphQLData(graphQLDataToURL(formData));
     setResponse(result);
     setIsBusy(false);
   };

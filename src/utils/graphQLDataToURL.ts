@@ -1,6 +1,6 @@
 import { GraphQLFormData } from '@/models/FormInterfaces';
 
-export const getGraphQLRequestData = (formData: GraphQLFormData): string => {
+export const graphQLDataToURL = (formData: GraphQLFormData): string => {
   const baseUrl = 'graphql';
 
   const endpointUrlBase64 = btoa(formData.URL);
