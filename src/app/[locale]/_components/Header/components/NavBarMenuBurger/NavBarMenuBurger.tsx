@@ -6,7 +6,8 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { NavbarMenu, NavbarMenuItem } from '@nextui-org/react';
 import { NavigationListItem } from '@/models/NavigationListItem';
-import { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '@/firebase';
 import styles from './NavBarMenuBurger.module.scss';
 import LanguageDropDown from '../../../LanguageDropDown/LanguageDropDown';
 
@@ -21,7 +22,7 @@ function NavBarMenuBurger({
 }: NavBarMenuBurgerProps) {
   const { t } = useTranslation();
   const pathname = usePathname();
-  const [isLogged] = useState(false);
+  const [user] = useAuthState(auth);
 
   return (
     <NavbarMenu className={`${styles.navBarMenuBurger} pt-8 gap-0`}>
@@ -38,7 +39,7 @@ function NavBarMenuBurger({
                 ? `${styles.navBurgerLink} ${styles.active}`
                 : styles.navBurgerLink
             } 
-                ${!isLogged ? 'hidden' : ''}`}
+                ${!user ? 'hidden' : ''}`}
           >
             <Link
               href={item.path}
