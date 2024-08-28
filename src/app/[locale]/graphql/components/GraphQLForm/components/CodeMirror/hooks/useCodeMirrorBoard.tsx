@@ -11,6 +11,7 @@ export const useCodeMirrorBoard = ({ setValue }: UseCodeMirrorBoardProps) => {
 
   const handleBoardValue = (value: string) => {
     setQuery(value);
+    setValue('query', value);
   };
 
   const customPrettifyGQL = (gqlQuery: string): string => {

@@ -30,7 +30,7 @@ export function GraphQLForm() {
   });
 
   return (
-    <div className="flex w-full gap-2">
+    <div className="flex w-full gap-4">
       <div className="flex w-1/2  flex-wrap md:flex-nowrap gap-4 ">
         <form
           className="flex w-full flex-col gap-4"
@@ -90,7 +90,7 @@ export function GraphQLForm() {
         </form>
       </div>
       <div className="flex w-1/2  flex-wrap md:flex-nowrap gap-4 justify-center">
-        <ResponseStatus response={response} isBusy={isBusy} />
+        <ResponseStatus GraphQLResponse={response} isBusy={isBusy} />
       </div>
     </div>
   );

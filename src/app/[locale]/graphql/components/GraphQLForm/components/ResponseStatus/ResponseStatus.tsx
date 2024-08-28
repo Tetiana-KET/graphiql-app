@@ -5,25 +5,35 @@ import JsonView from 'react18-json-view';
 import 'react18-json-view/src/style.css';
 
 interface ResponseStatusProps {
-  response: Response | null;
+  GraphQLResponse: Response | null;
   isBusy: boolean;
 }
 
-export function ResponseStatus({ response, isBusy }: ResponseStatusProps) {
+export function ResponseStatus({
+  GraphQLResponse,
+  isBusy,
+}: ResponseStatusProps) {
   const [data, setData] = useState({});
+  const [schema, setSchema] = useState(null);
 
   useEffect(() => {
     const parseResponse = async () => {
-      if (response) {
-        const result = await response.json();
+      if (GraphQLResponse) {
+        const result = await GraphQLResponse.json();
         setData(result);
+        // eslint-disable-next-line no-underscore-dangle
+        if (result.data.__schema) {
+          setSchema(result);
+        } else {
+          setSchema(null);
+        }
       }
     };
 
     parseResponse();
-  }, [response]);
+  }, [GraphQLResponse]);
 
-  if (!response) {
+  if (!GraphQLResponse) {
     return (
       <div className="flex flex-col w-full h-1/2">
         <h2>Response:</h2>
@@ -33,18 +43,35 @@ export function ResponseStatus({ response, isBusy }: ResponseStatusProps) {
   }
 
   return (
-    <div className="flex flex-col w-full h-1/2  ">
-      <h2>Response:</h2>
-      {!isBusy && (
-        <div>
-          <h2>Response Status: {response.status}</h2>
-          <h3>Response Body:</h3>
-          <Divider orientation="horizontal" className="m-2" />
-          <div
-            className="flex max-h-96 
+    <div className="flex flex-col w-full ">
+      <div className="flex flex-col w-full h-1/2  ">
+        <h2>Response:</h2>
+        {!isBusy && (
+          <div>
+            <h2>Response Status: {GraphQLResponse.status}</h2>
+            {!schema && (
+              <div
+                className="flex max-h-96 
    overflow-scroll"
-          >
-            <JsonView src={data} />
+              >
+                <h3>Response Body:</h3>
+                <JsonView src={data} />
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+      <Divider orientation="horizontal" className="m-2" />
+      {!isBusy && schema && (
+        <div className="flex flex-col w-full h-1/2  ">
+          <div>
+            <h2>Documentation: </h2>
+            <div
+              className="flex max-h-96 
+   overflow-scroll"
+            >
+              <JsonView src={schema} />
+            </div>
           </div>
           <Divider orientation="horizontal" className="m-2" />
         </div>

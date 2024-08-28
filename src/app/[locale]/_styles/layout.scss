@@ -7,17 +7,21 @@ body {
   height: 100dvh;
   width: 100dvw;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
 
 .page-container {
-  display: flex;
-  flex: 1;
   overflow: auto;
-  padding: 1rem;
+  padding: 1rem 24px;
   width: 100%;
   max-width: 1440px;
   margin: auto;
+}
+
+.welcome-wrapper {
+  padding: 25px 0px;
+  height: 200vh;
 }

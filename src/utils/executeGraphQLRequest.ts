@@ -1,4 +1,4 @@
-export const executeGraphQLRequest = async (url: string) => {
+export const fetchGraphQLData = async (url: string) => {
   const urlParts = url.split('/');
   const encodedEndpoint = urlParts[urlParts.length - 2];
   const encodedBody = urlParts[urlParts.length - 1].split('?')[0];
