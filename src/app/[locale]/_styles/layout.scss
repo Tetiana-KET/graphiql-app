@@ -14,12 +14,8 @@ body {
 }
 
 .page-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
   overflow: auto;
-  padding: 1rem;
+  padding: 1rem 24px;
   width: 100%;
   max-width: 1440px;
   margin: auto;
