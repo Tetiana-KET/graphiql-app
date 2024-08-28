@@ -32,7 +32,7 @@ function Header() {
     <Navbar
       isBordered
       ref={headerRef}
-      className={`${styles.header} ${styles.headerWrapper} ${isSticky ? styles.stickyHeader : ''}`}
+      className={`${styles.header} ${styles.headerWrapper} ${isSticky ? styles.stickyHeader : ''} bg-light-grey-bg-color`}
       classNames={{
         wrapper: 'max-w-[1440px]',
       }}
