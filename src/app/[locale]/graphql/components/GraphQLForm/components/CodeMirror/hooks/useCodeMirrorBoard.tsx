@@ -1,4 +1,5 @@
 import { GraphQLFormData } from '@/models/FormInterfaces';
+import { customPrettifyGraphQL } from '@/utils/customPrettifyGraphQL';
 import { useCallback, useState } from 'react';
 import { UseFormSetValue } from 'react-hook-form';
 
@@ -14,32 +15,9 @@ export const useCodeMirrorBoard = ({ setValue }: UseCodeMirrorBoardProps) => {
     setValue('query', value);
   };
 
-  const customPrettifyGQL = (gqlQuery: string): string => {
-    let indentLevel = 0;
-    const indentSize = 2;
-
-    return gqlQuery
-      .split('\n')
-      .map((line) => line.trim())
-      .map((line) => {
-        if (line.startsWith('}')) {
-          indentLevel -= 1;
-        }
-
-        const formattedLine = ' '.repeat(indentLevel * indentSize) + line;
-
-        if (line.endsWith('{')) {
-          indentLevel += 1;
-        }
-
-        return formattedLine;
-      })
-      .join('\n');
-  };
-
   const prettifyCode = useCallback(() => {
     try {
-      const prettified = customPrettifyGQL(query);
+      const prettified = customPrettifyGraphQL(query);
       setQuery(prettified);
       setValue('query', prettified);
     } catch (error) {
