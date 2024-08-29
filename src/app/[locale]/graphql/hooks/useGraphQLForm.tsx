@@ -1,7 +1,7 @@
 import { GraphQLFormData } from '@/models/FormInterfaces';
 import {
+  DEFAULT_GRAPHQL_QUERY,
   DEFAULT_GRAPHQL_URL,
-  DEFAULT_SCHEMA_QUERY,
 } from '@/models/GraphQLFormDefaultData';
 import { fetchGraphQLData } from '@/utils/executeGraphQLRequest';
 import { graphQLDataToURL } from '@/utils/graphQLDataToURL';
@@ -23,14 +23,14 @@ export function useGraphQLForm() {
   } = useForm<GraphQLFormData>({
     defaultValues: {
       URL: DEFAULT_GRAPHQL_URL,
-      query: DEFAULT_SCHEMA_QUERY,
+      query: DEFAULT_GRAPHQL_QUERY,
       variables: [{ key: 'first', value: '1' }],
     },
     resolver: zodResolver(graphQLSchema),
     mode: 'all',
   });
   const [isBusy, setIsBusy] = useState(false);
-  const [response, setResponse] = useState<Response | null>(null);
+  const [response, setResponse] = useState<Response | undefined>(undefined);
 
   const onSubmit = async (formData: GraphQLFormData) => {
     setIsBusy(true);

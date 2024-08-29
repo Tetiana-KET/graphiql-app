@@ -12,8 +12,8 @@
 }
 
 .loader {
-  border: 16px solid #000;
-  border-top: 16px solid #e8e3e3;
+  border: 16px solid $main-color;
+  border-top: 16px solid $light-color;
   border-radius: 50%;
   width: 120px;
   height: 120px;
