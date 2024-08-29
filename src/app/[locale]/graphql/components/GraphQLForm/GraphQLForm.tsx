@@ -1,17 +1,29 @@
 'use client';
 
 import { RequestKeyValuePairs } from '@/app/[locale]/_components/RequestKeyValuePairs/RequestKeyValuePairs';
+import { ResponseStatus } from '@/app/[locale]/_components/ResponseStatus/ResponseStatus';
 import { Button, Checkbox, Divider, Input } from '@nextui-org/react';
 import { useTranslation } from 'react-i18next';
 import { useGraphQLForm } from '../../hooks/useGraphQLForm';
 import { useSDLAsURL } from '../../hooks/useSDLAsURL';
 import CodeMirrorBoard from './components/CodeMirror/CodeMirrorBoard';
+import { RequestDocumentation } from './components/RequestDocumentation/RequestDocumentation';
 
 export function GraphQLForm() {
   const { t } = useTranslation();
 
-  const { register, control, watch, setValue, handleSubmit, errors, onSubmit } =
-    useGraphQLForm();
+  const {
+    response,
+    getValues,
+    register,
+    control,
+    watch,
+    setValue,
+    handleSubmit,
+    errors,
+    onSubmit,
+    isBusy,
+  } = useGraphQLForm();
 
   const { handleSDLChange, isSDLAsURL, URLValue, SDLValue } = useSDLAsURL({
     watch,
@@ -19,9 +31,8 @@ export function GraphQLForm() {
   });
 
   return (
-    <div className="flex w-full flex-col">
-      <h1 className="self-center mb-3">Make GraphQL request</h1>
-      <div className="flex w-1/2  flex-wrap md:flex-nowrap gap-4">
+    <div className="flex w-full gap-4">
+      <div className="flex w-1/2 h-full flex-wrap md:flex-nowrap gap-4 ">
         <form
           className="flex w-full flex-col gap-4"
           onSubmit={handleSubmit(onSubmit)}
@@ -54,6 +65,7 @@ export function GraphQLForm() {
             {t('graphQL:sdlAsUrl')}
           </Checkbox>
           <CodeMirrorBoard
+            getValues={getValues}
             errorMessage={errors.query?.message}
             register={register}
             setValue={setValue}
@@ -72,11 +84,19 @@ export function GraphQLForm() {
             errors={errors}
           />
           <div className="flex gap-2">
-            <Button color="primary" type="submit">
+            <Button color="primary" type="submit" disabled={isBusy}>
               {t('common:save')}
             </Button>
           </div>
         </form>
+      </div>
+      <div className="flex w-1/2 h-full flex-col  gap-4">
+        <ResponseStatus GraphQLResponse={response?.clone()} isBusy={isBusy} />
+        <Divider orientation="horizontal" className="m-2" />
+        <RequestDocumentation
+          GraphQLResponse={response?.clone()}
+          isBusy={isBusy}
+        />
       </div>
     </div>
   );
