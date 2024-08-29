@@ -21,8 +21,29 @@
   box-shadow: $box-shadow;
 }
 
+.login__textBox-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .login__textBox {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .validation-error {
+    color: $accent-color;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    height: 20px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
 .login__btn,
-.login__google,
 .login__textBox {
   padding: 10px;
   font-size: 18px;
@@ -35,6 +56,10 @@
   color: $light-color;
   background-color: $main-color;
   transition: all 0.5s;
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 
 .login__google {

@@ -1,19 +1,42 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { redirect } from 'next/navigation';
 
 import { auth, logInWithEmailAndPassword, signInWithGoogle } from '@/firebase';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { signInSchema } from '@/validation/signInSchema';
 import styles from './page.module.scss';
 
+type SignInFormInputs = {
+  email: string;
+  password: string;
+};
+
 export default function SignIn() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [user, loading, error] = useAuthState(auth);
   const { t } = useTranslation();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<SignInFormInputs>({
+    resolver: zodResolver(signInSchema),
+    mode: 'onChange',
+  });
+
+  const onSubmit = async (data: { email: string; password: string }) => {
+    try {
+      await logInWithEmailAndPassword(data.email, data.password);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   useEffect(() => {
     if (loading) {
@@ -33,30 +56,36 @@ export default function SignIn() {
 
   return (
     <div className={styles.login}>
-      <div className={styles.loginContainer}>
-        <input
-          type="text"
-          className={styles.loginTextBox}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder={t('auth:mail')}
-        />
-        <input
-          type="password"
-          className={styles.loginTextBox}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder={t('auth:pass')}
-        />
-        <button
-          type="button"
-          className={styles.loginBtn}
-          onClick={() => logInWithEmailAndPassword(email, password)}
-        >
+      <form className={styles.loginContainer} onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.loginTextBoxWrap}>
+          <input
+            type="text"
+            className={styles.loginTextBox}
+            {...register('email')}
+            placeholder={t('auth:mail')}
+          />
+          <p className={styles.validationError}>
+            {errors.email && errors.email.message}
+          </p>
+
+          <input
+            type="password"
+            className={styles.loginTextBox}
+            {...register('password')}
+            placeholder={t('auth:pass')}
+          />
+
+          <p className={styles.validationError}>
+            {errors.password && errors.password.message}
+          </p>
+        </div>
+
+        <button type="submit" className={styles.loginBtn} disabled={!isValid}>
           {t('layout:signIn')}
         </button>
         <button
           type="button"
+          disabled={!isValid}
           className={`${styles.loginGoogle} ${styles.loginBtn}`}
           onClick={signInWithGoogle}
         >
@@ -68,7 +97,7 @@ export default function SignIn() {
             {t('layout:signUp')}
           </Link>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
