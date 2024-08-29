@@ -5,6 +5,7 @@ import {
 } from '@/models/GraphQLFormDefaultData';
 import { fetchGraphQLData } from '@/utils/executeGraphQLRequest';
 import { graphQLDataToURL } from '@/utils/graphQLDataToURL';
+import { saveGraphQLToLocalStorage } from '@/utils/saveGraphQLToLocalStorage';
 import { graphQLSchema } from '@/validation/graphQLSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
@@ -34,6 +35,7 @@ export function useGraphQLForm() {
 
   const onSubmit = async (formData: GraphQLFormData) => {
     setIsBusy(true);
+    saveGraphQLToLocalStorage(formData);
     const result = await fetchGraphQLData(graphQLDataToURL(formData));
     setResponse(result);
     setIsBusy(false);

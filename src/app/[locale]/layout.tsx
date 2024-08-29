@@ -16,9 +16,9 @@ import initTranslations from '../i18n';
 import './_styles/layout.scss';
 
 export const metadata: Metadata = {
-  title: 'REST/GraphiQL Client',
+  title: 'REST/GraphQL Client',
   description:
-    'A light-weight versions of Postman and GrqphiQL combined in one app',
+    'A light-weight versions of Postman and GraphQL combined in one app',
 };
 
 export function generateStaticParams() {
