@@ -9,6 +9,7 @@ import {
 } from '@/firebase';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 import styles from './page.module.scss';
 
 export default function SignUp() {
@@ -16,6 +17,7 @@ export default function SignUp() {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [user, loading, error] = useAuthState(auth);
+  const { t } = useTranslation();
 
   const register = () => {
     if (!name) {
@@ -48,38 +50,37 @@ export default function SignUp() {
           className={styles.registerTextBox}
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Full Name"
+          placeholder={t('auth:name')}
         />
         <input
           type="text"
           className={styles.registerTextBox}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
+          placeholder={t('auth:mail')}
         />
         <input
           type="password"
           className={styles.registerTextBox}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder={t('auth:pass')}
         />
         <button type="button" className={styles.registerBtn} onClick={register}>
-          Sign up
+          {t('layout:signUp')}
         </button>
         <button
           type="button"
           className={`${styles.registerGoogle} ${styles.registerBtn}`}
           onClick={signInWithGoogle}
         >
-          Sign up with Google
+          {t('layout:signUp')} {t('common:withGoogle')}
         </button>
         <div>
-          Already have an account?{' '}
+          {t('auth:haveAcc')}{' '}
           <Link href="/signIn" className="font-black hover:underline">
-            Sign in
+            {t('layout:signIn')}
           </Link>{' '}
-          now.
         </div>
       </div>
     </div>

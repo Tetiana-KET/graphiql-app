@@ -6,12 +6,14 @@ import { redirect } from 'next/navigation';
 
 import { auth, logInWithEmailAndPassword, signInWithGoogle } from '@/firebase';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 import styles from './page.module.scss';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [user, loading, error] = useAuthState(auth);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (loading) {
@@ -37,33 +39,33 @@ export default function SignIn() {
           className={styles.loginTextBox}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
+          placeholder={t('auth:mail')}
         />
         <input
           type="password"
           className={styles.loginTextBox}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder={t('auth:pass')}
         />
         <button
           type="button"
           className={styles.loginBtn}
           onClick={() => logInWithEmailAndPassword(email, password)}
         >
-          Login
+          {t('layout:signIn')}
         </button>
         <button
           type="button"
           className={`${styles.loginGoogle} ${styles.loginBtn}`}
           onClick={signInWithGoogle}
         >
-          Login with Google
+          {t('layout:signIn')} {t('common:withGoogle')}
         </button>
         <div>
-          Don&apos;t have an account?{' '}
+          {t('auth:noAcc')}{' '}
           <Link href="/signUp" className="font-black hover:underline">
-            Sign up
+            {t('layout:signUp')}
           </Link>
         </div>
       </div>
