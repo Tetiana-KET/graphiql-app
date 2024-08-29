@@ -1,3 +1,5 @@
+@import '@styles/variables';
+
 .login {
   height: 100%;
   width: 100%;
@@ -5,29 +7,43 @@
   align-items: center;
   justify-content: center;
 }
+
 .login__container {
   display: flex;
+  gap: 15px;
+  min-width: 250px;
+  flex-basis: 500px;
   flex-direction: column;
   text-align: center;
-  background-color: #dcdcdc;
+  background-color: $light-grey-bg-color;
   padding: 30px;
+  border-radius: 15px;
+  box-shadow: $box-shadow;
 }
+
+.login__btn,
+.login__google,
 .login__textBox {
   padding: 10px;
   font-size: 18px;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  line-height: 35px;
 }
+
 .login__btn {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
   border: none;
-  color: white;
-  background-color: black;
+  color: $light-color;
+  background-color: $main-color;
+  transition: all 0.5s;
 }
+
 .login__google {
-  background-color: #4285f4;
+  background-color: $accent-color-hover;
 }
-.login div {
-  margin-top: 7px;
+
+@media (hover: hover) {
+  .login__google:hover,
+  .login__btn:hover {
+    background-color: $accent-color;
+  }
 }

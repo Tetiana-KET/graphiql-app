@@ -75,7 +75,11 @@ export default function SignUp() {
           Sign up with Google
         </button>
         <div>
-          Already have an account? <Link href="/signIn">Sign in</Link> now.
+          Already have an account?{' '}
+          <Link href="/signIn" className="font-black hover:underline">
+            Sign in
+          </Link>{' '}
+          now.
         </div>
       </div>
     </div>

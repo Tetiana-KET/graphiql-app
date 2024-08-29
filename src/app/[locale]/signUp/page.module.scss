@@ -1,3 +1,5 @@
+@import '@styles/variables';
+
 .register {
   height: 100%;
   width: 100%;
@@ -5,29 +7,43 @@
   align-items: center;
   justify-content: center;
 }
+
 .register__container {
   display: flex;
+  gap: 15px;
+  min-width: 250px;
+  flex-basis: 500px;
   flex-direction: column;
   text-align: center;
-  background-color: #dcdcdc;
+  background-color: $light-grey-bg-color;
   padding: 30px;
+  border-radius: 15px;
+  box-shadow: $box-shadow;
 }
+
+.register__btn,
+.register__google,
 .register__textBox {
   padding: 10px;
   font-size: 18px;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  line-height: 35px;
 }
+
 .register__btn {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
   border: none;
-  color: white;
-  background-color: black;
+  color: $light-color;
+  background-color: $main-color;
+  transition: all 0.5s;
 }
+
 .register__google {
-  background-color: #4285f4;
+  background-color: $accent-color-hover;
 }
-.register div {
-  margin-top: 7px;
+
+@media (hover: hover) {
+  .register__btn:hover,
+  .register__google:hover {
+    background-color: $accent-color;
+  }
 }

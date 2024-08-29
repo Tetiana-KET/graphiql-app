@@ -61,8 +61,10 @@ export default function SignIn() {
           Login with Google
         </button>
         <div>
-          Don&apos;t have an account? <Link href="/signUp">Register</Link>
-          now.
+          Don&apos;t have an account?{' '}
+          <Link href="/signUp" className="font-black hover:underline">
+            Sign up
+          </Link>
         </div>
       </div>
     </div>
