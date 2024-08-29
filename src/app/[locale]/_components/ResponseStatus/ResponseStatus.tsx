@@ -12,13 +12,18 @@ export function ResponseStatus({
   GraphQLResponse,
   isBusy,
 }: ResponseStatusProps) {
-  const [data, setData] = useState({});
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     const parseResponse = async () => {
       if (GraphQLResponse) {
         const result = await GraphQLResponse.json();
-        setData(result);
+        // eslint-disable-next-line no-underscore-dangle
+        if (!result.data.__schema) {
+          setData(result);
+        } else {
+          setData(null);
+        }
       }
     };
 
@@ -40,13 +45,20 @@ export function ResponseStatus({
         <h2>Response:</h2>
         {!isBusy && (
           <div>
-            <h2>Response Status: {GraphQLResponse.status}</h2>(
+            <h2>Response Status: {GraphQLResponse.status}</h2>
             <div
               className="flex max-h-96 
    overflow-scroll"
             >
-              <h3>Body:</h3>
-              <JsonView src={data} />
+              {data && (
+                <div
+                  className="flex max-h-96 
+   overflow-scroll"
+                >
+                  <h3>Body:</h3>
+                  <JsonView src={data} />
+                </div>
+              )}
             </div>
           </div>
         )}

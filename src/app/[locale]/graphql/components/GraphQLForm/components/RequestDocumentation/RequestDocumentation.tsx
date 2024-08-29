@@ -19,8 +19,9 @@ export function RequestDocumentation({
       if (GraphQLResponse) {
         try {
           const result = await GraphQLResponse.json();
+
           // eslint-disable-next-line no-underscore-dangle
-          if (result.data?.__schema) {
+          if (result.data.__schema) {
             setSchema(result);
           } else {
             setSchema(null);

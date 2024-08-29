@@ -91,9 +91,12 @@ export function GraphQLForm() {
         </form>
       </div>
       <div className="flex w-1/2 h-full flex-col  gap-4">
-        <ResponseStatus GraphQLResponse={response} isBusy={isBusy} />
+        <ResponseStatus GraphQLResponse={response?.clone()} isBusy={isBusy} />
         <Divider orientation="horizontal" className="m-2" />
-        <RequestDocumentation GraphQLResponse={response} isBusy={isBusy} />
+        <RequestDocumentation
+          GraphQLResponse={response?.clone()}
+          isBusy={isBusy}
+        />
       </div>
     </div>
   );

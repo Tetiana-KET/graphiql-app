@@ -30,7 +30,7 @@ export function useGraphQLForm() {
     mode: 'all',
   });
   const [isBusy, setIsBusy] = useState(false);
-  const [response, setResponse] = useState<Response | undefined>(undefined);
+  const [response, setResponse] = useState<Response | null>(null);
 
   const onSubmit = async (formData: GraphQLFormData) => {
     setIsBusy(true);
