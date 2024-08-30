@@ -9,17 +9,14 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { signInSchema } from '@/validation/signInSchema';
+import { SignInFormInputs } from '@/models/AuthInterfaces';
+import { createSignInSchema } from '@/validation/signInSchema';
 import styles from './page.module.scss';
-
-type SignInFormInputs = {
-  email: string;
-  password: string;
-};
 
 export default function SignIn() {
   const [user, loading, error] = useAuthState(auth);
   const { t } = useTranslation();
+  const signInSchema = createSignInSchema(t);
 
   const {
     register,
