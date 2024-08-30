@@ -1,5 +1,5 @@
-import WelcomeContent from './_components/Welcome/Welcome';
 import initTranslations from '../i18n';
+import WelcomeContent from './_components/Welcome/Welcome';
 import UserGreeting from './_components/UserGreeting/UserGreeting';
 
 const i18nNamespaces = ['welcome'];

@@ -1,3 +1,5 @@
+@import '@styles/variables';
+
 .loaderContainer {
   height: 100%;
   width: 35%;
@@ -10,8 +12,8 @@
 }
 
 .loader {
-  border: 16px solid var(--loader-border);
-  border-top: 16px solid var(--accent-color);
+  border: 16px solid $main-color;
+  border-top: 16px solid $light-color;
   border-radius: 50%;
   width: 120px;
   height: 120px;
