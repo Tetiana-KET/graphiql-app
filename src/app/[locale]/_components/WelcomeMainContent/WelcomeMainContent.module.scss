@@ -1,0 +1,10 @@
+.welcome__about {
+  display: flex;
+  row-gap: 30px;
+  padding: 25px 0px;
+
+  .aboutDescription,
+  .aboutImgWrap {
+    flex: 1;
+  }
+}
