@@ -3,15 +3,19 @@ import {
   DEFAULT_GRAPHQL_QUERY,
   DEFAULT_GRAPHQL_URL,
 } from '@/models/GraphQLFormDefaultData';
-import { fetchGraphQLData } from '@/utils/executeGraphQLRequest';
+import { fetchDocumentation } from '@/utils/fetchDocumentation';
+import { fetchGraphQLData } from '@/utils/fetchGraphQlData';
 import { graphQLDataToURL } from '@/utils/graphQLDataToURL';
 import { saveGraphQLToLocalStorage } from '@/utils/saveGraphQLToLocalStorage';
-import { graphQLSchema } from '@/validation/graphQLSchema';
+import { createGraphQLSchema } from '@/validation/graphQLSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 export function useGraphQLForm() {
+  const { t } = useTranslation();
+  const graphQLSchema = createGraphQLSchema(t);
   const {
     register,
     getValues,
@@ -25,19 +29,22 @@ export function useGraphQLForm() {
     defaultValues: {
       URL: DEFAULT_GRAPHQL_URL,
       query: DEFAULT_GRAPHQL_QUERY,
-      variables: [{ key: 'first', value: '1' }],
     },
     resolver: zodResolver(graphQLSchema),
     mode: 'all',
   });
   const [isBusy, setIsBusy] = useState(false);
-  const [response, setResponse] = useState<Response | null>(null);
+
+  const [graphQLResponse, setGraphQLResponse] = useState<Response | null>(null);
+  const [documentation, setDocumentation] = useState<Response | null>(null);
 
   const onSubmit = async (formData: GraphQLFormData) => {
     setIsBusy(true);
     saveGraphQLToLocalStorage(formData);
     const result = await fetchGraphQLData(graphQLDataToURL(formData));
-    setResponse(result);
+    const documentationResponse = await fetchDocumentation(formData.SDL);
+    setDocumentation(documentationResponse);
+    setGraphQLResponse(result);
     setIsBusy(false);
   };
 
@@ -50,7 +57,8 @@ export function useGraphQLForm() {
     handleSubmit,
     errors,
     onSubmit,
-    response,
+    graphQLResponse,
+    documentation,
     isBusy,
   };
 }

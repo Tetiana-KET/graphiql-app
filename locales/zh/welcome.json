@@ -1,1 +1,1 @@
-{"interpolatadText":"对于带有{{name}}的字符串，只需使用双花括号","LinkToGraph":"图形","mainHeader":"我是主默认服务器页面，位于 [语言环境]","welcomeContentHeader":"我是 WELCOME CLIENT 组件，位于 _components 中"}
+{"greeting":"请登录以获取应用程序的完整访问权限","interpolatadText":"对于带有{{name}}的字符串，只需使用双花括号","LinkToGraph":"图形","mainHeader":"我是主默认服务器页面，位于 [语言环境]","techStackFB":"用于用户身份验证","techStackI18n":"为了国际化，支持不同的语言","techStackNext":"用于服务器端渲染和 API 路由处理","techStackReact":"用于创建用户界面","techStackTS":"为了类型安全和更好的开发人员体验","techStackUI":"美观、快速、现代的 React UI 库","welcomeContentHeader":"我是 WELCOME CLIENT 组件，位于 _components 中"}
