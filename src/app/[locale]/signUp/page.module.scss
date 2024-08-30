@@ -21,8 +21,29 @@
   box-shadow: $box-shadow;
 }
 
+.register__TextBox-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .register__TextBox {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .validation-error {
+    color: $accent-color;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    height: 25px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
 .register__btn,
-.register__google,
 .register__textBox {
   padding: 10px;
   font-size: 18px;
@@ -35,6 +56,11 @@
   color: $light-color;
   background-color: $main-color;
   transition: all 0.5s;
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 
 .register__google {

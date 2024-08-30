@@ -24,7 +24,7 @@
 .login__textBox-wrap {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 
   .login__textBox {
     display: inline-block;
@@ -36,7 +36,7 @@
     font-size: 16px;
     font-weight: 600;
     text-align: left;
-    height: 20px;
+    height: 25px;
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
