@@ -3,6 +3,8 @@ import { Image } from '@nextui-org/image';
 import SectionDivider from '@/components/SectionDivider/SectionDivider';
 import { techStack } from '@/consts/techStack';
 import TechnologyCard from '@/components/TechCard/TechnologyCard';
+import { teamMembersData } from '@/consts/teamData';
+import DeveloperCard from '@/components/DeveloperCard/DeveloperCard';
 import styles from './WelcomeMainContent.module.scss';
 
 interface WelcomeMainContentProps {
@@ -14,7 +16,9 @@ export default function WelcomeMainContent({ t }: WelcomeMainContentProps) {
   return (
     <>
       <SectionDivider title="About Project" />
-      <section className={`${styles.welcomeAbout} md:flex-row flex-col`}>
+      <section
+        className={`${styles.welcomeSection} md:flex-row flex-col gap-4`}
+      >
         <div className={styles.aboutDescription}>
           <h2 className="font-bold text-2xl mb-2">REST/GraphiQL Client</h2>
           <p className="text-lg text-justify">
@@ -32,7 +36,7 @@ export default function WelcomeMainContent({ t }: WelcomeMainContentProps) {
       </section>
       <SectionDivider title="About RS School" />
       <section
-        className={`${styles.welcomeAbout} md:flex-row-reverse flex-col`}
+        className={`${styles.welcomeSection} md:flex-row-reverse flex-col`}
       >
         <div className={styles.aboutDescription}>
           <h2 className="font-bold text-2xl mb-2">RS School</h2>
@@ -56,9 +60,7 @@ export default function WelcomeMainContent({ t }: WelcomeMainContentProps) {
         </div>
       </section>
       <SectionDivider title="Technologies Used" />
-      <section
-        className={`${styles.welcomeAbout} md:flex-row-reverse flex-col w-full`}
-      >
+      <section className={styles.welcomeSection}>
         <div className="flex xs:flex-row flex-col gap-2 md:gap-y-2 flex-wrap justify-center w-full">
           {technologies.map((tech) => (
             <TechnologyCard
@@ -69,6 +71,14 @@ export default function WelcomeMainContent({ t }: WelcomeMainContentProps) {
             />
           ))}
         </div>
+      </section>
+      <SectionDivider title="Developers Team" />
+      <section
+        className={`${styles.welcomeSection} ${styles.developersWrap} flex sm:flex-row flex-col gap-2 justify-between w-full`}
+      >
+        {teamMembersData.map((developer) => (
+          <DeveloperCard developer={developer} key={developer.id} />
+        ))}
       </section>
     </>
   );

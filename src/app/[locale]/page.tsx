@@ -1,5 +1,4 @@
 import initTranslations from '../i18n';
-import WelcomeContent from './_components/Welcome/Welcome';
 import UserGreeting from './_components/UserGreeting/UserGreeting';
 import WelcomeMainContent from './_components/WelcomeMainContent/WelcomeMainContent';
 
@@ -16,7 +15,6 @@ export default async function Home({
     <div className="welcome-wrapper">
       <UserGreeting />
       <WelcomeMainContent t={t} />
-      <WelcomeContent />
     </div>
   );
 }

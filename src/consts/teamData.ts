@@ -1,7 +1,7 @@
 export const teamMembersData = [
   {
     name: 'Roman Gromov',
-    role: 'Software Engineer (Frontend) in Gcore',
+    role: 'Software Engineer',
     info: `I am a dedicated and results-driven IT professional with a Specialist degree in IT software and computerized systems from Ivanovo State Power Engineering University. With a solid educational background, I have been working as a Frontend Developer since 2016, specializing in the Angular framework.
           Professional Background: In my role as a Frontend Developer, I have honed my skills in delving deep into tasks and crafting efficient solutions. I prioritize business goals and tasks, paying meticulous attention to detail and user experience. I have an ability to write simple yet effective code.
           Key Skills:
@@ -9,7 +9,7 @@ export const teamMembersData = [
     github: 'https://github.com/Gromov-Roman',
     photo: 'https://avatars.githubusercontent.com/u/20964736?v=4',
     id: 'RomanGromov',
-    contribution: ``,
+    contribution: `RESTfull client`,
   },
   {
     name: 'Tetiana Bezkorovaina',
@@ -18,7 +18,10 @@ export const teamMembersData = [
     github: 'https://github.com/Tetiana-KET',
     photo: 'https://avatars.githubusercontent.com/u/99186560?v=4',
     id: 'TetianaBezkorovaina',
-    contribution: ``,
+    contribution: `Welcome page,
+    History page,
+    User authentication,
+    Header/Footer layout, localization`,
   },
   {
     name: 'Maksim Mukhametzianov',
@@ -27,6 +30,6 @@ export const teamMembersData = [
     github: 'https://github.com/Maksim99745',
     photo: 'https://avatars.githubusercontent.com/u/137721533?v=4',
     id: 'MaksimMukhametzianov',
-    contribution: ``,
+    contribution: `GraphQL page`,
   },
 ];
