@@ -2,45 +2,18 @@
 
 import React, { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import {
-  auth,
-  registerWithEmailAndPassword,
-  signInWithGoogle,
-} from '@/firebase';
+import { auth, signInWithGoogle } from '@/firebase';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
-import { createSignUpSchema } from '@/validation/signUpSchema';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { SignUpFormInputs } from '@/models/AuthInterfaces';
+import { useHandleSignUp } from '@/hooks/useHandleSignUp';
 import styles from './page.module.scss';
 
 export default function SignUp() {
   const [user, loading, error] = useAuthState(auth);
   const { t } = useTranslation();
-  const signUpSchema = createSignUpSchema(t);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid },
-  } = useForm<SignUpFormInputs>({
-    resolver: zodResolver(signUpSchema),
-    mode: 'onChange',
-  });
-
-  const onSubmit = async (data: {
-    email: string;
-    password: string;
-    name: string;
-  }) => {
-    try {
-      registerWithEmailAndPassword(data.name, data.email, data.password);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  const { register, handleSubmit, onSubmit, errors, isValid } =
+    useHandleSignUp(t);
 
   useEffect(() => {
     if (loading) {

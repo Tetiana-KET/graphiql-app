@@ -4,36 +4,17 @@ import React, { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { redirect } from 'next/navigation';
 
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from '@/firebase';
+import { auth, signInWithGoogle } from '@/firebase';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { SignInFormInputs } from '@/models/AuthInterfaces';
-import { createSignInSchema } from '@/validation/signInSchema';
+import { useHandleSignIn } from '@/hooks/useHandleSignIn';
 import styles from './page.module.scss';
 
 export default function SignIn() {
   const [user, loading, error] = useAuthState(auth);
   const { t } = useTranslation();
-  const signInSchema = createSignInSchema(t);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid },
-  } = useForm<SignInFormInputs>({
-    resolver: zodResolver(signInSchema),
-    mode: 'onChange',
-  });
-
-  const onSubmit = async (data: { email: string; password: string }) => {
-    try {
-      await logInWithEmailAndPassword(data.email, data.password);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  const { register, handleSubmit, onSubmit, errors, isValid } =
+    useHandleSignIn(t);
 
   useEffect(() => {
     if (loading) {
