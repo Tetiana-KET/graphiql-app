@@ -2,15 +2,15 @@
 
 import { useFetchUserName } from '@/hooks/useFetchUserName';
 import { capitalizeUserName } from '@/utils/capitalizeUserName';
+import { Spinner } from '@nextui-org/react';
 import { useTranslation } from 'react-i18next';
-import Loader from '../Loader/Loader';
 
 function UserGreeting() {
   const { name, loading, user } = useFetchUserName();
   const { t } = useTranslation();
 
   if (loading) {
-    return <Loader />;
+    return <Spinner color="secondary" />;
   }
 
   return (

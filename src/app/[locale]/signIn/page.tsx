@@ -1,15 +1,15 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { redirect } from 'next/navigation';
+import { useEffect } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { auth, signInWithGoogle } from '@/firebase';
+import { useHandleSignIn } from '@/hooks/useHandleSignIn';
+import { Spinner } from '@nextui-org/react';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { useHandleSignIn } from '@/hooks/useHandleSignIn';
 import styles from './page.module.scss';
-import Loader from '../_components/Loader/Loader';
 
 export default function SignIn() {
   const [user, loading, error] = useAuthState(auth);
@@ -29,7 +29,7 @@ export default function SignIn() {
   }, [user, error]);
 
   if (loading) {
-    return <Loader />;
+    return <Spinner color="secondary" />;
   }
 
   return (

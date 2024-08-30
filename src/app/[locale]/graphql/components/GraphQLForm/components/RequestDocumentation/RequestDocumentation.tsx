@@ -1,4 +1,4 @@
-import Loader from '@/app/[locale]/_components/Loader/Loader';
+import { Spinner } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
 import JsonView from 'react18-json-view';
 import 'react18-json-view/src/style.css';
@@ -53,7 +53,7 @@ export function RequestDocumentation({
         </div>
       </div>
 
-      {isBusy && <Loader />}
+      {isBusy && <Spinner color="secondary" />}
     </div>
   );
 }
