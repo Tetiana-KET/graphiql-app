@@ -8,6 +8,7 @@ import { redirect } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { useHandleSignUp } from '@/hooks/useHandleSignUp';
 import styles from './page.module.scss';
+import Loader from '../_components/Loader/Loader';
 
 export default function SignUp() {
   const [user, loading, error] = useAuthState(auth);
@@ -16,11 +17,6 @@ export default function SignUp() {
     useHandleSignUp(t);
 
   useEffect(() => {
-    if (loading) {
-      // TODO trigger a loading screen
-      return;
-    }
-
     if (user) {
       redirect('/');
     }
@@ -29,7 +25,11 @@ export default function SignUp() {
       // TODO: some error notification
       console.error(error);
     }
-  }, [user, loading, error]);
+  }, [user, error]);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className={styles.register}>
@@ -76,7 +76,6 @@ export default function SignUp() {
           {t('layout:signUp')}
         </button>
         <button
-          disabled={!isValid}
           type="button"
           className={`${styles.registerGoogle} ${styles.registerBtn}`}
           onClick={signInWithGoogle}

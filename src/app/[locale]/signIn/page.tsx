@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { useHandleSignIn } from '@/hooks/useHandleSignIn';
 import styles from './page.module.scss';
+import Loader from '../_components/Loader/Loader';
 
 export default function SignIn() {
   const [user, loading, error] = useAuthState(auth);
@@ -17,11 +18,6 @@ export default function SignIn() {
     useHandleSignIn(t);
 
   useEffect(() => {
-    if (loading) {
-      // TODO trigger a loading screen
-      return;
-    }
-
     if (user) {
       redirect('/');
     }
@@ -30,7 +26,11 @@ export default function SignIn() {
       // TODO: some error notification
       console.error(error);
     }
-  }, [user, loading, error]);
+  }, [user, error]);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className={styles.login}>
@@ -63,7 +63,6 @@ export default function SignIn() {
         </button>
         <button
           type="button"
-          disabled={!isValid}
           className={`${styles.loginGoogle} ${styles.loginBtn}`}
           onClick={signInWithGoogle}
         >
