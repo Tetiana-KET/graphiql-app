@@ -1,11 +1,7 @@
 @import '@styles/variables';
 
-.button-wrap:hover a {
+.button-wrap a {
   transition: all 0.5s;
-}
-
-.button-wrap-hidden {
-  display: none;
 }
 
 @media (hover: hover) {

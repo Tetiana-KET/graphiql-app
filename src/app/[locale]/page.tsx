@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import initTranslations from '../i18n';
 import WelcomeContent from './_components/Welcome/Welcome';
+import UserGreeting from './_components/UserGreeting/UserGreeting';
 
 const i18nNamespaces = ['welcome'];
 
@@ -13,12 +13,10 @@ export default async function Home({
 
   return (
     <div className="welcome-wrapper">
+      <UserGreeting />
       <div>{t('mainHeader')}</div>
       <p>{'  '}</p>
       <WelcomeContent />
-      <Link href="/graphql" className="button">
-        {t('LinkToGraph')}
-      </Link>
     </div>
   );
 }

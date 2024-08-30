@@ -4,4 +4,5 @@ export const i18nNamespaces = [
   'layout',
   'welcome',
   'graphQL',
+  'auth',
 ];

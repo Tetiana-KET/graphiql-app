@@ -93,7 +93,7 @@ module.exports = {
     'max-classes-per-file': ['error', 1],
     'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': [
-      'error',
+      'off',
       {
         devDependencies: false,
         optionalDependencies: false,

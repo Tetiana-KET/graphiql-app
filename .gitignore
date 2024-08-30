@@ -11,6 +11,7 @@
 
 # locales
 /locales/
+locales
 
 # next.js
 /.next/
