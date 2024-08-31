@@ -10,8 +10,7 @@ export const fetchDocumentation = async (SDL: string) => {
   };
 
   try {
-    const response = await fetch(SDL, SDLRequest);
-    return response;
+    return await fetch(SDL, SDLRequest);
   } catch (error) {
     console.error('GraphQL request failed:', error);
     throw error;
