@@ -1,9 +1,9 @@
 import { Avatar } from '@nextui-org/react';
-import { teamMembersData } from '@/consts/teamData';
 import Link from 'next/link';
+import { avatarsData } from '@/consts/avatarsData';
 import styles from './AvatarsGroup.module.scss';
 
-const avatars = teamMembersData.map((dev) => ({
+const avatars = avatarsData.map((dev) => ({
   alt: dev.name,
   src: dev.photo,
   github: dev.github,

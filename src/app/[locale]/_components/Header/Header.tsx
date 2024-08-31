@@ -45,7 +45,7 @@ function Header() {
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           className="sm:hidden"
         />
-        <NavbarBrand>
+        <NavbarBrand className="hidden md:block">
           <Link href="/" className="header_logo-wrapper">
             <Logo />
           </Link>

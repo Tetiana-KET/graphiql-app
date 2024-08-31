@@ -65,7 +65,6 @@ function LanguageDropDown() {
         onAction={handleChange}
       >
         <DropdownItem key="en">English</DropdownItem>
-        <DropdownItem key="de">Deutsch</DropdownItem>
         <DropdownItem key="ru">Русский</DropdownItem>
         <DropdownItem key="zh">漢</DropdownItem>
       </DropdownMenu>

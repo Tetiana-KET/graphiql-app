@@ -13,41 +13,29 @@ interface WelcomeMainContentProps {
 
 export default function WelcomeMainContent({ t }: WelcomeMainContentProps) {
   const technologies = techStack(t);
+  const developers = teamMembersData(t);
+
   return (
     <>
-      <SectionDivider title="About Project" />
+      <SectionDivider title={t('welcome:title1')} />
       <section
         className={`${styles.welcomeSection} md:flex-row flex-col gap-4`}
       >
         <div className={styles.aboutDescription}>
           <h2 className="font-bold text-2xl mb-2">REST/GraphiQL Client</h2>
-          <p className="text-lg text-justify">
-            This application is a lightweight tool that combines the
-            functionalities of Postman (for REST API testing) and GraphiQL (for
-            querying GraphQL APIs) into a single interface. It is designed to
-            facilitate seamless interaction with both RESTful and GraphQL
-            endpoints, while also incorporating user authentication and
-            historical request tracking.
-          </p>
+          <p className="text-lg text-justify">{t('welcome:aboutApp')}</p>
         </div>
         <div className={styles.aboutImgWrap}>
           <Image alt="about image" src="/about.jpg" loading="lazy" isBlurred />
         </div>
       </section>
-      <SectionDivider title="About RS School" />
+      <SectionDivider title={t('welcome:title2')} />
       <section
         className={`${styles.welcomeSection} md:flex-row-reverse flex-col`}
       >
         <div className={styles.aboutDescription}>
           <h2 className="font-bold text-2xl mb-2">RS School</h2>
-          <p className="text-lg text-justify">
-            The app is the result of completing the final task of RS School
-            React Course. RS School offers a unique learning experience as a
-            free, community-based online education initiative. The RS School has
-            been run by the Rolling Scopes community since 2013. Today, over 600
-            developer-volunteers from various countries and companies assist as
-            mentors.
-          </p>
+          <p className="text-lg text-justify">{t('welcome:aboutSchool')}</p>
         </div>
         <div className={`${styles.aboutImgWrap} flex justify-center`}>
           <Image
@@ -59,7 +47,7 @@ export default function WelcomeMainContent({ t }: WelcomeMainContentProps) {
           />
         </div>
       </section>
-      <SectionDivider title="Technologies Used" />
+      <SectionDivider title={t('welcome:title3')} />
       <section className={styles.welcomeSection}>
         <div className="flex xs:flex-row flex-col gap-2 md:gap-y-2 flex-wrap justify-center w-full">
           {technologies.map((tech) => (
@@ -72,11 +60,11 @@ export default function WelcomeMainContent({ t }: WelcomeMainContentProps) {
           ))}
         </div>
       </section>
-      <SectionDivider title="Developers Team" />
+      <SectionDivider title={t('welcome:title4')} />
       <section
         className={`${styles.welcomeSection} ${styles.developersWrap} flex sm:flex-row flex-col gap-2 justify-between w-full`}
       >
-        {teamMembersData.map((developer) => (
+        {developers.map((developer) => (
           <DeveloperCard developer={developer} key={developer.id} />
         ))}
       </section>

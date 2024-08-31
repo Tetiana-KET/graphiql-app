@@ -20,10 +20,10 @@ function UserGreeting() {
   return (
     <h1 className="text-2xl">
       {user ? (
-        <>
+        <span className="text-secondary">
           {t('common:welcome')}{' '}
           <span className="font-semibold">{capitalizeUserName(name)}</span>!
-        </>
+        </span>
       ) : (
         <span className="font-semibold text-secondary">
           {t('welcome:greeting')}

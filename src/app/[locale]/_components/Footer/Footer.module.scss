@@ -54,13 +54,9 @@
 }
 
 @media (hover: hover) {
-  .developersItems:hover .socialItemSvg {
-    fill: $accent-color;
-  }
-
   .rsLogoWrap {
     &.rsLogoWrap:hover .rsSchoolLink svg {
-      fill: $accent-color;
+      fill: $accent-color-hover;
     }
   }
 }

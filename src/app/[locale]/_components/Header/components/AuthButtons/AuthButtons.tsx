@@ -44,6 +44,19 @@ function AuthButtons() {
           variant="flat"
           radius="sm"
           className="lg:flex"
+        >
+          {t('layout:main')}
+        </Button>
+      </NavbarItem>
+
+      <NavbarItem className={`${styles.buttonWrap} ${!user ? 'hidden' : ''}`}>
+        <Button
+          as={Link}
+          color="default"
+          href="/"
+          variant="flat"
+          radius="sm"
+          className="lg:flex"
           onClick={logout}
         >
           {t('layout:signOut')}
