@@ -46,7 +46,7 @@ function Header() {
           className="sm:hidden"
         />
         <NavbarBrand className="hidden md:block">
-          <Link href="/" className="header_logo-wrapper">
+          <Link href="/" className={`${styles.headerLogoWrapper} inline-block`}>
             <Logo />
           </Link>
         </NavbarBrand>

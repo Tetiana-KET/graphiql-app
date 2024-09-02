@@ -31,15 +31,3 @@ body {
   align-items: center;
   gap: 20px;
 }
-
-.header_logo-wrapper svg {
-  transition: transform 0.5s ease;
-}
-
-.header_logo-wrapper:hover svg {
-  transform: rotate(360deg);
-}
-
-.header_logo-wrapper:hover svg path:first-of-type {
-  fill: $accent-color-hover;
-}
