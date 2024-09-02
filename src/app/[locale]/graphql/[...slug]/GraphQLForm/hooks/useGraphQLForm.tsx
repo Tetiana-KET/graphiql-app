@@ -1,18 +1,16 @@
-import { useURL } from '@/app/[locale]/graphql/hooks/useURL';
 import { GraphQLFormData } from '@/models/FormInterfaces';
+
 import {
   DEFAULT_GRAPHQL_QUERY,
   DEFAULT_GRAPHQL_URL,
 } from '@/models/GraphQLFormDefaultData';
-
-import { fetchDocumentation } from '@/utils/fetchDocumentation';
-import { fetchGraphQLData } from '@/utils/fetchGraphQlData';
 import { saveGraphQLToLocalStorage } from '@/utils/saveGraphQLToLocalStorage';
 import { createGraphQLSchema } from '@/validation/graphQLSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { usePassGraphQLToURL } from './usePassGraphQLToURL';
 
 export function useGraphQLForm() {
   const { t } = useTranslation();
@@ -27,35 +25,28 @@ export function useGraphQLForm() {
 
     formState: { errors },
   } = useForm<GraphQLFormData>({
-    defaultValues: {
-      URL: DEFAULT_GRAPHQL_URL,
-      query: DEFAULT_GRAPHQL_QUERY,
-    },
     resolver: zodResolver(graphQLSchema),
     mode: 'all',
   });
   const [isBusy, setIsBusy] = useState(false);
 
-  const [graphQLResponse, setGraphQLResponse] = useState<Response | null>(null);
-  const [documentation, setDocumentation] = useState<Response | null>(null);
+  const { passGraphQLToURL } = usePassGraphQLToURL();
 
-  const { passGraphQLToURL } = useURL();
+  const getExampleFormData = () => {
+    setValue('URL', DEFAULT_GRAPHQL_URL);
+    setValue('query', DEFAULT_GRAPHQL_QUERY);
+  };
 
   const onSubmit = async (formData: GraphQLFormData) => {
     setIsBusy(true);
-
     saveGraphQLToLocalStorage(formData);
-    passGraphQLToURL(formData);
-
-    const result = await fetchGraphQLData();
-    const documentationResponse = await fetchDocumentation();
-    setGraphQLResponse(result);
-    setDocumentation(documentationResponse);
+    await passGraphQLToURL(formData);
 
     setIsBusy(false);
   };
 
   return {
+    getExampleFormData,
     register,
     getValues,
     control,
@@ -64,8 +55,6 @@ export function useGraphQLForm() {
     handleSubmit,
     errors,
     onSubmit,
-    graphQLResponse,
-    documentation,
     isBusy,
   };
 }

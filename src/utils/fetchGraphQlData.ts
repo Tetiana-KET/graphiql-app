@@ -1,5 +1,10 @@
 export const fetchGraphQLData = async () => {
   const urlParts = window.location.href.split('/');
+
+  if (urlParts[urlParts.length - 1] === 'graphql') {
+    return null;
+  }
+
   const encodedEndpoint = urlParts[urlParts.length - 2];
   const encodedBody = urlParts[urlParts.length - 1].split('?')[0];
 

@@ -1,23 +1,17 @@
 export const DEFAULT_GRAPHQL_QUERY = `
 query Query {
-  allFilms {
-    films {
-      title
-      director
-      releaseDate
-      speciesConnection {
-        species {
-          name
-          classification
-          homeworld {
-            name
-          }
-        }
-      }
+  country(code: "BR") {
+    name
+    native
+    capital
+    emoji
+    currency
+    languages {
+      code
+      name
     }
   }
 }
 `;
 
-export const DEFAULT_GRAPHQL_URL =
-  'https://swapi-graphql.netlify.app/.netlify/functions/index';
+export const DEFAULT_GRAPHQL_URL = 'https://countries.trevorblades.com/graphql';
