@@ -1,11 +1,12 @@
+import { useURL } from '@/app/[locale]/graphql/hooks/useURL';
 import { GraphQLFormData } from '@/models/FormInterfaces';
 import {
   DEFAULT_GRAPHQL_QUERY,
   DEFAULT_GRAPHQL_URL,
 } from '@/models/GraphQLFormDefaultData';
+
 import { fetchDocumentation } from '@/utils/fetchDocumentation';
 import { fetchGraphQLData } from '@/utils/fetchGraphQlData';
-import { graphQLDataToURL } from '@/utils/graphQLDataToURL';
 import { saveGraphQLToLocalStorage } from '@/utils/saveGraphQLToLocalStorage';
 import { createGraphQLSchema } from '@/validation/graphQLSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -38,13 +39,19 @@ export function useGraphQLForm() {
   const [graphQLResponse, setGraphQLResponse] = useState<Response | null>(null);
   const [documentation, setDocumentation] = useState<Response | null>(null);
 
+  const { passGraphQLToURL } = useURL();
+
   const onSubmit = async (formData: GraphQLFormData) => {
     setIsBusy(true);
+
     saveGraphQLToLocalStorage(formData);
-    const result = await fetchGraphQLData(graphQLDataToURL(formData));
-    const documentationResponse = await fetchDocumentation(formData.SDL);
-    setDocumentation(documentationResponse);
+    passGraphQLToURL(formData);
+
+    const result = await fetchGraphQLData();
+    const documentationResponse = await fetchDocumentation();
     setGraphQLResponse(result);
+    setDocumentation(documentationResponse);
+
     setIsBusy(false);
   };
 

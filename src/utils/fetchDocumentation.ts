@@ -1,6 +1,15 @@
 import { getIntrospectionQuery } from 'graphql';
 
-export const fetchDocumentation = async (SDL: string) => {
+export const fetchDocumentation = async () => {
+  const urlParts = window.location.pathname.split('/');
+  const encodedSDLLink = urlParts[3];
+
+  if (!encodedSDLLink) {
+    throw new Error('Encoded SDL link not found in URL');
+  }
+
+  const sdlLink = atob(encodedSDLLink);
+
   const SDLRequest = {
     method: 'POST',
     headers: {
@@ -10,7 +19,8 @@ export const fetchDocumentation = async (SDL: string) => {
   };
 
   try {
-    return await fetch(SDL, SDLRequest);
+    const response = await fetch(sdlLink, SDLRequest);
+    return response;
   } catch (error) {
     console.error('GraphQL request failed:', error);
     throw error;
