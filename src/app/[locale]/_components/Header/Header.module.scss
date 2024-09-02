@@ -16,3 +16,21 @@
     box-shadow: $accent-box-shadow;
   }
 }
+
+.header_logo-wrapper {
+  & svg {
+    transition: transform 0.5s ease;
+  }
+
+  &:hover svg {
+    transform: rotate(360deg);
+  }
+
+  &:hover svg path:first-of-type {
+    fill: $accent-color-hover;
+  }
+
+  &:hover svg path:last-of-type {
+    fill: $accent-color;
+  }
+}

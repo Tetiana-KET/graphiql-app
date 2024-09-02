@@ -1,0 +1,10 @@
+.welcome__section {
+  display: flex;
+  row-gap: 30px;
+  padding: 25px 0px;
+
+  .about-description,
+  .about-img-wrap {
+    flex: 1;
+  }
+}

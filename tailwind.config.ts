@@ -18,6 +18,10 @@ const config: Config = {
       },
       colors: {
         'light-grey-bg-color': '#e5eaeba4',
+        secondary: '#541e52',
+      },
+      screens: {
+        xs: '400px',
       },
     },
   },

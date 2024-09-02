@@ -1,32 +1,27 @@
 'use client';
 
 import { redirect } from 'next/navigation';
-import { useEffect } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useContext, useEffect } from 'react';
 
-import { auth, signInWithGoogle } from '@/firebase';
+import { signInWithGoogle } from '@/firebase';
 import { useHandleSignIn } from '@/hooks/useHandleSignIn';
 import { Spinner } from '@nextui-org/react';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
+import { AuthContext } from '@/components/AuthProvider';
 import styles from './page.module.scss';
 
 export default function SignIn() {
-  const [user, loading, error] = useAuthState(auth);
+  const { isLoggedIn, loading } = useContext(AuthContext) ?? {};
   const { t } = useTranslation();
   const { register, handleSubmit, onSubmit, errors, isValid } =
     useHandleSignIn(t);
 
   useEffect(() => {
-    if (user) {
+    if (!loading && isLoggedIn) {
       redirect('/');
     }
-
-    if (error) {
-      // TODO: some error notification
-      console.error(error);
-    }
-  }, [user, error]);
+  }, [isLoggedIn, loading]);
 
   if (loading) {
     return <Spinner color="secondary" />;

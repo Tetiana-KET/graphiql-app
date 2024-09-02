@@ -45,8 +45,8 @@ function Header() {
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           className="sm:hidden"
         />
-        <NavbarBrand>
-          <Link href="/" className="header_logo-wrapper">
+        <NavbarBrand className="hidden md:block">
+          <Link href="/" className={`${styles.headerLogoWrapper} inline-block`}>
             <Logo />
           </Link>
         </NavbarBrand>

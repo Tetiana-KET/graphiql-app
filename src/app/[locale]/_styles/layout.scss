@@ -26,17 +26,8 @@ body {
 
 .welcome-wrapper {
   padding: 25px 0px;
-  height: 200vh;
-}
-
-.header_logo-wrapper svg {
-  transition: transform 0.5s ease;
-}
-
-.header_logo-wrapper:hover svg {
-  transform: rotate(360deg);
-}
-
-.header_logo-wrapper:hover svg path:first-of-type {
-  fill: $accent-color-hover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
