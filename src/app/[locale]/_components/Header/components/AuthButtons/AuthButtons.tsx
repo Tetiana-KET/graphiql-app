@@ -3,17 +3,20 @@
 import { Button, NavbarContent, NavbarItem } from '@nextui-org/react';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, logout } from '@/firebase';
+import { logout } from '@/firebase';
+import { useContext } from 'react';
+import { AuthContext } from '@/components/AuthProvider';
 import styles from './AuthButtons.module.scss';
 
 function AuthButtons() {
   const { t } = useTranslation();
-  const [user] = useAuthState(auth);
+  const { isLoggedIn } = useContext(AuthContext) ?? {};
 
   return (
     <NavbarContent justify="end">
-      <NavbarItem className={`${styles.buttonWrap} ${user ? 'hidden' : ''}`}>
+      <NavbarItem
+        className={`${styles.buttonWrap} ${isLoggedIn ? 'hidden' : ''}`}
+      >
         <Button
           as={Link}
           color="default"
@@ -24,7 +27,9 @@ function AuthButtons() {
           {t('layout:signIn')}
         </Button>
       </NavbarItem>
-      <NavbarItem className={`${styles.buttonWrap} ${user ? 'hidden' : ''}`}>
+      <NavbarItem
+        className={`${styles.buttonWrap} ${isLoggedIn ? 'hidden' : ''}`}
+      >
         <Button
           as={Link}
           color="default"
@@ -36,7 +41,9 @@ function AuthButtons() {
         </Button>
       </NavbarItem>
 
-      <NavbarItem className={`${styles.buttonWrap} ${!user ? 'hidden' : ''}`}>
+      <NavbarItem
+        className={`${styles.buttonWrap} ${!isLoggedIn ? 'hidden' : ''}`}
+      >
         <Button
           as={Link}
           color="default"
@@ -49,11 +56,11 @@ function AuthButtons() {
         </Button>
       </NavbarItem>
 
-      <NavbarItem className={`${styles.buttonWrap} ${!user ? 'hidden' : ''}`}>
+      <NavbarItem
+        className={`${styles.buttonWrap} ${!isLoggedIn ? 'hidden' : ''}`}
+      >
         <Button
-          as={Link}
           color="default"
-          href="/"
           variant="flat"
           radius="sm"
           className="lg:flex"

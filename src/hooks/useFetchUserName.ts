@@ -1,12 +1,11 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useContext } from 'react';
 import { collection, getDocs, query, where } from 'firebase/firestore';
-import { auth, db } from '@/firebase';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { db } from '@/firebase';
+import { AuthContext } from '@/components/AuthProvider';
 
 export const useFetchUserName = () => {
-  const [user, loading] = useAuthState(auth);
   const [name, setName] = useState('');
-
+  const { user, loading } = useContext(AuthContext) ?? {};
   const fetchUserName = useCallback(async () => {
     if (user) {
       try {
