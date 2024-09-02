@@ -1,36 +1,32 @@
-import Loader from '@/app/[locale]/_components/Loader/Loader';
+import { Spinner } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
 import JsonView from 'react18-json-view';
 import 'react18-json-view/src/style.css';
 
 interface ResponseStatusProps {
-  GraphQLResponse: Response | undefined;
+  graphQLResponse: Response | null;
   isBusy: boolean;
 }
 
 export function ResponseStatus({
-  GraphQLResponse,
+  graphQLResponse,
   isBusy,
 }: ResponseStatusProps) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const parseResponse = async () => {
-      if (GraphQLResponse) {
-        const result = await GraphQLResponse.json();
-        // eslint-disable-next-line no-underscore-dangle
-        if (!result.data.__schema) {
-          setData(result);
-        } else {
-          setData(null);
-        }
+      if (graphQLResponse) {
+        const result = await graphQLResponse.json();
+
+        setData(result);
       }
     };
 
     parseResponse();
-  }, [GraphQLResponse]);
+  }, [graphQLResponse]);
 
-  if (!GraphQLResponse) {
+  if (!graphQLResponse) {
     return (
       <div className="flex flex-col w-full h-1/2">
         <h2>Response:</h2>
@@ -45,7 +41,7 @@ export function ResponseStatus({
         <h2>Response:</h2>
         {!isBusy && (
           <div>
-            <h2>Response Status: {GraphQLResponse.status}</h2>
+            <h2>Response Status: {graphQLResponse.status}</h2>
             <div
               className="flex max-h-96 
    overflow-scroll"
@@ -55,7 +51,6 @@ export function ResponseStatus({
                   className="flex max-h-96 
    overflow-scroll"
                 >
-                  <h3>Body:</h3>
                   <JsonView src={data} />
                 </div>
               )}
@@ -63,7 +58,7 @@ export function ResponseStatus({
           </div>
         )}
       </div>
-      {isBusy && <Loader />}
+      {isBusy && <Spinner color="secondary" />}
     </div>
   );
 }

@@ -13,7 +13,8 @@ export function GraphQLForm() {
   const { t } = useTranslation();
 
   const {
-    response,
+    graphQLResponse,
+    documentation,
     getValues,
     register,
     control,
@@ -91,10 +92,10 @@ export function GraphQLForm() {
         </form>
       </div>
       <div className="flex w-1/2 h-full flex-col  gap-4">
-        <ResponseStatus GraphQLResponse={response?.clone()} isBusy={isBusy} />
+        <ResponseStatus graphQLResponse={graphQLResponse} isBusy={isBusy} />
         <Divider orientation="horizontal" className="m-2" />
         <RequestDocumentation
-          GraphQLResponse={response?.clone()}
+          documentationResponse={documentation}
           isBusy={isBusy}
         />
       </div>

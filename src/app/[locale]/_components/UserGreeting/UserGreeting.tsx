@@ -10,11 +10,7 @@ function UserGreeting() {
   const { t } = useTranslation();
 
   if (loading) {
-    return (
-      <div className="flex gap-4">
-        <Spinner color="secondary" />
-      </div>
-    );
+    return <Spinner color="secondary" />;
   }
 
   return (
