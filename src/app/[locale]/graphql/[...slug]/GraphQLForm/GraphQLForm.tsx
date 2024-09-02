@@ -86,7 +86,7 @@ export function GraphQLForm() {
           </Checkbox>
           <div className="flex gap-2">
             <Button onClick={getExampleFormData} color="warning" size="sm">
-              Get example of URL and Query
+              {t('graphQL:GetURLQueryExample')}
             </Button>
           </div>
 
