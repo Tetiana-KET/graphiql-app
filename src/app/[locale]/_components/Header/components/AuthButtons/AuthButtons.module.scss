@@ -1,11 +1,12 @@
 @import '@styles/variables';
 
-.button-wrap a {
+.button-wrap {
+  border-radius: 8px;
   transition: all 0.5s;
 }
 
 @media (hover: hover) {
-  .button-wrap:hover a {
+  .button-wrap:hover {
     box-shadow: $box-shadow;
   }
 }

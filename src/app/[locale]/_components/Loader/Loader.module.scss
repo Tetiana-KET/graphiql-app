@@ -1,8 +1,8 @@
 @import '@styles/variables';
 
-.loaderContainer {
+.loader-container {
   height: 100%;
-  width: 35%;
+  width: 100%;
   position: relative;
   z-index: 2;
   display: flex;
@@ -12,7 +12,7 @@
 }
 
 .loader {
-  border: 16px solid $main-color;
+  border: 16px solid $accent-color-hover;
   border-top: 16px solid $light-color;
   border-radius: 50%;
   width: 120px;

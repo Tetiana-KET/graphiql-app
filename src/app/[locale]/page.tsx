@@ -1,6 +1,6 @@
 import initTranslations from '../i18n';
-import WelcomeContent from './_components/Welcome/Welcome';
 import UserGreeting from './_components/UserGreeting/UserGreeting';
+import WelcomeMainContent from './_components/WelcomeMainContent/WelcomeMainContent';
 
 const i18nNamespaces = ['welcome'];
 
@@ -14,9 +14,7 @@ export default async function Home({
   return (
     <div className="welcome-wrapper">
       <UserGreeting />
-      <div>{t('mainHeader')}</div>
-      <p>{'  '}</p>
-      <WelcomeContent />
+      <WelcomeMainContent t={t} />
     </div>
   );
 }
