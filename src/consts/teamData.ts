@@ -18,10 +18,7 @@ export const teamMembersData = (t: (key: string) => string) => [
     github: 'https://github.com/Tetiana-KET',
     photo: 'https://avatars.githubusercontent.com/u/99186560?v=4',
     id: 'TetianaBezkorovaina',
-    contribution: `Welcome page,
-    History page,
-    User authentication,
-    Header/Footer layout, localization`,
+    contribution: t('welcome:contributionTania'),
   },
   {
     name: t('welcome:maks'),
