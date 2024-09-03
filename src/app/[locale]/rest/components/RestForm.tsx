@@ -1,14 +1,16 @@
 'use client';
 
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { RestFormData } from '@/models/RestFormData.model';
+import { RestFormData } from '@/models/RestFormData';
 import { Button, Input, Select, SelectItem } from '@nextui-org/react';
 import { RestMethod } from '@/models/RestMethod.enum';
+import { RequestKeyValuePairs } from '@/app/[locale]/_components/RequestKeyValuePairs/RequestKeyValuePairs';
 
 export default function RestForm() {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm<RestFormData>();
 
@@ -39,6 +41,22 @@ export default function RestForm() {
           {...register('url')}
           errorMessage={errors.url?.message}
           className="flex-1"
+        />
+      </section>
+
+      <section>
+        <RequestKeyValuePairs
+          type="headers"
+          control={control}
+          register={register}
+          errors={errors}
+        />
+
+        <RequestKeyValuePairs
+          type="variables"
+          control={control}
+          register={register}
+          errors={errors}
         />
       </section>
 

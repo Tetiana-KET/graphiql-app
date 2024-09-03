@@ -1,23 +1,30 @@
-import { GraphQLFormData } from '@/models/FormInterfaces';
 import { Button, Input } from '@nextui-org/react';
 import { Control, FieldErrors, UseFormRegister } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { BaseFormData } from '@/models/BaseFormData';
 import { useRequestKeyValuePairs } from './hooks/useRequestKeyValuePairs';
 
-interface RequestKeyValuePairsProps {
-  type: 'headers' | 'variables';
-  control: Control<GraphQLFormData>;
-  register: UseFormRegister<GraphQLFormData>;
-  errors: FieldErrors<GraphQLFormData>;
+interface RequestKeyValuePairsProps<T extends BaseFormData> {
+  type: keyof BaseFormData;
+  control: Control<T>;
+  register: UseFormRegister<T>;
+  errors: FieldErrors<T>;
 }
-export function RequestKeyValuePairs({
+
+export function RequestKeyValuePairs<T extends BaseFormData>({
   type,
   control,
   register,
   errors,
-}: RequestKeyValuePairsProps) {
+}: RequestKeyValuePairsProps<T>) {
+  const baseForm = {
+    control: control as unknown as Control<BaseFormData>,
+    register: register as unknown as UseFormRegister<BaseFormData>,
+    errors: errors as unknown as FieldErrors<BaseFormData>,
+  };
+
   const { fields, addField, removeField } = useRequestKeyValuePairs({
-    control,
+    control: baseForm.control,
     type,
   });
 
@@ -40,20 +47,26 @@ export function RequestKeyValuePairs({
             type="text"
             label={t('common:key')}
             placeholder="id"
-            {...register(`${type}.${index}.key`)}
-            isInvalid={errors?.[type]?.[index]?.key?.message !== undefined}
-            errorMessage={errors?.[type]?.[index]?.key?.message}
+            {...baseForm.register(`${type}.${index}.key`)}
+            isInvalid={
+              baseForm.errors?.[type]?.[index]?.key?.message !== undefined
+            }
+            errorMessage={baseForm.errors?.[type]?.[index]?.key?.message}
           />
+
           <Input
             isRequired
             size="sm"
             type="text"
             label={t('common:value')}
             placeholder="1"
-            {...register(`${type}.${index}.value`)}
-            isInvalid={errors?.[type]?.[index]?.value?.message !== undefined}
-            errorMessage={errors?.[type]?.[index]?.value?.message}
+            {...baseForm.register(`${type}.${index}.value`)}
+            isInvalid={
+              baseForm.errors?.[type]?.[index]?.value?.message !== undefined
+            }
+            errorMessage={baseForm.errors?.[type]?.[index]?.value?.message}
           />
+
           <Button
             color="danger"
             type="button"
