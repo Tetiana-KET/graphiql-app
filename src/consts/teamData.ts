@@ -27,6 +27,6 @@ export const teamMembersData = (t: (key: string) => string) => [
     github: 'https://github.com/Maksim99745',
     photo: 'https://avatars.githubusercontent.com/u/137721533?v=4',
     id: 'MaksimMukhametzianov',
-    contribution: `GraphQL page`,
+    contribution: t('welcome:contributionMaks'),
   },
 ];

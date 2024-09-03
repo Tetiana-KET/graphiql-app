@@ -1,5 +1,6 @@
 import { Spinner } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import JsonView from 'react18-json-view';
 import 'react18-json-view/src/style.css';
 
@@ -13,6 +14,7 @@ export function ResponseStatus({
   isBusy,
 }: ResponseStatusProps) {
   const [data, setData] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const parseResponse = async () => {
@@ -29,8 +31,8 @@ export function ResponseStatus({
   if (!graphQLResponse) {
     return (
       <div className="flex flex-col w-full h-1/2">
-        <h2>Response:</h2>
-        <h2>There will be placed response result</h2>
+        <h2>{t('common:response')}</h2>
+        <h2>{t('common:responseText')}</h2>
       </div>
     );
   }
@@ -38,10 +40,12 @@ export function ResponseStatus({
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-col w-full">
-        <h2>Response:</h2>
+        <h2>{t('common:response')}</h2>
         {!isBusy && (
           <div>
-            <h2>Response Status: {graphQLResponse.status}</h2>
+            <h2>
+              {t('common:responseStatus')} {graphQLResponse.status}
+            </h2>
             <div
               className="flex max-h-96 
    overflow-scroll"

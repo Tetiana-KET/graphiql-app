@@ -1,5 +1,6 @@
 import { Spinner } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import JsonView from 'react18-json-view';
 import 'react18-json-view/src/style.css';
 
@@ -13,6 +14,7 @@ export function RequestDocumentation({
   isBusy,
 }: RequestDocumentationProps) {
   const [documentation, setDocumentation] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const parseSchema = async () => {
@@ -31,8 +33,8 @@ export function RequestDocumentation({
   if (!documentationResponse) {
     return (
       <div className="flex flex-col w-full h-1/2">
-        <h2>Documentation:</h2>
-        <h2> There will be placed GraphQL schema for success SDL request</h2>
+        <h2>{t('common:doc')}</h2>
+        <h2> {t('graphQL:docResponse')}</h2>
       </div>
     );
   }
@@ -41,14 +43,10 @@ export function RequestDocumentation({
     <div className="flex flex-col w-full">
       <div className="flex flex-col w-full">
         <div>
-          <h2>Documentation: </h2>
+          <h2>{t('common:doc')} </h2>
           <div className="flex max-h-96 overflow-scroll">
             {documentation && !isBusy && <JsonView src={documentation} />}
-            {!documentation && !isBusy && (
-              <h2>
-                There will be placed GraphQL schema for success SDL request
-              </h2>
-            )}
+            {!documentation && !isBusy && <h2>{t('graphQL:docResponse')}</h2>}
           </div>
         </div>
       </div>
