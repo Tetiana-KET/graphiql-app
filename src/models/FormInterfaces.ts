@@ -1,11 +1,7 @@
-export interface RequestKeyValuePairsSchema {
-  key: string;
-  value: string;
-}
-export interface GraphQLFormData {
+import { BaseFormData } from '@/models/BaseFormData';
+
+export interface GraphQLFormData extends BaseFormData {
   URL: string;
   SDL: string;
   query: string;
-  variables: RequestKeyValuePairsSchema[];
-  headers: RequestKeyValuePairsSchema[];
 }

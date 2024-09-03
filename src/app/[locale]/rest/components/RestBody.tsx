@@ -1,7 +1,6 @@
 'use client';
 
-import { GraphQLFormData } from '@/models/FormInterfaces';
-import { javascript } from '@codemirror/lang-javascript';
+import { json } from '@codemirror/lang-json';
 import { Button } from '@nextui-org/react';
 import CodeMirror from '@uiw/react-codemirror';
 import {
@@ -10,36 +9,40 @@ import {
   UseFormSetValue,
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { useCodeMirrorBoard } from './hooks/useCodeMirrorBoard';
+import { useRestBody } from '@/app/[locale]/rest/hooks/useRestBody';
+import { RestFormData } from '@/models/RestFormData';
 
-export interface CodeMirrorBoardProps {
-  getValues: UseFormGetValues<GraphQLFormData>;
-  register: UseFormRegister<GraphQLFormData>;
-  setValue: UseFormSetValue<GraphQLFormData>;
+export interface RestBodyProps {
+  getValues: UseFormGetValues<RestFormData>;
+  register: UseFormRegister<RestFormData>;
+  setValue: UseFormSetValue<RestFormData>;
   errorMessage?: string;
 }
 
-function CodeMirrorBoard({
+export default function RestBody({
   getValues,
   register,
   setValue,
   errorMessage,
-}: CodeMirrorBoardProps) {
-  const { handleBoardValue, prettify } = useCodeMirrorBoard({
+}: RestBodyProps) {
+  const { handleValue, prettify } = useRestBody({
     setValue,
   });
   const { t } = useTranslation();
 
   return (
     <div>
-      <h4>{t('common:queries')}</h4>
+      <h4>{t('common:body')}</h4>
       <CodeMirror
-        value={getValues('query')}
-        {...register('query')}
-        extensions={[javascript({ jsx: true })]}
-        onChange={handleBoardValue}
+        value={getValues('body')}
+        {...register('body')}
+        extensions={[json()]}
+        height="200px"
+        onChange={handleValue}
       />
+
       <div>{errorMessage || ''}</div>
+
       <div className="flex gap-2">
         <Button
           className="mt-2"
@@ -54,5 +57,3 @@ function CodeMirrorBoard({
     </div>
   );
 }
-
-export default CodeMirrorBoard;

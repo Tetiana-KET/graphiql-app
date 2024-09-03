@@ -1,7 +1,7 @@
 import { GraphQLFormData } from '@/models/FormInterfaces';
-import { customPrettifyGraphQL } from '@/utils/customPrettifyGraphQL';
 import { useCallback, useState } from 'react';
 import { UseFormSetValue } from 'react-hook-form';
+import { prettifyCode } from '@/utils/prettifyCode';
 
 interface UseCodeMirrorBoardProps {
   setValue: UseFormSetValue<GraphQLFormData>;
@@ -15,9 +15,9 @@ export const useCodeMirrorBoard = ({ setValue }: UseCodeMirrorBoardProps) => {
     setValue('query', value);
   };
 
-  const prettifyCode = useCallback(() => {
+  const prettify = useCallback(() => {
     try {
-      const prettified = customPrettifyGraphQL(query);
+      const prettified = prettifyCode(query);
       setQuery(prettified);
       setValue('query', prettified);
     } catch (error) {
@@ -25,5 +25,5 @@ export const useCodeMirrorBoard = ({ setValue }: UseCodeMirrorBoardProps) => {
     }
   }, [query, setValue]);
 
-  return { query, handleBoardValue, prettifyCode };
+  return { query, handleBoardValue, prettify };
 };
