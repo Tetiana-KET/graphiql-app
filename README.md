@@ -26,6 +26,8 @@ This project is an educational initiative aimed at developing a lightweight appl
 - History page: 📜
   
 ### Project screenshots
+![image](https://github.com/user-attachments/assets/d7870249-1b29-4825-ae09-ccdfdbf19802)
+![image](https://github.com/user-attachments/assets/a4f3694c-59a1-4da4-bc20-91fd24468034)
 
 ### Technology stack
 
@@ -36,14 +38,13 @@ This project is an educational initiative aimed at developing a lightweight appl
 - Linters: [**ESLint**](https://eslint.org/), [**Prettier**](https://prettier.io/)
 - Pre-push/Pre-commit: [**Husky**](https://typicode.github.io/husky/)
 - UI library: [**NextUI**](https://nextui.org/docs/guide/introduction#what-is-nextui)
-- API: 
-- Tests: 
+- Tests: [**Vitest**](https://vitest.dev/))
 - Routing: [**Next.js App Router**](https://nextjs.org/docs/app/building-your-application/routing)) 
-- ??? Hosting: [**Netlify**](https://www.netlify.com/)  [**Vercel**](https://vercel.com/)
+- ??? Hosting: [**Vercel**](https://vercel.com/)
 - Task Board: [**GitHub Pages**](https://github.com/users/Tetiana-KET/projects/3/views/2))
 - Code style: [**Wiki**]()
 
-## [Deployment]()
+## [Deployment](https://graphiql-app-ktj5.vercel.app/)
 
 ### Setup instructions
 
