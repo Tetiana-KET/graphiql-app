@@ -5,6 +5,7 @@ import { ReactNode } from 'react';
 
 import TranslationsProvider from '@/components/TranslationsProvider';
 import { i18nNamespaces } from '@/consts/i18nNameSpaces';
+import { Metadata } from 'next';
 import Footer from './_components/Footer/Footer';
 import Header from './_components/Header/Header';
 
@@ -16,6 +17,12 @@ import './_styles/layout.scss';
 export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
 }
+
+export const metadata: Metadata = {
+  title: 'REST/GraphQL Client',
+  description:
+    'A light-weight versions of Postman and GraphQL combined in one app',
+};
 
 export default async function Layout({
   children,

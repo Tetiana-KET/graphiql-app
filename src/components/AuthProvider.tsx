@@ -3,6 +3,7 @@
 import { auth } from '@/firebase';
 import { onIdTokenChanged, User } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
+import { enqueueSnackbar } from 'notistack';
 import { createContext, ReactNode, useEffect, useMemo } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
@@ -39,7 +40,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }, [router, user]);
 
   if (error) {
-    console.error(error.message);
+    enqueueSnackbar(error.message);
   }
 
   const value = useMemo(

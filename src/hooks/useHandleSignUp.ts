@@ -4,6 +4,7 @@ import { TFunction } from 'i18next';
 import { createSignUpSchema } from '@/validation/signUpSchema';
 import { registerWithEmailAndPassword } from '@/firebase';
 import { SignUpFormInputs } from '@/models/AuthInterfaces';
+import { checkErrorInstance } from '@/utils/checkErrorInstance';
 
 export function useHandleSignUp(t: TFunction<'translation', undefined>) {
   const signUpSchema = createSignUpSchema(t);
@@ -25,7 +26,7 @@ export function useHandleSignUp(t: TFunction<'translation', undefined>) {
     try {
       registerWithEmailAndPassword(data.name, data.email, data.password);
     } catch (err) {
-      console.error(err);
+      checkErrorInstance(err);
     }
   };
 

@@ -1,3 +1,6 @@
+import { enqueueSnackbar } from 'notistack';
+
+// eslint-disable-next-line consistent-return
 export const fetchGraphQLData = async () => {
   const urlParts = window.location.href.split('/');
 
@@ -31,7 +34,8 @@ export const fetchGraphQLData = async () => {
     const response = await fetch(endpoint, graphqlRequest);
     return response;
   } catch (error) {
-    console.error('GraphQL request failed:', error);
-    throw error;
+    enqueueSnackbar(`GraphQL request failed: ${error}`, {
+      variant: 'error',
+    });
   }
 };

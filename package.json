@@ -31,6 +31,7 @@
     "i18next-resources-to-backend": "^1.2.1",
     "next": "14.2.5",
     "next-i18n-router": "^5.5.1",
+    "notistack": "^3.0.1",
     "react": "^18",
     "react-dom": "^18",
     "react-firebase-hooks": "^5.1.1",

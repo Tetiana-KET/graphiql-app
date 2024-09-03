@@ -1,3 +1,4 @@
+import { checkErrorInstance } from '@/utils/checkErrorInstance';
 import { Spinner } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -5,7 +6,7 @@ import JsonView from 'react18-json-view';
 import 'react18-json-view/src/style.css';
 
 interface RequestDocumentationProps {
-  documentationResponse: Response | null;
+  documentationResponse: Response | null | undefined;
   isBusy: boolean;
 }
 
@@ -19,12 +20,16 @@ export function RequestDocumentation({
   useEffect(() => {
     const parseSchema = async () => {
       if (documentationResponse) {
-        const result = await documentationResponse.json();
-        // eslint-disable-next-line no-underscore-dangle
-        if (result.data.__schema) {
-          setDocumentation(result);
-        } else {
-          setDocumentation(null);
+        try {
+          const result = await documentationResponse.json();
+          // eslint-disable-next-line no-underscore-dangle
+          if (result.data.__schema) {
+            setDocumentation(result);
+          } else {
+            setDocumentation(null);
+          }
+        } catch (err) {
+          checkErrorInstance(err);
         }
       }
     };

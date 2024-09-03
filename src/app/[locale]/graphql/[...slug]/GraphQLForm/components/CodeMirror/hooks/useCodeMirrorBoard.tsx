@@ -1,5 +1,6 @@
 import { GraphQLFormData } from '@/models/FormInterfaces';
 import { customPrettifyGraphQL } from '@/utils/customPrettifyGraphQL';
+import { enqueueSnackbar } from 'notistack';
 import { useCallback, useState } from 'react';
 import { UseFormSetValue } from 'react-hook-form';
 
@@ -21,7 +22,9 @@ export const useCodeMirrorBoard = ({ setValue }: UseCodeMirrorBoardProps) => {
       setQuery(prettified);
       setValue('query', prettified);
     } catch (error) {
-      console.error('Failed to prettify the code:', error);
+      enqueueSnackbar(`Failed to prettify the code: ${error}`, {
+        variant: 'info',
+      });
     }
   }, [query, setValue]);
 

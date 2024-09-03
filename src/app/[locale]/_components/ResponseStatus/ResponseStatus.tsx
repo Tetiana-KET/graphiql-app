@@ -1,3 +1,4 @@
+import { checkErrorInstance } from '@/utils/checkErrorInstance';
 import { Spinner } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -19,9 +20,12 @@ export function ResponseStatus({
   useEffect(() => {
     const parseResponse = async () => {
       if (graphQLResponse) {
-        const result = await graphQLResponse.json();
-
-        setData(result);
+        try {
+          const result = await graphQLResponse.json();
+          setData(result);
+        } catch (err) {
+          checkErrorInstance(err);
+        }
       }
     };
 
