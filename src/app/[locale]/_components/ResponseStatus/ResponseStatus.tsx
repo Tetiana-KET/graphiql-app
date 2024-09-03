@@ -47,12 +47,12 @@ export function ResponseStatus({
               {t('common:responseStatus')} {graphQLResponse.status}
             </h2>
             <div
-              className="flex max-h-96 
+              className="flex max-h-96 w-full
    overflow-scroll"
             >
               {data && (
                 <div
-                  className="flex max-h-96 
+                  className="flex max-h-96 w-full
    overflow-scroll"
                 >
                   <JsonView src={data} />
