@@ -7,7 +7,6 @@ import {
 import { saveGraphQLToLocalStorage } from '@/utils/saveGraphQLToLocalStorage';
 import { createGraphQLSchema } from '@/validation/graphQLSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { usePassGraphQLToURL } from './usePassGraphQLToURL';
@@ -28,7 +27,6 @@ export function useGraphQLForm() {
     resolver: zodResolver(graphQLSchema),
     mode: 'all',
   });
-  const [isBusy, setIsBusy] = useState(false);
 
   const { passGraphQLToURL } = usePassGraphQLToURL();
 
@@ -38,11 +36,8 @@ export function useGraphQLForm() {
   };
 
   const onSubmit = async (formData: GraphQLFormData) => {
-    setIsBusy(true);
     saveGraphQLToLocalStorage(formData);
     await passGraphQLToURL(formData);
-
-    setIsBusy(false);
   };
 
   return {
@@ -55,6 +50,5 @@ export function useGraphQLForm() {
     handleSubmit,
     errors,
     onSubmit,
-    isBusy,
   };
 }

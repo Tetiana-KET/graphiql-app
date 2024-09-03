@@ -9,3 +9,13 @@ export interface GraphQLFormData {
   variables: RequestKeyValuePairsSchema[];
   headers: RequestKeyValuePairsSchema[];
 }
+
+export interface GraphQLRequestHistoryRecord {
+  URL: string;
+  SDL: string;
+  query: string;
+  variables: RequestKeyValuePairsSchema[];
+  headers: RequestKeyValuePairsSchema[];
+  type: string;
+  requestTime: string;
+}

@@ -7,15 +7,16 @@ export const saveGraphQLToLocalStorage = (requestData: GraphQLFormData) => {
   );
 
   const requestRecord = {
-    url: requestData.URL,
+    URL: requestData.URL,
+    SDL: requestData.SDL,
     method: 'POST',
     headers: requestData.headers,
     body: requestData.query,
     variables: requestData.variables,
-    sdlUrl: requestData.SDL,
-    executionTime: new Date().toISOString(),
+    requestTime: new Date().toISOString(),
+    type: 'GraphQL',
   };
 
-  requestHistory.graphQL.push(requestRecord);
+  requestHistory.requests.push(requestRecord);
   localStorage.setItem('request-history', JSON.stringify(requestHistory));
 };
