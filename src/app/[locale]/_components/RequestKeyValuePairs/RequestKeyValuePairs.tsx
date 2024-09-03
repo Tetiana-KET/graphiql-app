@@ -9,6 +9,7 @@ interface RequestKeyValuePairsProps<T extends BaseFormData> {
   control: Control<T>;
   register: UseFormRegister<T>;
   errors: FieldErrors<T>;
+  className?: string;
 }
 
 export function RequestKeyValuePairs<T extends BaseFormData>({
@@ -16,6 +17,7 @@ export function RequestKeyValuePairs<T extends BaseFormData>({
   control,
   register,
   errors,
+  className,
 }: RequestKeyValuePairsProps<T>) {
   const baseForm = {
     control: control as unknown as Control<BaseFormData>,
@@ -31,7 +33,7 @@ export function RequestKeyValuePairs<T extends BaseFormData>({
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className={`flex flex-col gap-2 ${className || ''}`}>
       <div className="flex gap-2">
         <h4 className="m-1"> {t(`common:${type}`)}</h4>
         <Button color="primary" type="button" size="sm" onClick={addField}>
@@ -46,7 +48,6 @@ export function RequestKeyValuePairs<T extends BaseFormData>({
             size="sm"
             type="text"
             label={t('common:key')}
-            placeholder="id"
             {...baseForm.register(`${type}.${index}.key`)}
             isInvalid={
               baseForm.errors?.[type]?.[index]?.key?.message !== undefined
@@ -59,7 +60,6 @@ export function RequestKeyValuePairs<T extends BaseFormData>({
             size="sm"
             type="text"
             label={t('common:value')}
-            placeholder="1"
             {...baseForm.register(`${type}.${index}.value`)}
             isInvalid={
               baseForm.errors?.[type]?.[index]?.value?.message !== undefined

@@ -4,4 +4,6 @@ export enum RestMethod {
   Put = 'PUT',
   Patch = 'PATCH',
   Delete = 'DELETE',
+  Head = 'HEAD',
+  Options = 'OPTIONS',
 }

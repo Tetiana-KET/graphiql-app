@@ -1,8 +1,8 @@
-export const customPrettifyGraphQL = (gqlQuery: string): string => {
+export const prettifyCode = (code: string): string => {
   let indentLevel = 0;
   const indentSize = 2;
 
-  return gqlQuery
+  return code
     .split('\n')
     .map((line) => line.trim())
     .map((line) => {

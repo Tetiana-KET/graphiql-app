@@ -5,14 +5,22 @@ import { RestFormData } from '@/models/RestFormData';
 import { Button, Input, Select, SelectItem } from '@nextui-org/react';
 import { RestMethod } from '@/models/RestMethod.enum';
 import { RequestKeyValuePairs } from '@/app/[locale]/_components/RequestKeyValuePairs/RequestKeyValuePairs';
+import RestBody from '@/app/[locale]/rest/components/RestBody';
 
 export default function RestForm() {
   const {
     register,
     handleSubmit,
     control,
+    getValues,
+    setValue,
     formState: { errors },
-  } = useForm<RestFormData>();
+  } = useForm<RestFormData>({
+    defaultValues: {
+      headers: [{ key: '', value: '' }],
+      variables: [{ key: '', value: '' }],
+    },
+  });
 
   const onSubmit: SubmitHandler<RestFormData> = (data) => console.warn(data);
 
@@ -51,12 +59,23 @@ export default function RestForm() {
           register={register}
           errors={errors}
         />
+      </section>
 
+      <section>
         <RequestKeyValuePairs
           type="variables"
           control={control}
           register={register}
           errors={errors}
+        />
+      </section>
+
+      <section>
+        <RestBody
+          register={register}
+          getValues={getValues}
+          setValue={setValue}
+          errorMessage={errors.body?.message}
         />
       </section>
 

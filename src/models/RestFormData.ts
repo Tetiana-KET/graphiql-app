@@ -5,5 +5,4 @@ export interface RestFormData extends BaseFormData {
   method: RestMethod;
   url: string;
   body: string;
-  params: Record<string, string>;
 }
