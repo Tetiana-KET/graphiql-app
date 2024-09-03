@@ -40,7 +40,7 @@ This project is an educational initiative aimed at developing a lightweight appl
 - UI library: [**NextUI**](https://nextui.org/docs/guide/introduction#what-is-nextui)
 - Tests: [**Vitest**](https://vitest.dev/))
 - Routing: [**Next.js App Router**](https://nextjs.org/docs/app/building-your-application/routing)) 
-- ??? Hosting: [**Vercel**](https://vercel.com/)
+- Hosting: [**Vercel**](https://vercel.com/)
 - Task Board: [**GitHub Pages**](https://github.com/users/Tetiana-KET/projects/3/views/2))
 - Code style: [**Wiki**]()
 
