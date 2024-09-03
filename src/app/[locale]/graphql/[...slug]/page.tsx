@@ -1,4 +1,4 @@
-import { GraphQLForm } from './[...slug]/GraphQLForm/GraphQLForm';
+import { GraphQLForm } from './GraphQLForm/GraphQLForm';
 
 export default function GraphPage() {
   return (

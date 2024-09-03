@@ -3,7 +3,7 @@
 import { GraphQLFormData } from '@/models/FormInterfaces';
 import { useRouter } from 'next/navigation';
 
-export const useURL = () => {
+export const usePassGraphQLToURL = () => {
   const router = useRouter();
   const baseUrl = 'graphql';
 
@@ -32,7 +32,7 @@ export const useURL = () => {
       url += `?${headersQuery}`;
     }
 
-    router.replace(url);
+    router.push(url);
   };
 
   return { passGraphQLToURL };
