@@ -42,16 +42,14 @@ export function RequestKeyValuePairs<T extends BaseFormData>({
       </div>
 
       {fields.map((field, index) => (
-        <div className="flex gap-2 items-center" key={field.id}>
+        <div className="flex gap-2 items-start" key={field.id}>
           <Input
             isRequired
             size="sm"
             type="text"
             label={t('common:key')}
             {...baseForm.register(`${type}.${index}.key`)}
-            isInvalid={
-              baseForm.errors?.[type]?.[index]?.key?.message !== undefined
-            }
+            isInvalid={!!baseForm.errors?.[type]?.[index]?.key}
             errorMessage={baseForm.errors?.[type]?.[index]?.key?.message}
           />
 
@@ -61,9 +59,7 @@ export function RequestKeyValuePairs<T extends BaseFormData>({
             type="text"
             label={t('common:value')}
             {...baseForm.register(`${type}.${index}.value`)}
-            isInvalid={
-              baseForm.errors?.[type]?.[index]?.value?.message !== undefined
-            }
+            isInvalid={!!baseForm.errors?.[type]?.[index]?.value}
             errorMessage={baseForm.errors?.[type]?.[index]?.value?.message}
           />
 
