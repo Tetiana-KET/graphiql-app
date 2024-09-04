@@ -5,7 +5,7 @@ import { fetchGraphQLData } from '@/utils/fetchGraphQlData';
 import { saveGraphQLToLocalStorage } from '@/utils/saveGraphQLToLocalStorage';
 import { urlToGraphQLFormData } from '@/utils/urlToGraphQLFormData';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { UseFormReset } from 'react-hook-form';
 
 interface UseFetchDataProps {
@@ -14,6 +14,7 @@ interface UseFetchDataProps {
 
 export const useFetchData = ({ reset }: UseFetchDataProps) => {
   const URL = usePathname();
+  const hasFetchedData = useRef(false);
 
   const [graphQLResponse, setGraphQLResponse] = useState<
     Response | null | undefined
@@ -21,11 +22,15 @@ export const useFetchData = ({ reset }: UseFetchDataProps) => {
   const [documentation, setDocumentation] = useState<
     Response | null | undefined
   >(null);
-
   const [isBusy, setIsBusy] = useState(false);
 
   useEffect(() => {
     const fetchGQLData = async () => {
+      if (hasFetchedData.current) {
+        return;
+      }
+      hasFetchedData.current = true;
+
       try {
         setIsBusy(true);
 
