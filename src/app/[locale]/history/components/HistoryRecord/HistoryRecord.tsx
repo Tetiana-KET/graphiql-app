@@ -15,7 +15,7 @@ export function HistoryRecord({ record }: HistoryRecordProps) {
   const [link, setLink] = useState('');
 
   useEffect(() => {
-    if (type === 'GraphQl') {
+    if (type === 'graphql') {
       // Here will be generated same link as it generating in the form after submit,
       // GraphQL/Rest page should get form data from it.
       setLink('graphql');

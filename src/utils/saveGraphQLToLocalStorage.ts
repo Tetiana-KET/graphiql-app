@@ -14,7 +14,7 @@ export const saveGraphQLToLocalStorage = (requestData: GraphQLFormData) => {
     body: requestData.query,
     variables: requestData.variables,
     requestTime: new Date().toISOString(),
-    type: 'GraphQL',
+    type: 'graphql',
   };
 
   requestHistory.requests.push(requestRecord);
