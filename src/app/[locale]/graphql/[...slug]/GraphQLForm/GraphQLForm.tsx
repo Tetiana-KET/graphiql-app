@@ -8,6 +8,7 @@ import { Button, Checkbox, Divider, Input } from '@nextui-org/react';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { checkErrorInstance } from '@/utils/checkErrorInstance';
 import CodeMirrorBoard from './components/CodeMirror/CodeMirrorBoard';
 import { RequestDocumentation } from './components/RequestDocumentation/RequestDocumentation';
 import { useGraphQLForm } from './hooks/useGraphQLForm';
@@ -16,8 +17,12 @@ import { useSDLAsURL } from './hooks/useSDLAsURL';
 export function GraphQLForm() {
   const { t } = useTranslation();
 
-  const [graphQLResponse, setGraphQLResponse] = useState<Response | null>(null);
-  const [documentation, setDocumentation] = useState<Response | null>(null);
+  const [graphQLResponse, setGraphQLResponse] = useState<
+    Response | null | undefined
+  >(null);
+  const [documentation, setDocumentation] = useState<
+    Response | null | undefined
+  >(null);
 
   const URL = usePathname();
 
@@ -41,11 +46,17 @@ export function GraphQLForm() {
 
   useEffect(() => {
     const fetchGQLData = async () => {
-      const newGraphQLResponse = await fetchGraphQLData();
-      setGraphQLResponse(newGraphQLResponse);
-      const newDocumentation = await fetchDocumentation();
-      setDocumentation(newDocumentation);
+      try {
+        const newGraphQLResponse = await fetchGraphQLData();
+        setGraphQLResponse(newGraphQLResponse);
+
+        const newDocumentation = await fetchDocumentation();
+        setDocumentation(newDocumentation);
+      } catch (error) {
+        checkErrorInstance(error);
+      }
     };
+
     fetchGQLData();
   }, [URL]);
 

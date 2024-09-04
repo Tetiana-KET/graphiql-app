@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { SignInFormInputs } from '@/models/AuthInterfaces';
 import { createSignInSchema } from '@/validation/signInSchema';
 import { TFunction } from 'i18next';
+import { checkErrorInstance } from '@/utils/checkErrorInstance';
 
 export function useHandleSignIn(t: TFunction<'translation', undefined>) {
   const signInSchema = createSignInSchema(t);
@@ -20,7 +21,7 @@ export function useHandleSignIn(t: TFunction<'translation', undefined>) {
     try {
       await logInWithEmailAndPassword(data.email, data.password);
     } catch (err) {
-      console.error(err);
+      checkErrorInstance(err);
     }
   };
 

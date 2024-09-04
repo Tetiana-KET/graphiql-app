@@ -1,13 +1,8 @@
-/* eslint-disable react-refresh/only-export-components */
-import { AuthProvider } from '@/components/AuthProvider';
-import { Metadata } from 'next';
-import { ReactNode } from 'react';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'REST/GraphQL Client',
-  description:
-    'A light-weight versions of Postman and GraphQL combined in one app',
-};
+import { AuthProvider } from '@/components/AuthProvider';
+import { SnackbarProvider } from 'notistack';
+import { ReactNode } from 'react';
 
 export default function RootLayout({
   children,
@@ -19,7 +14,9 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body>
-        <AuthProvider>{children}</AuthProvider>
+        <SnackbarProvider maxSnack={3}>
+          <AuthProvider>{children}</AuthProvider>
+        </SnackbarProvider>
       </body>
     </html>
   );

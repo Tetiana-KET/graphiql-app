@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useContext } from 'react';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '@/firebase';
 import { AuthContext } from '@/components/AuthProvider';
+import { checkErrorInstance } from '@/utils/checkErrorInstance';
 
 export const useFetchUserName = () => {
   const [name, setName] = useState('');
@@ -14,7 +15,7 @@ export const useFetchUserName = () => {
         const data = doc.docs[0].data();
         setName(data.name);
       } catch (err) {
-        console.error(err);
+        checkErrorInstance(err);
         setName('Incognito');
       }
     }

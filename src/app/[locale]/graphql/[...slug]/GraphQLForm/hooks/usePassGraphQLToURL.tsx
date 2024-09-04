@@ -11,7 +11,7 @@ export const usePassGraphQLToURL = () => {
     const endpointUrlBase64 = btoa(formData.URL);
     const sdlUrlBase64 = btoa(formData.SDL);
     const body = JSON.stringify({
-      query: formData.query.trim(),
+      query: formData.query ? formData.query.trim() : '',
       variables: formData.variables.reduce(
         (acc: Record<string, string>, variable) => {
           acc[variable.key] = variable.value;
