@@ -1,4 +1,5 @@
 import { GraphQLFormData } from '@/models/FormInterfaces';
+import { checkErrorInstance } from '@/utils/checkErrorInstance';
 import { fetchDocumentation } from '@/utils/fetchDocumentation';
 import { fetchGraphQLData } from '@/utils/fetchGraphQlData';
 import { urlToGraphQLFormData } from '@/utils/urlToGraphQLFormData';
@@ -24,16 +25,20 @@ export const useFetchData = ({ reset }: UseFetchDataProps) => {
 
   useEffect(() => {
     const fetchGQLData = async () => {
-      setIsBusy(true);
-      const encodedFormData = urlToGraphQLFormData(URL);
-      if (encodedFormData) {
-        reset(encodedFormData);
+      try {
+        setIsBusy(true);
+        const encodedFormData = urlToGraphQLFormData(URL);
+        if (encodedFormData) {
+          reset(encodedFormData);
+        }
+        const newGraphQLResponse = await fetchGraphQLData();
+        setGraphQLResponse(newGraphQLResponse);
+        const newDocumentation = await fetchDocumentation();
+        setDocumentation(newDocumentation);
+        setIsBusy(false);
+      } catch (error) {
+        checkErrorInstance(error);
       }
-      const newGraphQLResponse = await fetchGraphQLData();
-      setGraphQLResponse(newGraphQLResponse);
-      const newDocumentation = await fetchDocumentation();
-      setDocumentation(newDocumentation);
-      setIsBusy(false);
     };
     fetchGQLData();
   }, [URL, reset]);
