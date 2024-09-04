@@ -4,17 +4,19 @@ import {
   DEFAULT_GRAPHQL_QUERY,
   DEFAULT_GRAPHQL_URL,
 } from '@/models/GraphQLFormDefaultData';
+import { graphQLToURL } from '@/utils/graphQLToURL';
 import { saveGraphQLToLocalStorage } from '@/utils/saveGraphQLToLocalStorage';
 import { createGraphQLSchema } from '@/validation/graphQLSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { usePassGraphQLToURL } from './usePassGraphQLToURL';
 
 export function useGraphQLForm() {
   const { t } = useTranslation();
   const graphQLSchema = createGraphQLSchema(t);
   const {
+    reset,
     register,
     getValues,
     control,
@@ -27,8 +29,7 @@ export function useGraphQLForm() {
     resolver: zodResolver(graphQLSchema),
     mode: 'all',
   });
-
-  const { passGraphQLToURL } = usePassGraphQLToURL();
+  const router = useRouter();
 
   const getExampleFormData = () => {
     setValue('URL', DEFAULT_GRAPHQL_URL);
@@ -37,10 +38,12 @@ export function useGraphQLForm() {
 
   const onSubmit = async (formData: GraphQLFormData) => {
     saveGraphQLToLocalStorage(formData);
-    await passGraphQLToURL(formData);
+    const URL = graphQLToURL(formData);
+    router.push(URL);
   };
 
   return {
+    reset,
     getExampleFormData,
     register,
     getValues,

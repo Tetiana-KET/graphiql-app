@@ -11,7 +11,7 @@ export const saveGraphQLToLocalStorage = (requestData: GraphQLFormData) => {
     SDL: requestData.SDL,
     method: 'POST',
     headers: requestData.headers,
-    body: requestData.query,
+    query: requestData.query,
     variables: requestData.variables,
     requestTime: new Date().toISOString(),
     type: 'graphql',

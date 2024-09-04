@@ -13,19 +13,20 @@ import { useSDLAsURL } from './hooks/useSDLAsURL';
 export function GraphQLForm() {
   const { t } = useTranslation();
 
-  const { isBusy, documentation, graphQLResponse } = useFetchData();
-
   const {
     getExampleFormData,
     getValues,
     register,
     control,
     watch,
+    reset,
     setValue,
     handleSubmit,
     errors,
     onSubmit,
   } = useGraphQLForm();
+
+  const { isBusy, documentation, graphQLResponse } = useFetchData({ reset });
 
   const { handleSDLChange, isSDLAsURL, URLValue, SDLValue } = useSDLAsURL({
     watch,

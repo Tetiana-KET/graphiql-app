@@ -1,4 +1,5 @@
 import { GraphQLRequestHistoryRecord } from '@/models/FormInterfaces';
+import { graphQLToURL } from '@/utils/graphQLToURL';
 import { Button, Card, CardBody } from '@nextui-org/react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -16,13 +17,12 @@ export function HistoryRecord({ record }: HistoryRecordProps) {
 
   useEffect(() => {
     if (type === 'graphql') {
-      // Here will be generated same link as it generating in the form after submit,
-      // GraphQL/Rest page should get form data from it.
-      setLink('graphql');
+      const graphQLURL = graphQLToURL(record);
+      setLink(graphQLURL);
     } else {
       setLink('rest');
     }
-  }, [type]);
+  }, [type, record]);
 
   return (
     <Card className="flex">
@@ -39,7 +39,7 @@ export function HistoryRecord({ record }: HistoryRecordProps) {
         <div className="flex self-end">
           <Link href={link}>
             <Button color="secondary" size="sm">
-              {t('history:retry')}
+              {t('history:restore')}
             </Button>
           </Link>
         </div>

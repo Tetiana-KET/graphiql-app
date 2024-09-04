@@ -1,9 +1,16 @@
+import { GraphQLFormData } from '@/models/FormInterfaces';
 import { fetchDocumentation } from '@/utils/fetchDocumentation';
 import { fetchGraphQLData } from '@/utils/fetchGraphQlData';
+import { urlToGraphQLFormData } from '@/utils/urlToGraphQLFormData';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { UseFormReset } from 'react-hook-form';
 
-export const useFetchData = () => {
+interface UseFetchDataProps {
+  reset: UseFormReset<GraphQLFormData>;
+}
+
+export const useFetchData = ({ reset }: UseFetchDataProps) => {
   const URL = usePathname();
 
   const [graphQLResponse, setGraphQLResponse] = useState<
@@ -18,6 +25,10 @@ export const useFetchData = () => {
   useEffect(() => {
     const fetchGQLData = async () => {
       setIsBusy(true);
+      const encodedFormData = urlToGraphQLFormData(URL);
+      if (encodedFormData) {
+        reset(encodedFormData);
+      }
       const newGraphQLResponse = await fetchGraphQLData();
       setGraphQLResponse(newGraphQLResponse);
       const newDocumentation = await fetchDocumentation();
@@ -25,7 +36,7 @@ export const useFetchData = () => {
       setIsBusy(false);
     };
     fetchGQLData();
-  }, [URL]);
+  }, [URL, reset]);
 
   return { isBusy, graphQLResponse, documentation };
 };
