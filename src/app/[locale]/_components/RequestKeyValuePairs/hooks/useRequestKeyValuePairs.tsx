@@ -1,16 +1,16 @@
-import { GraphQLFormData } from '@/models/FormInterfaces';
 import { Control, useFieldArray } from 'react-hook-form';
+import { BaseFormData } from '@/models/BaseFormData';
 
 interface UseRequestKeyValuePairsProps {
-  type: 'headers' | 'variables';
-  control: Control<GraphQLFormData>;
+  type: keyof BaseFormData;
+  control: Control<BaseFormData>;
 }
-export const useRequestKeyValuePairs = ({
+export function useRequestKeyValuePairs({
   control,
   type,
-}: UseRequestKeyValuePairsProps) => {
+}: UseRequestKeyValuePairsProps) {
   const { fields, append, remove } = useFieldArray({
-    control,
+    control: control as unknown as Control<BaseFormData>,
     name: type,
   });
 
@@ -21,5 +21,6 @@ export const useRequestKeyValuePairs = ({
   const removeField = (index: number) => {
     remove(index);
   };
+
   return { fields, addField, removeField };
-};
+}
