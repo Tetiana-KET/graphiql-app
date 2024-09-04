@@ -5,7 +5,6 @@ import {
   DEFAULT_GRAPHQL_URL,
 } from '@/models/GraphQLFormDefaultData';
 import { graphQLToURL } from '@/utils/graphQLToURL';
-import { saveGraphQLToLocalStorage } from '@/utils/saveGraphQLToLocalStorage';
 import { createGraphQLSchema } from '@/validation/graphQLSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
@@ -37,7 +36,6 @@ export function useGraphQLForm() {
   };
 
   const onSubmit = async (formData: GraphQLFormData) => {
-    saveGraphQLToLocalStorage(formData);
     const URL = graphQLToURL(formData);
     router.push(URL);
   };

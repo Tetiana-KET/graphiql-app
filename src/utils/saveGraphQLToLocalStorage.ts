@@ -1,18 +1,24 @@
 import { DEFAULT_REQUEST_HISTORY_CONTENT } from '@/models/DefaultRequestHistoryContent';
 import { GraphQLFormData } from '@/models/FormInterfaces';
 
-export const saveGraphQLToLocalStorage = (requestData: GraphQLFormData) => {
+interface SaveGraphQLToLocalStorageProps {
+  formData: GraphQLFormData;
+}
+
+export const saveGraphQLToLocalStorage = ({
+  formData,
+}: SaveGraphQLToLocalStorageProps) => {
   const requestHistory = JSON.parse(
     localStorage.getItem('request-history') || DEFAULT_REQUEST_HISTORY_CONTENT,
   );
 
   const requestRecord = {
-    URL: requestData.URL,
-    SDL: requestData.SDL,
+    URL: formData.URL,
+    SDL: formData.SDL,
     method: 'POST',
-    headers: requestData.headers,
-    query: requestData.query,
-    variables: requestData.variables,
+    headers: formData.headers,
+    query: formData.query,
+    variables: formData.variables,
     requestTime: new Date().toISOString(),
     type: 'graphql',
   };

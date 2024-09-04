@@ -2,6 +2,7 @@ import { GraphQLFormData } from '@/models/FormInterfaces';
 import { checkErrorInstance } from '@/utils/checkErrorInstance';
 import { fetchDocumentation } from '@/utils/fetchDocumentation';
 import { fetchGraphQLData } from '@/utils/fetchGraphQlData';
+import { saveGraphQLToLocalStorage } from '@/utils/saveGraphQLToLocalStorage';
 import { urlToGraphQLFormData } from '@/utils/urlToGraphQLFormData';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -27,19 +28,29 @@ export const useFetchData = ({ reset }: UseFetchDataProps) => {
     const fetchGQLData = async () => {
       try {
         setIsBusy(true);
-        const encodedFormData = urlToGraphQLFormData(URL);
-        if (encodedFormData) {
-          reset(encodedFormData);
+
+        const decodedFormData = urlToGraphQLFormData(URL);
+
+        if (decodedFormData) {
+          reset(decodedFormData);
+
+          const newGraphQLResponse = await fetchGraphQLData();
+          setGraphQLResponse(newGraphQLResponse);
+          saveGraphQLToLocalStorage({
+            formData: decodedFormData,
+          });
+
+          const newDocumentation = await fetchDocumentation();
+          setDocumentation(newDocumentation);
         }
-        const newGraphQLResponse = await fetchGraphQLData();
-        setGraphQLResponse(newGraphQLResponse);
-        const newDocumentation = await fetchDocumentation();
-        setDocumentation(newDocumentation);
+
         setIsBusy(false);
       } catch (error) {
         checkErrorInstance(error);
+        setIsBusy(false);
       }
     };
+
     fetchGQLData();
   }, [URL, reset]);
 
