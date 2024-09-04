@@ -1,5 +1,7 @@
 'use client';
 
+import { useRestBody } from '@/app/[locale]/rest/hooks/useRestBody';
+import { RestFormData } from '@/models/RestFormData';
 import { json } from '@codemirror/lang-json';
 import { Button } from '@nextui-org/react';
 import CodeMirror from '@uiw/react-codemirror';
@@ -9,8 +11,6 @@ import {
   UseFormSetValue,
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { useRestBody } from '@/app/[locale]/rest/hooks/useRestBody';
-import { RestFormData } from '@/models/RestFormData';
 
 export interface RestBodyProps {
   getValues: UseFormGetValues<RestFormData>;

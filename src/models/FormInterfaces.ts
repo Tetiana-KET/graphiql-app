@@ -5,3 +5,8 @@ export interface GraphQLFormData extends BaseFormData {
   SDL: string;
   query: string;
 }
+
+export interface GraphQLRequestHistoryRecord extends GraphQLFormData {
+  type: string;
+  requestTime: string;
+}

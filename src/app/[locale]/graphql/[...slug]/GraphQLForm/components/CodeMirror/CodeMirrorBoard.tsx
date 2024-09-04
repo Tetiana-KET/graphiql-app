@@ -32,14 +32,14 @@ function CodeMirrorBoard({
 
   return (
     <div>
-      <h4>{t('common:queries')}</h4>
+      <h4 className={errorMessage && 'text-red-500'}>{t('common:queries')}</h4>
       <CodeMirror
         value={getValues('query')}
         {...register('query')}
         extensions={[javascript({ jsx: true })]}
         onChange={handleBoardValue}
       />
-      <div>{errorMessage || ''}</div>
+      <div className="text-red-500">{errorMessage || ''}</div>
       <div className="flex gap-2">
         <Button
           className="mt-2"

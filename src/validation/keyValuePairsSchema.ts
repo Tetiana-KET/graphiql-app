@@ -1,5 +1,5 @@
-import { z } from 'zod';
 import { TranslationFunction } from '@/models/AuthInterfaces';
+import { z } from 'zod';
 
 export const createKeyValuePairsSchema = (t: TranslationFunction) =>
   z.object({
