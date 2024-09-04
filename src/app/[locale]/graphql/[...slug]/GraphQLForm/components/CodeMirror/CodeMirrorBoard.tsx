@@ -25,7 +25,7 @@ function CodeMirrorBoard({
   setValue,
   errorMessage,
 }: CodeMirrorBoardProps) {
-  const { handleBoardValue, prettifyCode } = useCodeMirrorBoard({
+  const { handleBoardValue, prettify } = useCodeMirrorBoard({
     setValue,
   });
   const { t } = useTranslation();
@@ -46,7 +46,7 @@ function CodeMirrorBoard({
           type="button"
           size="sm"
           color="primary"
-          onClick={prettifyCode}
+          onClick={prettify}
         >
           {t('common:prettifyCode')}
         </Button>

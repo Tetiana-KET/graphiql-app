@@ -5,8 +5,13 @@ import { useEffect, useState } from 'react';
 
 export const useFetchData = () => {
   const URL = usePathname();
-  const [graphQLResponse, setGraphQLResponse] = useState<Response | null>(null);
-  const [documentation, setDocumentation] = useState<Response | null>(null);
+
+  const [graphQLResponse, setGraphQLResponse] = useState<
+    Response | null | undefined
+  >(null);
+  const [documentation, setDocumentation] = useState<
+    Response | null | undefined
+  >(null);
 
   const [isBusy, setIsBusy] = useState(false);
 

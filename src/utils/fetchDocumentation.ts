@@ -1,5 +1,7 @@
 import { getIntrospectionQuery } from 'graphql';
+import { enqueueSnackbar } from 'notistack';
 
+// eslint-disable-next-line consistent-return
 export const fetchDocumentation = async () => {
   const urlParts = window.location.pathname.split('/');
 
@@ -10,7 +12,9 @@ export const fetchDocumentation = async () => {
   const encodedSDLLink = urlParts[3];
 
   if (!encodedSDLLink) {
-    throw new Error('Encoded SDL link not found in URL');
+    enqueueSnackbar('Encoded SDL link not found in URL', {
+      variant: 'error',
+    });
   }
 
   const sdlLink = atob(encodedSDLLink);
@@ -27,7 +31,8 @@ export const fetchDocumentation = async () => {
     const response = await fetch(sdlLink, SDLRequest);
     return response;
   } catch (error) {
-    console.error('GraphQL request failed:', error);
-    throw error;
+    enqueueSnackbar(`GraphQL request failed with error: ${error}`, {
+      variant: 'info',
+    });
   }
 };

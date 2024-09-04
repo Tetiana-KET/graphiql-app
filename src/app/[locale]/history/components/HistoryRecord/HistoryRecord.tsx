@@ -28,7 +28,7 @@ export function HistoryRecord({ record }: HistoryRecordProps) {
     <Card className="flex">
       <CardBody className="flex flex-col gap-2 mt-1 ">
         <h2>
-          {t('history:requestType')}: {type}
+          {t('history:requestType')}: {type.toUpperCase()}
         </h2>
         <h2>
           {t('common:URL')}: {URL}

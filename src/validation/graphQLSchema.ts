@@ -1,20 +1,10 @@
 import { TranslationFunction } from '@/models/AuthInterfaces';
 import { ENGLISH_LETTERS_REGEX } from '@/models/EnglishLettersRegex';
+import { createKeyValuePairsSchema } from '@/validation/keyValuePairsSchema';
 import { z } from 'zod';
 
 export const createGraphQLSchema = (t: TranslationFunction) => {
-  const RequestKeyValuePairsSchema = z.object({
-    key: z
-      .string()
-      .min(1, t('common:KeyRequired'))
-      .regex(ENGLISH_LETTERS_REGEX, t('common:onlyEnglishLetters')),
-    value: z
-      .string()
-      .min(1, t('common:ValueRequired'))
-      .regex(ENGLISH_LETTERS_REGEX, t('common:onlyEnglishLetters')),
-  });
-
-  const graphQLSchema = z.object({
+  return z.object({
     URL: z
       .string()
       .min(1, t('common:URLRequired'))
@@ -27,9 +17,7 @@ export const createGraphQLSchema = (t: TranslationFunction) => {
       .string()
       .min(1, t('graphQL:queryRequired'))
       .regex(ENGLISH_LETTERS_REGEX, t('common:onlyEnglishLetters')),
-    variables: z.array(RequestKeyValuePairsSchema).optional(),
-    headers: z.array(RequestKeyValuePairsSchema).optional(),
+    variables: z.array(createKeyValuePairsSchema(t)).optional(),
+    headers: z.array(createKeyValuePairsSchema(t)).optional(),
   });
-
-  return graphQLSchema;
 };
