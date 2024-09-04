@@ -11,17 +11,12 @@ export function EmptyHistory() {
         {t('history:emptyHistoryMessage')}
       </h2>
       <div className="flex gap-6 justify-center">
-        <Link href="/graphql">
-          <Button color="secondary" size="lg">
-            GraphQl
-          </Button>
-        </Link>
-
-        <Link href="/rest">
-          <Button color="secondary" size="lg">
-            Rest
-          </Button>
-        </Link>
+        <Button as={Link} href="/graphql" color="secondary" size="lg">
+          GraphQl
+        </Button>
+        <Button as={Link} href="/rest" color="secondary" size="lg">
+          Rest
+        </Button>
       </div>
     </div>
   );
