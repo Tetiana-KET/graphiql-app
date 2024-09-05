@@ -1,41 +1,38 @@
-import { checkErrorInstance } from '@/utils/checkErrorInstance';
-import { Spinner } from '@nextui-org/react';
+'use client';
+
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import JsonView from 'react18-json-view';
-import 'react18-json-view/src/style.css';
+import { ApiResponse } from '@/models/ApiResponse';
+import { json } from '@codemirror/lang-json';
+import CodeMirror from '@uiw/react-codemirror';
+import { checkErrorInstance } from '@/utils/checkErrorInstance';
+import { Card, CardBody, CardHeader, Divider } from '@nextui-org/react';
 
 interface RequestDocumentationProps {
-  documentationResponse: Response | null | undefined;
-  isBusy: boolean;
+  response: ApiResponse;
 }
 
-export function RequestDocumentation({
-  documentationResponse,
-  isBusy,
-}: RequestDocumentationProps) {
-  const [documentation, setDocumentation] = useState(null);
+export function RequestDocumentation({ response }: RequestDocumentationProps) {
+  const [documentation, setDocumentation] = useState<object | null>(null);
   const { t } = useTranslation();
 
   useEffect(() => {
-    const parseSchema = async () => {
-      if (documentationResponse) {
-        try {
-          const result = await documentationResponse.json();
-          // eslint-disable-next-line no-underscore-dangle
-          if (result.data.__schema) {
-            setDocumentation(result);
-          } else {
-            setDocumentation(null);
-          }
-        } catch (err) {
-          checkErrorInstance(err);
-        }
-      }
-    };
-    parseSchema();
-  }, [documentationResponse]);
-  if (!documentationResponse) {
+    const { data, error } = response;
+
+    if (data) {
+      const documentationData = data as { data: { __schema?: string } };
+      setDocumentation(
+        // eslint-disable-next-line no-underscore-dangle
+        documentationData.data.__schema ? documentationData.data : null,
+      );
+    }
+
+    if (error) {
+      checkErrorInstance(error);
+    }
+  }, [response]);
+
+  if (!response) {
     return (
       <div className="flex flex-col w-full h-1/2">
         <h2>{t('common:doc')}</h2>
@@ -45,18 +42,24 @@ export function RequestDocumentation({
   }
 
   return (
-    <div className="flex flex-col w-full">
-      <div className="flex flex-col w-full">
-        <div>
-          <h2>{t('common:doc')} </h2>
-          <div className="flex max-h-96 overflow-scroll">
-            {documentation && !isBusy && <JsonView src={documentation} />}
-            {!documentation && !isBusy && <h2>{t('graphQL:docResponse')}</h2>}
-          </div>
-        </div>
-      </div>
+    <Card className="flex p-2 w-full h-full">
+      <CardHeader>{t('common:doc')}</CardHeader>
 
-      {isBusy && <Spinner color="secondary" />}
-    </div>
+      <Divider />
+
+      <CardBody>
+        {documentation ? (
+          <CodeMirror
+            value={JSON.stringify(documentation, null, 2)}
+            extensions={[json()]}
+            readOnly
+            height="auto"
+            className="overflow-auto"
+          />
+        ) : (
+          <h2>{t('graphQL:docResponse')}</h2>
+        )}
+      </CardBody>
+    </Card>
   );
 }

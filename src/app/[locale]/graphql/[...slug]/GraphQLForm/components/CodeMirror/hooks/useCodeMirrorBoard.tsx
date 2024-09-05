@@ -1,4 +1,4 @@
-import { GraphQLFormData } from '@/models/FormInterfaces';
+import { GraphQLFormData } from '@/models/GraphQLFormData';
 import { prettifyCode } from '@/utils/prettifyCode';
 import { enqueueSnackbar } from 'notistack';
 import { useCallback, useState } from 'react';

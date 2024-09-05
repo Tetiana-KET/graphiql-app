@@ -10,6 +10,7 @@ export function EmptyHistory() {
       <h2 className="self-center text-lg">
         {t('history:emptyHistoryMessage')}
       </h2>
+
       <div className="flex gap-6 justify-center">
         <Button as={Link} href="/graphql" color="secondary" size="lg">
           GraphQl

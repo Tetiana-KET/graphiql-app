@@ -1,72 +1,65 @@
-import { checkErrorInstance } from '@/utils/checkErrorInstance';
-import { Spinner } from '@nextui-org/react';
-import { useEffect, useState } from 'react';
+'use client';
+
 import { useTranslation } from 'react-i18next';
-import JsonView from 'react18-json-view';
-import 'react18-json-view/src/style.css';
+import { json } from '@codemirror/lang-json';
+import CodeMirror from '@uiw/react-codemirror';
+import { useEffect } from 'react';
+import { HistoryService } from '@/services/history';
+import { RequestType } from '@/enums/RequestType';
+import { GraphQLFormData } from '@/models/GraphQLFormData';
+import { RestFormData } from '@/models/RestFormData';
+import { ApiResponse } from '@/models/ApiResponse';
+import { checkErrorInstance } from '@/utils/checkErrorInstance';
+import { Card, CardBody, CardHeader, Chip, Divider } from '@nextui-org/react';
+import { getStatusColor } from '@/utils/getStatusColor';
 
 interface ResponseStatusProps {
-  graphQLResponse: Response | undefined;
-  isBusy: boolean;
+  response: ApiResponse;
+  formData: GraphQLFormData | RestFormData | null;
+  type: RequestType;
 }
 
 export function ResponseStatus({
-  graphQLResponse,
-  isBusy,
+  response,
+  formData,
+  type,
 }: ResponseStatusProps) {
-  const [data, setData] = useState(null);
   const { t } = useTranslation();
+  const { status, data, error } = response;
 
   useEffect(() => {
-    const parseResponse = async () => {
-      if (graphQLResponse) {
-        try {
-          const result = await graphQLResponse.json();
-          setData(result);
-        } catch (err) {
-          checkErrorInstance(err);
-        }
-      }
-    };
+    if (formData) {
+      HistoryService.add(type, formData, response);
+    }
 
-    parseResponse();
-  }, [graphQLResponse]);
-
-  if (!graphQLResponse) {
-    return (
-      <div className="flex flex-col w-full h-1/2">
-        <h2>{t('common:response')}</h2>
-        <h2>{t('common:responseText')}</h2>
-      </div>
-    );
-  }
+    if (error) {
+      checkErrorInstance(error);
+    }
+  }, [type, formData, response, error]);
 
   return (
-    <div className="flex flex-col w-full">
-      <div className="flex flex-col w-full">
-        <h2>{t('common:response')}</h2>
-        {!isBusy && (
-          <div>
-            <h2>
-              {t('common:responseStatus')} {graphQLResponse.status}
-            </h2>
-            <div
-              className="flex max-h-96 w-full
-   overflow-scroll"
-            >
-              {data && (
-                <div
-                  className="flex max-h-96 w-full
-   overflow-scroll"
-                >
-                  <JsonView src={data} />
-                </div>
-              )}
-            </div>
-          </div>
+    <Card className="flex p-2 w-full h-full">
+      <CardHeader className="flex justify-between">
+        <strong>{t('common:response')}</strong>{' '}
+        <Chip color={getStatusColor(status)}>{status || ''}</Chip>
+      </CardHeader>
+
+      <Divider />
+
+      <CardBody>
+        {data ? (
+          <CodeMirror
+            value={JSON.stringify(data, null, 2)}
+            extensions={[json()]}
+            readOnly
+            height="auto"
+            className="overflow-auto rounded-md"
+            theme="dark"
+          />
+        ) : (
+          <h2>{t('common:responseText')}</h2>
         )}
-      </div>
-      {isBusy && <Spinner color="secondary" />}
-    </div>
+      </CardBody>
+    </Card>
   );
 }
