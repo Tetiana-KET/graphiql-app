@@ -1,25 +1,24 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
-import { HistoryService } from '@/services/history';
 import { Button } from '@nextui-org/react';
 import { RequestHistoryRecord } from '@/models/RequestHistoryRecord';
 import { useState } from 'react';
+import { useHistory } from '@/hooks/useHistory';
 import { EmptyHistory } from './EmptyHistory/EmptyHistory';
 import { HistoryRecord } from './HistoryRecord/HistoryRecord';
 
 export default function HistoryList() {
   const { t } = useTranslation();
-  const [history, setHistory] = useState<RequestHistoryRecord[]>(
-    HistoryService.get(),
-  );
+  const { get, clear } = useHistory();
+  const [history, setHistory] = useState<RequestHistoryRecord[]>(get());
 
   if (!history.length) {
     return <EmptyHistory />;
   }
 
   const clearHandler = () => {
-    HistoryService.clear();
+    clear();
     setHistory([]);
   };
 
