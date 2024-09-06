@@ -66,7 +66,6 @@ export function RequestKeyValuePairs<T extends BaseFormData>({
           <Button
             color="danger"
             type="button"
-            size="sm"
             onClick={() => removeField(index)}
           >
             Remove

@@ -1,6 +1,6 @@
 'use client';
 
-import { GraphQLFormData } from '@/models/FormInterfaces';
+import { GraphQLFormData } from '@/models/GraphQLFormData';
 import { javascript } from '@codemirror/lang-javascript';
 import { Button } from '@nextui-org/react';
 import CodeMirror from '@uiw/react-codemirror';
@@ -33,13 +33,16 @@ function CodeMirrorBoard({
   return (
     <div>
       <h4 className={errorMessage && 'text-red-500'}>{t('common:queries')}</h4>
+
       <CodeMirror
         value={getValues('query')}
         {...register('query')}
         extensions={[javascript({ jsx: true })]}
+        height="200px"
         onChange={handleBoardValue}
       />
       <div className="text-red-500">{errorMessage || ''}</div>
+
       <div className="flex gap-2">
         <Button
           className="mt-2"

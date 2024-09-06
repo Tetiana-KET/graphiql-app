@@ -1,4 +1,4 @@
-import { RestMethod } from '@/models/RestMethod.enum';
+import { RestMethod } from '@/enums/RestMethod';
 import { BaseFormData } from '@/models/BaseFormData';
 
 export interface RestFormData extends BaseFormData {

@@ -32,7 +32,11 @@ function NavBarLinks() {
             className={`${isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}
               ${!isLoggedIn ? 'hidden' : ''}`}
           >
-            <Link href={item.path} aria-current={isActive ? 'page' : undefined}>
+            <Link
+              href={item.path}
+              aria-current={isActive ? 'page' : undefined}
+              className="h-full w-full flex items-center justify-center"
+            >
               {t(`layout:${item.title}`)}
             </Link>
           </NavbarItem>

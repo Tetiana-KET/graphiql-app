@@ -1,7 +1,7 @@
 import { TranslationFunction } from '@/models/AuthInterfaces';
 import { z } from 'zod';
 import { createKeyValuePairsSchema } from '@/validation/keyValuePairsSchema';
-import { RestMethod } from '@/models/RestMethod.enum';
+import { RestMethod } from '@/enums/RestMethod';
 
 export const createRestSchema = (t: TranslationFunction) => {
   return z.object({
