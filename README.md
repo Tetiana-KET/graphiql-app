@@ -1,4 +1,5 @@
 # REST/GraphiQL Client
+## [Deployment](https://graphiql-app-ktj5.vercel.app/)
 
 ### Project Overview
 This project is an educational initiative aimed at developing a lightweight application that combines the core functionalities of Postman and GraphiQL. The main focus of this task is to provide a practical learning experience in team-based development while deepening knowledge in Next.js and React.
@@ -38,13 +39,11 @@ This project is an educational initiative aimed at developing a lightweight appl
 - Linters: [**ESLint**](https://eslint.org/), [**Prettier**](https://prettier.io/)
 - Pre-push/Pre-commit: [**Husky**](https://typicode.github.io/husky/)
 - UI library: [**NextUI**](https://nextui.org/docs/guide/introduction#what-is-nextui)
-- Tests: [**Vitest**](https://vitest.dev/))
-- Routing: [**Next.js App Router**](https://nextjs.org/docs/app/building-your-application/routing)) 
+- Tests: [**Vitest**](https://vitest.dev/)
+- Routing: [**Next.js App Router**](https://nextjs.org/docs/app/building-your-application/routing)
 - Hosting: [**Vercel**](https://vercel.com/)
-- Task Board: [**GitHub Pages**](https://github.com/users/Tetiana-KET/projects/3/views/2))
+- Task Board: [**GitHub Pages**](https://github.com/users/Tetiana-KET/projects/3/views/2)
 - Code style: [**Wiki**]()
-
-## [Deployment](https://graphiql-app-ktj5.vercel.app/)
 
 ### Setup instructions
 
