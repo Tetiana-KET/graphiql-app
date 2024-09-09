@@ -21,7 +21,6 @@ export default defineConfig({
         'vite.config.ts',
         'vitest.config.ts',
         'dist',
-        'utils/downloadCSV/downloadCSV.ts',
       ],
     },
   },
