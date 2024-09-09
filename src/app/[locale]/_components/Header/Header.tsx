@@ -32,9 +32,9 @@ function Header() {
     <Navbar
       isBordered
       ref={headerRef}
-      className={`${styles.header} ${styles.headerWrapper} ${isSticky ? styles.stickyHeader : ''} bg-light-grey-bg-color`}
+      className={`${styles.header} ${styles.headerWrapper} ${isSticky ? styles.stickyHeader : ''} bg-light-grey-bg-color `}
       classNames={{
-        wrapper: 'max-w-[1440px]',
+        wrapper: 'max-w-[1440px] px-4 sm:px-8',
       }}
       data-testid="header"
       isMenuOpen={isMenuOpen}

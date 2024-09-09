@@ -25,7 +25,7 @@ function NavBarLinks() {
   return (
     <NavbarContent className="hidden sm:flex gap-0" justify="center">
       {navigationList.map((item: NavigationListItem) => {
-        const isActive = pathname === item.path;
+        const isActive = pathname.includes(item.path);
         return (
           <NavbarItem
             key={item.id}

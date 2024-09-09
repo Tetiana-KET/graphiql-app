@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -18,11 +20,9 @@ export function RequestDocumentation({ response }: RequestDocumentationProps) {
 
   useEffect(() => {
     const { data, error } = response;
-
-    if (data) {
-      const documentationData = data as { data: { __schema?: string } };
+    const documentationData = data as { data: { __schema?: string } };
+    if (documentationData?.data?.__schema) {
       setDocumentation(
-        // eslint-disable-next-line no-underscore-dangle
         documentationData.data.__schema ? documentationData.data : null,
       );
     }

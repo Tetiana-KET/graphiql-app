@@ -23,6 +23,9 @@ const config: Config = {
       screens: {
         xs: '400px',
       },
+      height: {
+        '80dvh': '80dvh',
+      },
     },
   },
   darkMode: 'class',

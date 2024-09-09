@@ -47,7 +47,7 @@ export function ResponseStatus({
 
       <Divider />
 
-      <CardBody>
+      <CardBody className="p-1 sm:p-3">
         {data ? (
           <CodeMirror
             value={JSON.stringify(data, null, 2)}

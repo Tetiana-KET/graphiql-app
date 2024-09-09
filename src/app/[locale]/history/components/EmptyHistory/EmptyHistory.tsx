@@ -6,7 +6,7 @@ export function EmptyHistory() {
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col gap-4 mt-4">
+    <div className="flex flex-col gap-4 mt-4 w-full flex-1">
       <h2 className="self-center text-lg">
         {t('history:emptyHistoryMessage')}
       </h2>
