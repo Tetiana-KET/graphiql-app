@@ -25,7 +25,7 @@ export default async function RestResponsePage({
   const response = await ApiService.fetch(formData.url, request);
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 h-80dvh w-full overflow-auto ">
+    <div className="flex flex-col sm:flex-row gap-4 h-80dvh w-full overflow-auto">
       <RestForm formData={formData} />
 
       <div className="flex w-full sm:w-1/2">

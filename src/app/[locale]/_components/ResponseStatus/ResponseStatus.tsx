@@ -39,7 +39,7 @@ export function ResponseStatus({
   }, [type, formData, response, error, add]);
 
   return (
-    <Card className="flex p-2 w-full h-full">
+    <Card className="flex px-1 sm:px-2 w-full h-full">
       <CardHeader className="flex justify-between">
         <strong>{t('common:response')}</strong>{' '}
         <Chip color={getStatusColor(status)}>{status || ''}</Chip>
@@ -47,7 +47,7 @@ export function ResponseStatus({
 
       <Divider />
 
-      <CardBody className="p-1 sm:p-3">
+      <CardBody className="p-1 sm:p-2">
         {data ? (
           <CodeMirror
             value={JSON.stringify(data, null, 2)}

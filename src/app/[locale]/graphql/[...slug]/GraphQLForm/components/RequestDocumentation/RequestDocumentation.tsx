@@ -42,12 +42,12 @@ export function RequestDocumentation({ response }: RequestDocumentationProps) {
   }
 
   return (
-    <Card className="flex p-2 w-full h-full">
+    <Card className="flex p-1 sm:p-2 w-full h-full">
       <CardHeader>{t('common:doc')}</CardHeader>
 
       <Divider />
 
-      <CardBody>
+      <CardBody className=" p-1 sm:p-3">
         {documentation ? (
           <CodeMirror
             value={JSON.stringify(documentation, null, 2)}

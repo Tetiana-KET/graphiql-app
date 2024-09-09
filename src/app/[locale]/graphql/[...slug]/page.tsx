@@ -30,11 +30,11 @@ export default async function GraphResponsePage({
   });
 
   return (
-    <div className="flex gap-4 w-full h-full">
+    <div className="flex flex-col sm:flex-row gap-3 h-80dvh w-full overflow-auto">
       <GraphQLForm formData={formData} />
 
-      <div className="flex w-1/2 h-full flex-col gap-2">
-        <div className="h-1/2">
+      <div className="px-1 flex w-full sm:w-48p h-full flex-col gap-1">
+        <div className="h-full sm:h-40p">
           <ResponseStatus
             formData={formData}
             response={requestResponse}
@@ -42,7 +42,7 @@ export default async function GraphResponsePage({
           />
         </div>
 
-        <div className="h-1/2">
+        <div className="h-full sm:h-59p">
           <RequestDocumentation response={documentationResponse} />
         </div>
       </div>
