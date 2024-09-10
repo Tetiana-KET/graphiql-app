@@ -2,7 +2,9 @@ import {
   DEFAULT_GRAPHQL_QUERY,
   DEFAULT_GRAPHQL_URL,
 } from '@/consts/DefaultFormData';
+import { ApiResponse } from '@/models/ApiResponse';
 import { GraphQLFormData } from '@/models/GraphQLFormData';
+import { User } from 'firebase/auth';
 
 export const GraphQLFormDataMock: GraphQLFormData = {
   url: DEFAULT_GRAPHQL_URL,
