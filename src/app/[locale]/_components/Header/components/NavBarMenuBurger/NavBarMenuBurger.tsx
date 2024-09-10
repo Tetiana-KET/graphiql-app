@@ -26,7 +26,10 @@ function NavBarMenuBurger({
   const isLoggedIn = authContext?.isLoggedIn;
 
   return (
-    <NavbarMenu className={`${styles.navBarMenuBurger} pt-8 gap-0`}>
+    <NavbarMenu
+      className={`${styles.navBarMenuBurger} pt-8 gap-0`}
+      data-testid="navBarMenuBurger"
+    >
       {navigationList.map((item: NavigationListItem) => {
         const isActive = pathname === item.path;
         return (
@@ -35,6 +38,7 @@ function NavBarMenuBurger({
               setIsMenuOpen(isMenuOpen);
             }}
             key={item.id}
+            data-testid={item.title}
             className={`h-[var(--navbar-height)] ${
               isActive
                 ? `${styles.navBurgerLink} ${styles.active}`
