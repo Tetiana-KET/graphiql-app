@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { RequestHistoryRecord } from '@/models/RequestHistoryRecord';
 import { SerializerService } from '@/services/serializer';
 import { RequestType } from '@/enums/RequestType';
+import { checkErrorInstance } from '@/utils/checkErrorInstance';
 
 interface HistoryRecordProps {
   record: RequestHistoryRecord;
@@ -13,7 +14,15 @@ export function HistoryRecord({ record }: HistoryRecordProps) {
   const { t } = useTranslation();
 
   const { date, type, time } = record;
-  const link = SerializerService.serialize(type, record.formData);
+  let link: string | null = null;
+
+  try {
+    link = SerializerService.serialize(type, record.formData);
+  } catch (error) {
+    checkErrorInstance(
+      Error(`${t('common:FailedSerialize')} ${error?.toString()}`),
+    );
+  }
 
   return (
     <Card className="flex">
@@ -37,13 +46,15 @@ export function HistoryRecord({ record }: HistoryRecordProps) {
           )
         </h2>
 
-        <div className="flex self-end">
-          <Link href={link}>
-            <Button color="secondary" size="sm">
-              {t('history:restore')}
-            </Button>
-          </Link>
-        </div>
+        {link && (
+          <div className="flex self-end">
+            <Link href={link}>
+              <Button color="secondary" size="sm">
+                {t('history:restore')}
+              </Button>
+            </Link>
+          </div>
+        )}
       </CardBody>
     </Card>
   );

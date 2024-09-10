@@ -10,11 +10,7 @@ interface DeserializedData<T extends GraphQLFormData | RestFormData> {
   request: RequestInit;
 }
 
-const METHODS_WITHOUT_BODY = [
-  RestMethod.Get,
-  RestMethod.Head,
-  RestMethod.Delete,
-];
+const METHODS_WITH_BODY = [RestMethod.Post, RestMethod.Put, RestMethod.Patch];
 
 const getFormData = <T extends GraphQLFormData | RestFormData>(
   type: RequestType,
@@ -63,7 +59,7 @@ const getRequest = (
     },
   };
 
-  if (!METHODS_WITHOUT_BODY.includes(method)) {
+  if (METHODS_WITH_BODY.includes(method)) {
     request.body = body;
   }
 
@@ -76,31 +72,30 @@ export class SerializerService {
     formData: T,
   ): string {
     const endpointUrlBase64 = btoa(formData.url);
-    // TODO: there is an error here
-    // serializer.ts:78 Uncaught (in promise) InvalidCharacterError: Failed to execute 'btoa' on 'Window': The string to be encoded contains characters outside of the Latin1 range.
     let sdlUrlBase64 = '';
-    let baseBody: Record<string, string>;
+    let query: string;
     let method: string = '';
 
     if (type === RequestType.GraphQL) {
       sdlUrlBase64 = btoa((formData as GraphQLFormData).sdl);
-      baseBody = { query: (formData as GraphQLFormData).query?.trim() || '' };
+      query = (formData as GraphQLFormData).query?.trim() || '';
     } else {
       method = (formData as RestFormData).method;
-      baseBody = JSON.parse((formData as RestFormData).body?.trim() || '{}');
+      query = (formData as RestFormData).body?.trim() || '';
     }
 
-    const body = JSON.stringify({
-      ...baseBody,
-      variables: formData.variables.reduce(
-        (acc: Record<string, string>, variable) => {
-          acc[variable.key] = variable.value;
-          return acc;
-        },
-        {},
-      ),
-    });
+    const variables = formData.variables.reduce(
+      (acc: Record<string, string>, variable) => {
+        acc[variable.key] = variable.value;
+        return acc;
+      },
+      {},
+    );
 
+    const body = JSON.stringify({
+      query,
+      variables,
+    });
     const bodyBase64 = btoa(body);
 
     const headersQuery = formData.headers
@@ -124,8 +119,8 @@ export class SerializerService {
     headers: Record<string, string>,
   ): DeserializedData<T> | null {
     let method: RestMethod = RestMethod.Post;
-    let endpointUrlBase64: string = '';
-    let bodyBase64: string = '';
+    let endpointUrlBase64: string;
+    let bodyBase64: string;
     let sdlUrlBase64: string = '';
 
     const decodedParams = params.map((param) => decodeURIComponent(param));
@@ -155,10 +150,20 @@ export class SerializerService {
       if (type === RequestType.GraphQL) {
         sdl = atob(sdlUrlBase64);
       }
-      body = JSON.parse(bodyJson);
+
+      body = JSON.parse(bodyJson || '{}');
       requestParams = { method, url, headers, body, sdl };
     } catch {
       return null;
+    }
+
+    if (type === RequestType.Rest) {
+      bodyJson = body.query;
+
+      Object.entries(body.variables).forEach(([key, value]) => {
+        const regex = new RegExp(`{{${key}}}`, 'g');
+        bodyJson = bodyJson.replace(regex, value);
+      });
     }
 
     return {
