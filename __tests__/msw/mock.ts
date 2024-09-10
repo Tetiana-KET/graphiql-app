@@ -64,3 +64,17 @@ export const mockUser: User = {
   phoneNumber: null,
   providerId: '',
 };
+
+export const mockAuthContextValue = {
+  isLoggedIn: true,
+  loading: false,
+  userName: 'User Name',
+  user: mockUser,
+};
+
+export const mockUnAuthContextValue = {
+  isLoggedIn: false,
+  loading: false,
+  userName: '',
+  user: mockUser,
+};

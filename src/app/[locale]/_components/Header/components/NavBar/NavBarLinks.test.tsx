@@ -4,32 +4,12 @@ import { describe, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Navbar } from '@nextui-org/react';
 import NavBarLinks from './NavBarLinks';
-import { mockUser } from '../../../../../../../__tests__/msw/mock';
-
-vi.mock('next/navigation', () => ({
-  usePathname: vi.fn(),
-  useRouter: vi.fn(() => ({
-    push: vi.fn(),
-  })),
-}));
-
-vi.mock('react-i18next', () => ({
-  useTranslation: vi.fn(() => ({
-    t: (key: string) => key,
-    i18n: {
-      language: 'en',
-    },
-  })),
-}));
+import {
+  mockAuthContextValue,
+  mockUnAuthContextValue,
+} from '../../../../../../../__tests__/msw/mock';
 
 describe('NavBarLinks', () => {
-  const mockAuthContextValue = {
-    isLoggedIn: true,
-    loading: false,
-    userName: 'User Name',
-    user: mockUser,
-  };
-
   beforeEach(() => {
     (usePathname as ReturnType<typeof vi.fn>).mockReturnValue('/rest');
   });
@@ -61,12 +41,7 @@ describe('NavBarLinks', () => {
   });
 
   it('hides links when user is not logged in', () => {
-    renderComponent({
-      isLoggedIn: false,
-      loading: false,
-      userName: '',
-      user: mockUser,
-    });
+    renderComponent(mockUnAuthContextValue);
     screen.debug();
     expect(screen.getByTestId('restClient')).toHaveClass('hidden');
   });
