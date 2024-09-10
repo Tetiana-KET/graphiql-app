@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -18,11 +20,9 @@ export function RequestDocumentation({ response }: RequestDocumentationProps) {
 
   useEffect(() => {
     const { data, error } = response;
-
-    if (data) {
-      const documentationData = data as { data: { __schema?: string } };
+    const documentationData = data as { data: { __schema?: string } };
+    if (documentationData?.data?.__schema) {
       setDocumentation(
-        // eslint-disable-next-line no-underscore-dangle
         documentationData.data.__schema ? documentationData.data : null,
       );
     }
@@ -42,12 +42,12 @@ export function RequestDocumentation({ response }: RequestDocumentationProps) {
   }
 
   return (
-    <Card className="flex p-2 w-full h-full">
+    <Card className="flex p-1 sm:p-2 w-full h-full">
       <CardHeader>{t('common:doc')}</CardHeader>
 
       <Divider />
 
-      <CardBody>
+      <CardBody className=" p-1 sm:p-3">
         {documentation ? (
           <CodeMirror
             value={JSON.stringify(documentation, null, 2)}

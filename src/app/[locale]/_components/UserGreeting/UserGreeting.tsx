@@ -14,7 +14,7 @@ function UserGreeting() {
   }
 
   return (
-    <h1 className="text-2xl">
+    <h1 className="text-base sm:text-2xl text-center">
       {user ? (
         <span className="text-secondary">
           {t('common:welcome')}{' '}

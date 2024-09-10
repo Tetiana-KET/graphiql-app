@@ -23,7 +23,7 @@ export default function HistoryList() {
   };
 
   return (
-    <div className="flex flex-col gap-4 mt-4">
+    <div className="flex flex-col gap-4 mt-4 w-full flex-1">
       <div className="flex gap-2">
         <Button onClick={clearHandler} color="warning">
           {t('common:Clear')}

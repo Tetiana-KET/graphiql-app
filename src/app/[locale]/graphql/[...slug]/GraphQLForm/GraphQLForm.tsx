@@ -34,10 +34,10 @@ export function GraphQLForm({ formData }: GraphQLFormProps) {
 
   return (
     <form
-      className="flex flex-col justify-between gap-4 flex-1 h-full overflow-auto"
+      className="flex flex-col justify-between gap-4 flex-1 sm:h-full "
       onSubmit={handleSubmit(onSubmit)}
     >
-      <main className="flex flex-col flex-wrap md:flex-nowrap gap-4 flex-1">
+      <main className="flex flex-col flex-wrap md:flex-nowrap gap-4 ">
         <Input
           value={URLValue}
           isRequired
@@ -91,7 +91,7 @@ export function GraphQLForm({ formData }: GraphQLFormProps) {
         />
       </main>
 
-      <footer className="flex gap-4">
+      <footer className="flex gap-1 sm:gap-4">
         <Button onClick={setExampleFormData} color="warning">
           {t('graphQL:GetURLQueryExample')}
         </Button>

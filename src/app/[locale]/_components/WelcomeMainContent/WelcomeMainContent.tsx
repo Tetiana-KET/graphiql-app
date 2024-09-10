@@ -62,7 +62,7 @@ export default function WelcomeMainContent({ t }: WelcomeMainContentProps) {
       </section>
       <SectionDivider title={t('welcome:title4')} />
       <section
-        className={`${styles.welcomeSection} ${styles.developersWrap} flex sm:flex-row flex-col gap-2 justify-between w-full`}
+        className={`${styles.welcomeSection} ${styles.developersWrap} flex sm:flex-row flex-col gap-2 w-full`}
       >
         {developers.map((developer) => (
           <DeveloperCard developer={developer} key={developer.id} />

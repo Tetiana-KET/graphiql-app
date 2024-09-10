@@ -38,7 +38,7 @@ export default async function Layout({
       locale={locale}
       resources={resources}
     >
-      <NextUIProvider className="flex flex-col flex-1 h-full">
+      <NextUIProvider className="flex flex-col flex-1">
         <Header />
         <main className="page-container">{children}</main>
         <Footer />

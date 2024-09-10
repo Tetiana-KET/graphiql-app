@@ -23,6 +23,7 @@ function AuthButtons() {
           href="/signIn"
           variant="flat"
           radius="sm"
+          className="text-xs px-2 sm:text-base sm:px-4"
         >
           {t('layout:signIn')}
         </Button>
@@ -36,6 +37,7 @@ function AuthButtons() {
           href="/signUp"
           variant="flat"
           radius="sm"
+          className="text-xs px-2 sm:text-base sm:px-4"
         >
           {t('layout:signUp')}
         </Button>
@@ -50,7 +52,7 @@ function AuthButtons() {
           href="/"
           variant="flat"
           radius="sm"
-          className="lg:flex"
+          className="lg:flex text-xs px-2 sm:text-base sm:px-4"
         >
           {t('layout:main')}
         </Button>
@@ -63,7 +65,7 @@ function AuthButtons() {
           color="default"
           variant="flat"
           radius="sm"
-          className="lg:flex"
+          className="lg:flex text-xs px-2 sm:text-base sm:px-4"
           onClick={logout}
         >
           {t('layout:signOut')}

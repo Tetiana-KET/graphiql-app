@@ -36,9 +36,9 @@ export default function DeveloperCard({ developer }: DeveloperCardProps) {
           />
         </Link>
       </CardHeader>
-      <CardBody className="pb-0 pt-2 px-4 flex-col items-center">
-        <h3 className="text-lg font-bold">{name}</h3>
-        <h4 className="font-medium text-base">{role}</h4>
+      <CardBody className="pb-0 pt-2 px-4 flex-col items-center ">
+        <h3 className="text-lg font-bold text-center">{name}</h3>
+        <h4 className="font-medium text-base text-center">{role}</h4>
       </CardBody>
       <CardFooter className="justify-center">
         <p className="text-wrap text-center">{contribution}</p>
