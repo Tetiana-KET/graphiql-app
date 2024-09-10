@@ -2,13 +2,13 @@
 
 'use client';
 
+import { ApiResponse } from '@/models/ApiResponse';
+import { checkErrorInstance } from '@/utils/checkErrorInstance';
+import { json } from '@codemirror/lang-json';
+import { Card, CardBody, CardHeader, Divider } from '@nextui-org/react';
+import CodeMirror from '@uiw/react-codemirror';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ApiResponse } from '@/models/ApiResponse';
-import { json } from '@codemirror/lang-json';
-import CodeMirror from '@uiw/react-codemirror';
-import { checkErrorInstance } from '@/utils/checkErrorInstance';
-import { Card, CardBody, CardHeader, Divider } from '@nextui-org/react';
 
 interface RequestDocumentationProps {
   response: ApiResponse;

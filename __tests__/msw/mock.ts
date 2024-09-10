@@ -3,7 +3,6 @@ import {
   DEFAULT_GRAPHQL_URL,
 } from '@/consts/DefaultFormData';
 import { GraphQLFormData } from '@/models/GraphQLFormData';
-import { User } from 'firebase/auth';
 
 export const GraphQLFormDataMock: GraphQLFormData = {
   url: DEFAULT_GRAPHQL_URL,
@@ -11,6 +10,26 @@ export const GraphQLFormDataMock: GraphQLFormData = {
   query: DEFAULT_GRAPHQL_QUERY,
   headers: [{ key: 'id', value: '1' }],
   variables: [{ key: 'gender', value: 'male' }],
+};
+
+export const mockDocumentationResponse: ApiResponse = {
+  data: {
+    data: {
+      __schema: 'schema info',
+    },
+  },
+  id: '3wlql6lptzb',
+  status: 200,
+  error: null,
+  time: 135,
+};
+
+export const mockEmptyDocumentationResponse: ApiResponse = {
+  data: null,
+  id: '3wlql6lptzb',
+  status: 404,
+  error: null,
+  time: 135,
 };
 
 export const mockUser: User = {

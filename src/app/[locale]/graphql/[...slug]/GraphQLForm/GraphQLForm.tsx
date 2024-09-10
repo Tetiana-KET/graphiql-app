@@ -1,9 +1,9 @@
 'use client';
 
 import { RequestKeyValuePairs } from '@/app/[locale]/_components/RequestKeyValuePairs/RequestKeyValuePairs';
+import { GraphQLFormData } from '@/models/GraphQLFormData';
 import { Button, Checkbox, Input } from '@nextui-org/react';
 import { useTranslation } from 'react-i18next';
-import { GraphQLFormData } from '@/models/GraphQLFormData';
 import CodeMirrorBoard from './components/CodeMirror/CodeMirrorBoard';
 import { useGraphQLForm } from './hooks/useGraphQLForm';
 import { useSDLAsURL } from './hooks/useSDLAsURL';
@@ -96,7 +96,12 @@ export function GraphQLForm({ formData }: GraphQLFormProps) {
           {t('graphQL:GetURLQueryExample')}
         </Button>
 
-        <Button color="primary" type="submit" className="flex-1">
+        <Button
+          color="primary"
+          type="submit"
+          className="flex-1"
+          data-testid="send-button"
+        >
           {t('common:Send')}
         </Button>
       </footer>
