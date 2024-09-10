@@ -76,7 +76,8 @@ export class SerializerService {
     formData: T,
   ): string {
     const endpointUrlBase64 = btoa(formData.url);
-
+    // TODO: there is an error here
+    // serializer.ts:78 Uncaught (in promise) InvalidCharacterError: Failed to execute 'btoa' on 'Window': The string to be encoded contains characters outside of the Latin1 range.
     let sdlUrlBase64 = '';
     let baseBody: Record<string, string>;
     let method: string = '';

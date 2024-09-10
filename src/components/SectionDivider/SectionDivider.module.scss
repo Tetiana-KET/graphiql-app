@@ -12,6 +12,10 @@
   flex: 1;
   border: 0;
   border-top: 2px solid $accent-color-hover;
+
+  @media (max-width: 400px) {
+    width: 15vw;
+  }
 }
 
 .divider-title {
@@ -19,4 +23,8 @@
   padding: 0 1rem;
   color: $accent-color-hover;
   font-weight: bold;
+
+  @media (max-width: 640px) {
+    font-size: 16px;
+  }
 }

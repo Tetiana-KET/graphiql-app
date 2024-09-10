@@ -8,3 +8,11 @@
     flex: 1;
   }
 }
+
+.developers-wrap {
+  justify-content: space-between;
+
+  @media (max-width: 640px) {
+    align-items: center;
+  }
+}
