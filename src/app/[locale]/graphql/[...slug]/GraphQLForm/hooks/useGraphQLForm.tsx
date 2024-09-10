@@ -3,6 +3,7 @@ import { GraphQLFormData } from '@/models/GraphQLFormData';
 import {
   DEFAULT_GRAPHQL_QUERY,
   DEFAULT_GRAPHQL_URL,
+  DEFAULT_GRAPHQL_VARIABLES,
 } from '@/consts/DefaultFormData';
 import { RequestType } from '@/enums/RequestType';
 import { SerializerService } from '@/services/serializer';
@@ -34,6 +35,7 @@ export function useGraphQLForm(defaultFormData: GraphQLFormData | null) {
   const setExampleFormData = () => {
     setValue('url', DEFAULT_GRAPHQL_URL);
     setValue('query', DEFAULT_GRAPHQL_QUERY);
+    setValue('variables', DEFAULT_GRAPHQL_VARIABLES);
   };
 
   const onSubmit = async (formData: GraphQLFormData) => {
