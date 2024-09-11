@@ -2,6 +2,7 @@ import {
   DEFAULT_GRAPHQL_QUERY,
   DEFAULT_GRAPHQL_URL,
 } from '@/consts/defaultFormData';
+import { RequestType } from '@/enums/RequestType';
 import { ApiResponse } from '@/models/ApiResponse';
 import { GraphQLFormData } from '@/models/GraphQLFormData';
 import { User } from 'firebase/auth';
@@ -77,4 +78,20 @@ export const mockUnAuthContextValue = {
   loading: false,
   userName: '',
   user: mockUser,
+};
+
+export const mockGraphQLFormData: GraphQLFormData = {
+  url: DEFAULT_GRAPHQL_URL,
+  sdl: `${DEFAULT_GRAPHQL_URL}?sdl`,
+  query: DEFAULT_GRAPHQL_QUERY,
+  headers: [{ key: 'id', value: '1' }],
+  variables: [{ key: 'gender', value: 'male' }],
+};
+
+export const mockGraphQLRequestHistoryRecord = {
+  type: RequestType.GraphQL,
+  id: '1dsd',
+  date: '10-08-2024',
+  time: 124,
+  formData: GraphQLFormDataMock,
 };

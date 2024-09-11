@@ -1,6 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { vi } from 'vitest';
-import { mockEmptyDocumentationResponse } from '../../../../../../../../__tests__/msw/mock';
+import {
+  mockDocumentationResponse,
+  mockEmptyDocumentationResponse,
+} from '../../../../../../../../__tests__/msw/mock';
 import { RequestDocumentation } from './RequestDocumentation';
 
 vi.mock('react-i18next', () => ({
@@ -9,7 +12,7 @@ vi.mock('react-i18next', () => ({
   }),
 }));
 
-vi.mock('../CodeMirror/CodeMirrorBoard', () => ({
+vi.mock('@uiw/react-codemirror', () => ({
   __esModule: true,
   default: () => <div>CodeMirror Mock</div>,
 }));
@@ -23,10 +26,15 @@ describe('RequestDocumentation Component', () => {
     vi.clearAllMocks();
   });
 
-  // Разобраться как рендарить code mirror в тестах, чтобы проверить с респонсом
-  it('show special text when there are no documentation schema', () => {
+  it('Show special text when there are no documentation schema', () => {
     render(<RequestDocumentation response={mockEmptyDocumentationResponse} />);
 
     expect(screen.getByText('graphQL:docResponse')).toBeInTheDocument();
+  });
+
+  it('Render as expected with documentation schema', () => {
+    render(<RequestDocumentation response={mockDocumentationResponse} />);
+
+    expect(screen.getByText('CodeMirror Mock')).toBeInTheDocument();
   });
 });
