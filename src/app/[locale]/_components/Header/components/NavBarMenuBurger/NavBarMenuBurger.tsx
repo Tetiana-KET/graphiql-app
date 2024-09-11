@@ -26,10 +26,7 @@ function NavBarMenuBurger({
   const isLoggedIn = authContext?.isLoggedIn;
 
   return (
-    <NavbarMenu
-      className={`${styles.navBarMenuBurger} pt-8 gap-0`}
-      data-testid="navBarMenuBurger"
-    >
+    <NavbarMenu className={`${styles.navBarMenuBurger} pt-8 gap-0`}>
       {navigationList.map((item: NavigationListItem) => {
         const isActive = pathname === item.path;
         return (

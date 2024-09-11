@@ -33,6 +33,7 @@ function Header() {
       isBordered
       ref={headerRef}
       className={`${styles.header} ${styles.headerWrapper} ${isSticky ? styles.stickyHeader : ''} bg-light-grey-bg-color `}
+      data-isSticky={isSticky}
       classNames={{
         wrapper: 'max-w-[1440px] px-4 sm:px-8',
       }}
@@ -46,7 +47,7 @@ function Header() {
           className="sm:hidden"
           data-testid="navbarMenuToggle"
         />
-        <NavbarBrand className="hidden md:block">
+        <NavbarBrand className="hidden md:block" data-testid="navbarBrand">
           <Link href="/" className={`${styles.headerLogoWrapper} inline-block`}>
             <Logo />
           </Link>
@@ -54,7 +55,11 @@ function Header() {
       </NavbarContent>
       <NavBarLinks />
       <AuthButtons />
-      <NavBarMenuBurger setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
+      <NavBarMenuBurger
+        data-testid="navBarMenuBurger"
+        setIsMenuOpen={setIsMenuOpen}
+        isMenuOpen={isMenuOpen}
+      />
     </Navbar>
   );
 }
