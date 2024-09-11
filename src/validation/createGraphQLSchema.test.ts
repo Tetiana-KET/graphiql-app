@@ -1,6 +1,6 @@
 import { TranslationFunction } from '@/models/AuthInterfaces';
 import { describe, expect, it, vi } from 'vitest';
-import { GraphQLFormDataMock } from '../../__tests__/msw/mock';
+import { mockGraphQLFormData } from '../../__tests__/msw/mock';
 import { createGraphQLSchema } from './createGraphQLSchema';
 
 const t: TranslationFunction = vi.fn((key: string) => key);
@@ -17,7 +17,7 @@ vi.mock('react-i18next', async (importOriginal) => {
 
 describe('createGraphQLSchema', () => {
   it('validate correct data as expected', () => {
-    const result = schema.safeParse(GraphQLFormDataMock);
+    const result = schema.safeParse(mockGraphQLFormData);
     expect(result.success).toBe(true);
   });
 

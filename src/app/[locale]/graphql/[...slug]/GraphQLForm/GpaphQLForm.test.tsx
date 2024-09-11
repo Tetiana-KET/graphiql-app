@@ -2,7 +2,7 @@ import { DEFAULT_GRAPHQL_URL } from '@/consts/DefaultFormData';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Router } from 'next/router';
 import { describe, expect, it, vi } from 'vitest';
-import { GraphQLFormDataMock } from '../../../../../../__tests__/msw/mock';
+import { mockGraphQLFormData } from '../../../../../../__tests__/msw/mock';
 import { GraphQLForm } from './GraphQLForm';
 
 const handleSubmitMock = vi.fn();
@@ -67,13 +67,13 @@ vi.mock('./components/CodeMirror/CodeMirrorBoard', () => ({
 
 describe('GraphQLForm', () => {
   it('GraphQLForm is rendering as it expected', () => {
-    render(<GraphQLForm formData={GraphQLFormDataMock} />);
+    render(<GraphQLForm formData={mockGraphQLFormData} />);
     const urlInput = screen.getByDisplayValue(DEFAULT_GRAPHQL_URL);
     expect(urlInput).toBeTruthy();
   });
 
   it('Submit process is starts on click to the send button', () => {
-    render(<GraphQLForm formData={GraphQLFormDataMock} />);
+    render(<GraphQLForm formData={mockGraphQLFormData} />);
     const sendButton = screen.getByTestId('send-button');
     fireEvent.click(sendButton);
     expect(handleSubmitMock).toBeCalled();

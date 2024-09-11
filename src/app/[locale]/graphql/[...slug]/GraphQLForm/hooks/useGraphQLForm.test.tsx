@@ -6,7 +6,7 @@ import { renderHook } from '@testing-library/react';
 import { Router } from 'next/router';
 import { act } from 'react';
 import { vi } from 'vitest';
-import { GraphQLFormDataMock } from '../../../../../../../__tests__/msw/mock';
+import { mockGraphQLFormData } from '../../../../../../../__tests__/msw/mock';
 import { useGraphQLForm } from './useGraphQLForm';
 
 const mockPush = vi.fn();
@@ -27,7 +27,7 @@ describe('useGraphQLForm Hook', () => {
   });
 
   it('should initialize with the provided default values', () => {
-    const { result } = renderHook(() => useGraphQLForm(GraphQLFormDataMock));
+    const { result } = renderHook(() => useGraphQLForm(mockGraphQLFormData));
 
     expect(result.current.getValues('url')).toBe(DEFAULT_GRAPHQL_URL);
   });
@@ -44,10 +44,10 @@ describe('useGraphQLForm Hook', () => {
   });
 
   it('should call router.push with serialized data when onSubmit is called', async () => {
-    const { result } = renderHook(() => useGraphQLForm(GraphQLFormDataMock));
+    const { result } = renderHook(() => useGraphQLForm(mockGraphQLFormData));
 
     await act(async () => {
-      await result.current.onSubmit(GraphQLFormDataMock);
+      await result.current.onSubmit(mockGraphQLFormData);
     });
 
     await act(async () => {
