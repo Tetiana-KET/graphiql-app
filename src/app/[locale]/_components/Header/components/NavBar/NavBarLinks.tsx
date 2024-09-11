@@ -23,11 +23,16 @@ function NavBarLinks() {
   const isLoggedIn = authContext?.isLoggedIn;
 
   return (
-    <NavbarContent className="hidden sm:flex gap-0" justify="center">
+    <NavbarContent
+      className="hidden sm:flex gap-0"
+      justify="center"
+      data-testid="navBarLinks"
+    >
       {navigationList.map((item: NavigationListItem) => {
         const isActive = pathname.includes(item.path);
         return (
           <NavbarItem
+            data-testid={item.title}
             key={item.id}
             className={`${isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}
               ${!isLoggedIn ? 'hidden' : ''}`}

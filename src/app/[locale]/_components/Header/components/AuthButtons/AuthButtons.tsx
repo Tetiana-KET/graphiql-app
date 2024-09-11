@@ -13,8 +13,9 @@ function AuthButtons() {
   const { isLoggedIn } = useContext(AuthContext) ?? {};
 
   return (
-    <NavbarContent justify="end">
+    <NavbarContent justify="end" data-testid="navbarContent">
       <NavbarItem
+        data-testid="signIn"
         className={`${styles.buttonWrap} ${isLoggedIn ? 'hidden' : ''}`}
       >
         <Button
@@ -29,6 +30,7 @@ function AuthButtons() {
         </Button>
       </NavbarItem>
       <NavbarItem
+        data-testid="signUp"
         className={`${styles.buttonWrap} ${isLoggedIn ? 'hidden' : ''}`}
       >
         <Button
@@ -44,6 +46,7 @@ function AuthButtons() {
       </NavbarItem>
 
       <NavbarItem
+        data-testid="toMain"
         className={`${styles.buttonWrap} ${!isLoggedIn ? 'hidden' : ''}`}
       >
         <Button
@@ -59,6 +62,7 @@ function AuthButtons() {
       </NavbarItem>
 
       <NavbarItem
+        data-testid="signOut"
         className={`${styles.buttonWrap} ${!isLoggedIn ? 'hidden' : ''}`}
       >
         <Button
