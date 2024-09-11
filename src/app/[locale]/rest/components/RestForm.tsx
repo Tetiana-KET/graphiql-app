@@ -1,21 +1,21 @@
 'use client';
 
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { RestFormData } from '@/models/RestFormData';
-import { Button, Input, Select, SelectItem } from '@nextui-org/react';
-import { RestMethod } from '@/enums/RestMethod';
 import { RequestKeyValuePairs } from '@/app/[locale]/_components/RequestKeyValuePairs/RequestKeyValuePairs';
 import RestBody from '@/app/[locale]/rest/components/RestBody';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { createRestSchema } from '@/validation/restSchema';
-import { useTranslation } from 'react-i18next';
-import { SerializerService } from '@/services/serializer';
-import { RequestType } from '@/enums/RequestType';
-import { useRouter } from 'next/navigation';
 import {
   DEFAULT_REST_METHOD,
   DEFAULT_REST_URL,
-} from '@/consts/DefaultFormData';
+} from '@/consts/defaultFormData';
+import { RequestType } from '@/enums/RequestType';
+import { RestMethod } from '@/enums/RestMethod';
+import { RestFormData } from '@/models/RestFormData';
+import { SerializerService } from '@/services/serializer';
+import { createRestSchema } from '@/validation/restSchema';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Button, Input, Select, SelectItem } from '@nextui-org/react';
+import { useRouter } from 'next/navigation';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 interface RestFormProps {
   formData?: RestFormData | null;

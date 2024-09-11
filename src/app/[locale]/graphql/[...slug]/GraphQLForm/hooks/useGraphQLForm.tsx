@@ -3,7 +3,7 @@ import { GraphQLFormData } from '@/models/GraphQLFormData';
 import {
   DEFAULT_GRAPHQL_QUERY,
   DEFAULT_GRAPHQL_URL,
-} from '@/consts/DefaultFormData';
+} from '@/consts/defaultFormData';
 import { RequestType } from '@/enums/RequestType';
 import { SerializerService } from '@/services/serializer';
 import { createGraphQLSchema } from '@/validation/createGraphQLSchema';

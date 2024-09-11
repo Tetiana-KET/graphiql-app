@@ -1,4 +1,4 @@
-import { DEFAULT_GRAPHQL_URL } from '@/consts/DefaultFormData';
+import { DEFAULT_GRAPHQL_URL } from '@/consts/defaultFormData';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Router } from 'next/router';
 import { describe, expect, it, vi } from 'vitest';

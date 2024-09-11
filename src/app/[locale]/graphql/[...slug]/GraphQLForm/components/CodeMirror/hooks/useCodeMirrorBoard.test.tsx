@@ -1,4 +1,4 @@
-import { DEFAULT_GRAPHQL_QUERY } from '@/consts/DefaultFormData';
+import { DEFAULT_GRAPHQL_QUERY } from '@/consts/defaultFormData';
 import { GraphQLFormData } from '@/models/GraphQLFormData';
 import { renderHook } from '@testing-library/react';
 import { act } from 'react';

@@ -1,7 +1,7 @@
 import {
   DEFAULT_GRAPHQL_QUERY,
   DEFAULT_GRAPHQL_URL,
-} from '@/consts/DefaultFormData';
+} from '@/consts/defaultFormData';
 import { renderHook } from '@testing-library/react';
 import { Router } from 'next/router';
 import { act } from 'react';
