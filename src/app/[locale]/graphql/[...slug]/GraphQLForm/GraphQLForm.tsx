@@ -69,13 +69,6 @@ export function GraphQLForm({ formData }: GraphQLFormProps) {
           {t('graphQL:sdlAsUrl')}
         </Checkbox>
 
-        <CodeMirrorBoard
-          getValues={getValues}
-          errorMessage={errors.query?.message}
-          register={register}
-          setValue={setValue}
-        />
-
         <RequestKeyValuePairs
           type="headers"
           control={control}
@@ -88,6 +81,13 @@ export function GraphQLForm({ formData }: GraphQLFormProps) {
           control={control}
           register={register}
           errors={errors}
+        />
+
+        <CodeMirrorBoard
+          getValues={getValues}
+          errorMessage={errors.query?.message}
+          register={register}
+          setValue={setValue}
         />
       </main>
 

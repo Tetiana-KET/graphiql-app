@@ -13,9 +13,12 @@ import { SerializerService } from '@/services/serializer';
 import { RequestType } from '@/enums/RequestType';
 import { useRouter } from 'next/navigation';
 import {
+  DEFAULT_REST_BODY,
   DEFAULT_REST_METHOD,
   DEFAULT_REST_URL,
-} from '@/consts/DefaultFormData';
+  DEFAULT_REST_VARIABLES,
+} from '@/consts/defaultFormData';
+import { checkErrorInstance } from '@/utils/checkErrorInstance';
 
 interface RestFormProps {
   formData?: RestFormData | null;
@@ -43,12 +46,20 @@ export default function RestForm({ formData }: RestFormProps) {
   const methodValue = watch('method') || '';
 
   const onSubmit: SubmitHandler<RestFormData> = (data) => {
-    router.push(SerializerService.serialize(RequestType.Rest, data));
+    try {
+      router.push(SerializerService.serialize(RequestType.Rest, data));
+    } catch (error) {
+      checkErrorInstance(
+        Error(`${t('common:FailedSerialize')} ${error?.toString()}`),
+      );
+    }
   };
 
   const setExampleFormData = () => {
     setValue('method', DEFAULT_REST_METHOD);
     setValue('url', DEFAULT_REST_URL);
+    setValue('variables', DEFAULT_REST_VARIABLES);
+    setValue('body', DEFAULT_REST_BODY);
   };
 
   return (

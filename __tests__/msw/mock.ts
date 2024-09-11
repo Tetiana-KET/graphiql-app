@@ -1,7 +1,7 @@
 import {
   DEFAULT_GRAPHQL_QUERY,
   DEFAULT_GRAPHQL_URL,
-} from '@/consts/DefaultFormData';
+} from '@/consts/defaultFormData';
 import { ApiResponse } from '@/models/ApiResponse';
 import { GraphQLFormData } from '@/models/GraphQLFormData';
 import { User } from 'firebase/auth';

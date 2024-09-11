@@ -32,7 +32,7 @@ export default function RestBody({
 
   return (
     <div>
-      <h4>{t('common:body')}</h4>
+      <h4>{t('rest:body')}</h4>
       <CodeMirror
         value={getValues('body')}
         {...register('body')}
@@ -41,7 +41,7 @@ export default function RestBody({
         onChange={handleValue}
       />
 
-      <div>{errorMessage || ''}</div>
+      <div className="text-xs text-red-600">{errorMessage || ''}</div>
 
       <div className="flex gap-2">
         <Button
