@@ -89,9 +89,16 @@ export const mockGraphQLFormData: GraphQLFormData = {
 };
 
 export const mockGraphQLRequestHistoryRecord = {
+  formData: {
+    url: 'https://countries.trevorblades.com/graphql',
+    variables: [],
+    headers: [],
+    sdl: 'https://countries.trevorblades.com/graphql?sdl',
+    query:
+      'query Query {\n  country(code: "BR") {\n    name\n    native\n    capital\n    emoji\n    currency\n    languages {\n      code\n      name\n    }\n  }\n}',
+  },
   type: RequestType.GraphQL,
-  id: '1dsd',
-  date: '10-08-2024',
-  time: 124,
-  formData: GraphQLFormDataMock,
+  date: '2024-09-09T10:01:14.785Z',
+  id: 'q6syo6zrtgq',
+  time: 30,
 };

@@ -44,6 +44,7 @@ function Header() {
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           className="sm:hidden"
+          data-testid="navbarMenuToggle"
         />
         <NavbarBrand className="hidden md:block">
           <Link href="/" className={`${styles.headerLogoWrapper} inline-block`}>

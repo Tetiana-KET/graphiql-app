@@ -9,10 +9,6 @@
 # testing
 /coverage
 
-# locales
-/locales/
-locales
-
 # next.js
 /.next/
 /out/

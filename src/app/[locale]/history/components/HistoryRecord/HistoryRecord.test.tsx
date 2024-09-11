@@ -9,7 +9,7 @@ describe('HistoryRecord Component', () => {
     const requestType = screen.getByText('GRAPHQL');
     expect(requestType).toBeInTheDocument();
   });
-  it.skip('Change page on click on related button', () => {
+  it('Change page on click on related button', () => {
     render(<HistoryRecord record={mockGraphQLRequestHistoryRecord} />);
     const restoreButton = screen.getByText('history:restore');
     fireEvent.click(restoreButton);

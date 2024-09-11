@@ -3,9 +3,11 @@ import { GraphQLFormData } from '@/models/GraphQLFormData';
 import {
   DEFAULT_GRAPHQL_QUERY,
   DEFAULT_GRAPHQL_URL,
+  DEFAULT_GRAPHQL_VARIABLES,
 } from '@/consts/defaultFormData';
 import { RequestType } from '@/enums/RequestType';
 import { SerializerService } from '@/services/serializer';
+import { checkErrorInstance } from '@/utils/checkErrorInstance';
 import { createGraphQLSchema } from '@/validation/createGraphQLSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
@@ -34,10 +36,17 @@ export function useGraphQLForm(defaultFormData: GraphQLFormData | null) {
   const setExampleFormData = () => {
     setValue('url', DEFAULT_GRAPHQL_URL);
     setValue('query', DEFAULT_GRAPHQL_QUERY);
+    setValue('variables', DEFAULT_GRAPHQL_VARIABLES);
   };
 
   const onSubmit = async (formData: GraphQLFormData) => {
-    router.push(SerializerService.serialize(RequestType.GraphQL, formData));
+    try {
+      router.push(SerializerService.serialize(RequestType.GraphQL, formData));
+    } catch (error) {
+      checkErrorInstance(
+        Error(`${t('common:FailedSerialize')} ${error?.toString()}`),
+      );
+    }
   };
 
   return {

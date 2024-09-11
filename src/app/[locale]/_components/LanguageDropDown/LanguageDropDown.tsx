@@ -46,6 +46,7 @@ function LanguageDropDown() {
     <Dropdown>
       <DropdownTrigger>
         <Button
+          data-testid="dropdownTrigger"
           disableRipple
           className={`h-[var(--navbar-height)] bg-transparent font-semibold text-base rounded-none justify-normal ${styles.dropdownTrigger}`}
           endContent={icons.chevron}
@@ -64,9 +65,15 @@ function LanguageDropDown() {
         }}
         onAction={handleChange}
       >
-        <DropdownItem key="en">English</DropdownItem>
-        <DropdownItem key="ru">Русский</DropdownItem>
-        <DropdownItem key="zh">漢</DropdownItem>
+        <DropdownItem data-testid="dropdownItem_en" key="en">
+          English
+        </DropdownItem>
+        <DropdownItem data-testid="dropdownItem_ru" key="ru">
+          Русский
+        </DropdownItem>
+        <DropdownItem data-testid="dropdownItem_zh" key="zh">
+          漢
+        </DropdownItem>
       </DropdownMenu>
     </Dropdown>
   );
