@@ -10,18 +10,24 @@ function UserGreeting() {
   const { t } = useTranslation();
 
   if (loading) {
-    return <Spinner color="secondary" />;
+    return <Spinner color="secondary" data-testid="spinner" />;
   }
 
   return (
-    <h1 className="text-base sm:text-2xl text-center">
+    <h1
+      className="text-base sm:text-2xl text-center"
+      data-testid="userGreeting"
+    >
       {user ? (
         <span className="text-secondary">
           {t('common:welcome')}{' '}
-          <span className="font-semibold">{capitalizeUserName(name)}</span>!
+          <span data-testid="userName" className="font-semibold">
+            {capitalizeUserName(name)}
+          </span>
+          !
         </span>
       ) : (
-        <span className="font-semibold text-secondary">
+        <span className="font-semibold text-secondary" data-testid="greeting">
           {t('welcome:greeting')}
         </span>
       )}
