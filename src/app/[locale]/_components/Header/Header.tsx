@@ -33,7 +33,7 @@ function Header() {
       isBordered
       ref={headerRef}
       className={`${styles.header} ${styles.headerWrapper} ${isSticky ? styles.stickyHeader : ''} bg-light-grey-bg-color `}
-      data-isSticky={isSticky}
+      data-issticky={isSticky}
       classNames={{
         wrapper: 'max-w-[1440px] px-4 sm:px-8',
       }}
