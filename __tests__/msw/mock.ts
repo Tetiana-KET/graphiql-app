@@ -112,3 +112,5 @@ export const mockDeveloperData = {
   id: 'DeveloperName',
   contribution: 'contribution',
 };
+
+export const mockKeyValuePairs = { key: 'id', value: '1' };
