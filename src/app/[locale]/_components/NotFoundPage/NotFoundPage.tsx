@@ -1,17 +1,18 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Button } from '@nextui-org/react';
+import Link from 'next/link';
 import styles from './NotFoundPage.module.scss';
 
 export default function NotFoundPage(): ReactNode {
   const { t } = useTranslation();
   return (
-    <section className={styles.notFoundPage}>
+    <section className={styles.notFoundPage} data-testid="notFoundPage">
       <div className={styles.errorMessage}>
-        <p className={styles.notFoundPageText}>
+        <p className={styles.notFoundPageText} data-testid="notFoundPageText">
           {t('notFound:oops')}! <br />
           {t('notFound:message')}...
         </p>
@@ -25,15 +26,15 @@ export default function NotFoundPage(): ReactNode {
             alt="404-svg-animation.svg"
           />
         </div>
-        <Link href="/" data-testid="ReturnHomeLink">
-          <button
-            className={`${styles.homeButton} ${'button'}`}
-            type="button"
-            data-testid="ReturnHomeBtn"
-          >
-            {t('notFound:homeBtn')}
-          </button>
-        </Link>
+        <Button
+          as={Link}
+          href="/"
+          data-testid="returnHomeButton"
+          className={`${styles.homeButton} ${'button'}`}
+          type="button"
+        >
+          {t('notFound:homeBtn')}
+        </Button>
       </div>
     </section>
   );

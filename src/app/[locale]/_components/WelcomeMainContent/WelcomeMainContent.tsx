@@ -19,6 +19,7 @@ export default function WelcomeMainContent({ t }: WelcomeMainContentProps) {
     <>
       <SectionDivider title={t('welcome:title1')} />
       <section
+        data-testid="welcomeMainContent"
         className={`${styles.welcomeSection} md:flex-row flex-col gap-4`}
       >
         <div className={styles.aboutDescription}>

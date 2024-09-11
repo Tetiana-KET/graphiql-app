@@ -78,3 +78,13 @@ export const mockUnAuthContextValue = {
   userName: '',
   user: mockUser,
 };
+
+export const mockDeveloperData = {
+  name: 'Developer Name',
+  role: 'Frontend developer',
+  info: `I am a frontend developer`,
+  github: 'https://github.com/link',
+  photo: 'https://avatars.githubusercontent.com/u/137721533?v=4',
+  id: 'DeveloperName',
+  contribution: 'contribution',
+};

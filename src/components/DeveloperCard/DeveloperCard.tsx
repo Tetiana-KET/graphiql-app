@@ -8,7 +8,7 @@ import {
 } from '@nextui-org/react';
 import styles from './DeveloperCard.module.scss';
 
-interface DeveloperCardProps {
+export interface DeveloperCardProps {
   developer: {
     name: string;
     role: string;
