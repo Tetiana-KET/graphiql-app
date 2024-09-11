@@ -1,10 +1,10 @@
+import { RequestType } from '@/enums/RequestType';
+import { RequestHistoryRecord } from '@/models/RequestHistoryRecord';
+import { SerializerService } from '@/services/serializer';
+import { checkErrorInstance } from '@/utils/checkErrorInstance';
 import { Button, Card, CardBody, Chip } from '@nextui-org/react';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { RequestHistoryRecord } from '@/models/RequestHistoryRecord';
-import { SerializerService } from '@/services/serializer';
-import { RequestType } from '@/enums/RequestType';
-import { checkErrorInstance } from '@/utils/checkErrorInstance';
 
 interface HistoryRecordProps {
   record: RequestHistoryRecord;

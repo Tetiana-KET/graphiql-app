@@ -2,6 +2,7 @@ import {
   DEFAULT_GRAPHQL_QUERY,
   DEFAULT_GRAPHQL_URL,
 } from '@/consts/defaultFormData';
+import { RequestType } from '@/enums/RequestType';
 import { ApiResponse } from '@/models/ApiResponse';
 import { GraphQLFormData } from '@/models/GraphQLFormData';
 import { User } from 'firebase/auth';
@@ -77,6 +78,29 @@ export const mockUnAuthContextValue = {
   loading: false,
   userName: '',
   user: mockUser,
+};
+
+export const mockGraphQLFormData: GraphQLFormData = {
+  url: DEFAULT_GRAPHQL_URL,
+  sdl: `${DEFAULT_GRAPHQL_URL}?sdl`,
+  query: DEFAULT_GRAPHQL_QUERY,
+  headers: [{ key: 'id', value: '1' }],
+  variables: [{ key: 'gender', value: 'male' }],
+};
+
+export const mockGraphQLRequestHistoryRecord = {
+  formData: {
+    url: 'https://countries.trevorblades.com/graphql',
+    variables: [],
+    headers: [],
+    sdl: 'https://countries.trevorblades.com/graphql?sdl',
+    query:
+      'query Query {\n  country(code: "BR") {\n    name\n    native\n    capital\n    emoji\n    currency\n    languages {\n      code\n      name\n    }\n  }\n}',
+  },
+  type: RequestType.GraphQL,
+  date: '2024-09-09T10:01:14.785Z',
+  id: 'q6syo6zrtgq',
+  time: 30,
 };
 
 export const mockDeveloperData = {

@@ -7,12 +7,12 @@ import {
 } from '@/consts/defaultFormData';
 import { RequestType } from '@/enums/RequestType';
 import { SerializerService } from '@/services/serializer';
+import { checkErrorInstance } from '@/utils/checkErrorInstance';
 import { createGraphQLSchema } from '@/validation/createGraphQLSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { checkErrorInstance } from '@/utils/checkErrorInstance';
 
 export function useGraphQLForm(defaultFormData: GraphQLFormData | null) {
   const { t } = useTranslation();
