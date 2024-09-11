@@ -13,17 +13,19 @@
 }
 
 .not-found-page-text {
-  font-size: 75px;
-  line-height: 85px;
+  font-size: 7vw;
+  line-height: 8vw;
   font-weight: 900;
-  margin: 30px auto;
+  margin: 0 auto 20px;
 }
 
 .home-button {
   width: 170px;
   height: 60px;
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
   background-size: 400%;
   z-index: 1;
@@ -45,7 +47,7 @@
 }
 
 .error-img-wrap {
-  margin: 30px auto;
+  margin: 10px auto;
   max-width: 350px;
 }
 
@@ -87,8 +89,6 @@
 
 @media (max-width: 600px) {
   .not-found-page-text {
-    font-size: 40px;
-    line-height: 55px;
     font-weight: 900;
     margin-bottom: 0;
   }
