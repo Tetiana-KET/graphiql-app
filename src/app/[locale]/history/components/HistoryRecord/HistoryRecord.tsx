@@ -37,13 +37,17 @@ export function HistoryRecord({ record }: HistoryRecordProps) {
           <strong>{t('common:URL')}:</strong> {record.formData.url}
         </h2>
         <h2>
-          <strong>{t('history:requestTime')}:</strong> {time}ms (
+          <strong>{t('history:requestDate')}:</strong>{' '}
           {new Date(date).toLocaleDateString(undefined, {
             year: 'numeric',
             day: '2-digit',
             month: 'short',
-          })}
-          )
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false,
+          })}{' '}
+          ({time}ms)
         </h2>
 
         {link && (

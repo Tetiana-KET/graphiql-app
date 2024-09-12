@@ -93,7 +93,7 @@ export function GraphQLForm({ formData }: GraphQLFormProps) {
 
       <footer className="flex gap-1 sm:gap-4">
         <Button onClick={setExampleFormData} color="warning">
-          {t('graphQL:GetURLQueryExample')}
+          {t('common:FillExampleData')}
         </Button>
 
         <Button
