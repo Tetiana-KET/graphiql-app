@@ -1,6 +1,7 @@
 import { ApiService } from '@/services/api';
 import { SerializerService } from '@/services/serializer';
 import { render, screen } from '@testing-library/react';
+import React from 'react';
 import {
   mockDocumentationResponse,
   mockGraphQLFormData,
@@ -9,9 +10,11 @@ import GraphResponsePage from './page';
 
 vi.mock('@uiw/react-codemirror', () => ({
   __esModule: true,
-  default: () => <div>CodeMirror Mock</div>,
+  // eslint-disable-next-line react/display-name
+  default: React.forwardRef<HTMLDivElement, unknown>((_props, ref) => (
+    <div ref={ref as React.LegacyRef<HTMLDivElement>}>CodeMirror Mock</div>
+  )),
 }));
-
 vi.mock('@/services/api', () => ({
   ApiService: {
     fetch: vi.fn(),
