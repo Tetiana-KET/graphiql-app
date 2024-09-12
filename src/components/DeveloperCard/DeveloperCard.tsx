@@ -23,8 +23,14 @@ export interface DeveloperCardProps {
 export default function DeveloperCard({ developer }: DeveloperCardProps) {
   const { name, role, github, photo, contribution } = developer;
   return (
-    <Card className={`${styles.developerCard} py-4 flex gap-3`}>
-      <CardHeader className="overflow-visible py-2 justify-center">
+    <Card
+      className={`${styles.developerCard} py-4 flex gap-3`}
+      data-testid="developerCard"
+    >
+      <CardHeader
+        className="overflow-visible py-2 justify-center"
+        data-testid="developerHeader"
+      >
         <Link href={github} isExternal>
           <Image
             loading="lazy"
@@ -37,11 +43,26 @@ export default function DeveloperCard({ developer }: DeveloperCardProps) {
         </Link>
       </CardHeader>
       <CardBody className="pb-0 pt-2 px-4 flex-col items-center ">
-        <h3 className="text-lg font-bold text-center">{name}</h3>
-        <h4 className="font-medium text-base text-center">{role}</h4>
+        <h3
+          className="text-lg font-bold text-center"
+          data-testid="developerName"
+        >
+          {name}
+        </h3>
+        <h4
+          className="font-medium text-base text-center"
+          data-testid="developerRole"
+        >
+          {role}
+        </h4>
       </CardBody>
       <CardFooter className="justify-center">
-        <p className="text-wrap text-center">{contribution}</p>
+        <p
+          className="text-wrap text-center"
+          data-testid="developerContribution"
+        >
+          {contribution}
+        </p>
       </CardFooter>
     </Card>
   );
