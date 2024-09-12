@@ -114,3 +114,9 @@ export const mockDeveloperData = {
 };
 
 export const mockKeyValuePairs = { key: 'id', value: '1' };
+
+export const mockTechnologyCard = {
+  title: 'TechName',
+  imgSrc: '/TechName.png',
+  description: 'Tech description',
+};
