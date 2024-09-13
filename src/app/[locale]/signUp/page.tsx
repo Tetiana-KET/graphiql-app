@@ -27,7 +27,7 @@ export default function SignUp() {
   }
 
   return (
-    <div className={styles.register}>
+    <div className={styles.register} data-testid="signUpPage">
       <form
         className={styles.registerContainer}
         onSubmit={handleSubmit(onSubmit)}
