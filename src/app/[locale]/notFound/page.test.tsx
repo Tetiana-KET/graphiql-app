@@ -4,7 +4,7 @@ import CustomNotFoundPage from './page';
 describe('CustomNotFoundPage', () => {
   it('renders NotFoundPage', () => {
     render(<CustomNotFoundPage />);
-    screen.debug();
+    
     expect(screen.getByTestId('notFoundPage')).toBeInTheDocument();
   });
 });
