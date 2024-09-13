@@ -1,7 +1,7 @@
+import { BaseFormData } from '@/models/BaseFormData';
 import { Button, Input } from '@nextui-org/react';
 import { Control, FieldErrors, UseFormRegister } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { BaseFormData } from '@/models/BaseFormData';
 import { useRequestKeyValuePairs } from './hooks/useRequestKeyValuePairs';
 
 interface RequestKeyValuePairsProps<T extends BaseFormData> {
@@ -41,8 +41,8 @@ export function RequestKeyValuePairs<T extends BaseFormData>({
         </Button>
       </div>
 
-      {fields.map((field, index) => (
-        <div className="flex gap-2 items-start" key={field.id}>
+      {fields.map((_field, index) => (
+        <div className="flex gap-2 items-start" key={crypto.randomUUID()}>
           <Input
             isRequired
             size="sm"

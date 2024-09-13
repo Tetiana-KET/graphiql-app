@@ -21,7 +21,7 @@ vi.mock('react-hook-form', () => ({
   useFieldArray: () => ({
     fields: [
       { id: '1', key: 'id', value: '1' },
-      { id: '1', key: 'id', value: '1' },
+      { id: '2', key: 'id', value: '2' },
     ],
     append: appendMock,
     remove: removeMock,
