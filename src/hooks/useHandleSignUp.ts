@@ -24,7 +24,7 @@ export function useHandleSignUp(t: TFunction<'translation', undefined>) {
     name: string;
   }) => {
     try {
-      registerWithEmailAndPassword(data.name, data.email, data.password);
+      await registerWithEmailAndPassword(data.name, data.email, data.password);
     } catch (err) {
       checkErrorInstance(err);
     }
