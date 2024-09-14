@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, vi } from 'vitest';
 import { redirect } from 'next/navigation';
-import SignUp from './page';
+import SignIn from './page';
 
 interface HandleSubmitFn {
   (cb: () => void): () => void;
@@ -16,8 +16,8 @@ vi.mock('@/firebase', () => ({
   signInWithGoogle: vi.fn(),
 }));
 
-vi.mock('@/hooks/useHandleSignUp', () => ({
-  useHandleSignUp: () => ({
+vi.mock('@/hooks/useHandleSignIn', () => ({
+  useHandleSignIn: () => ({
     register: vi.fn(),
     handleSubmit: ((cb: () => void) => cb) as HandleSubmitFn,
     onSubmit: vi.fn(),
@@ -52,20 +52,19 @@ describe('SignUp Component', () => {
       },
     }));
 
-    render(<SignUp />);
+    render(<SignIn />);
 
-    expect(screen.getByTestId('signUpPage')).toBeInTheDocument();
-    expect(screen.getByTestId('nameInput')).toBeInTheDocument();
-    expect(screen.getByTestId('emailInput')).toBeInTheDocument();
-    expect(screen.getByTestId('passwordInput')).toBeInTheDocument();
-    expect(screen.getByTestId('submitBtn')).toBeInTheDocument();
-    expect(screen.getByTestId('submitBtn')).toBeDisabled();
-    expect(screen.getByTestId('signInWithGoogleBtn')).toBeInTheDocument();
+    expect(screen.getByTestId('signInPage')).toBeInTheDocument();
+    expect(screen.getByTestId('loginTextBox')).toBeInTheDocument();
+    expect(screen.getByTestId('loginPass')).toBeInTheDocument();
+    expect(screen.getByTestId('loginBtn')).toBeInTheDocument();
+    expect(screen.getByTestId('loginBtn')).toBeDisabled();
+    expect(screen.getByTestId('signInWithGoogle')).toBeInTheDocument();
     expect(screen.getByTestId('signInLink')).toBeInTheDocument();
   });
 
   it('should not redirect if not logged in', () => {
-    render(<SignUp />);
+    render(<SignIn />);
 
     expect(redirect).not.toHaveBeenCalled();
   });

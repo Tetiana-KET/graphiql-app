@@ -28,7 +28,7 @@ export default function SignIn() {
   }
 
   return (
-    <div className={styles.login}>
+    <div className={styles.login} data-testid="signInPage">
       <form className={styles.loginContainer} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.loginTextBoxWrap}>
           <input
@@ -36,6 +36,7 @@ export default function SignIn() {
             className={styles.loginTextBox}
             {...register('email')}
             placeholder={t('auth:mail')}
+            data-testid="loginTextBox"
           />
           <p className={styles.validationError}>
             {errors.email && errors.email.message}
@@ -46,6 +47,7 @@ export default function SignIn() {
             className={styles.loginTextBox}
             {...register('password')}
             placeholder={t('auth:pass')}
+            data-testid="loginPass"
           />
 
           <p className={styles.validationError}>
@@ -53,19 +55,29 @@ export default function SignIn() {
           </p>
         </div>
 
-        <button type="submit" className={styles.loginBtn} disabled={!isValid}>
+        <button
+          type="submit"
+          className={styles.loginBtn}
+          disabled={!isValid}
+          data-testid="loginBtn"
+        >
           {t('layout:signIn')}
         </button>
         <button
           type="button"
           className={`${styles.loginGoogle} ${styles.loginBtn}`}
           onClick={signInWithGoogle}
+          data-testid="signInWithGoogle"
         >
           {t('layout:signIn')} {t('common:withGoogle')}
         </button>
         <div>
           {t('auth:noAcc')}{' '}
-          <Link href="/signUp" className="font-black hover:underline">
+          <Link
+            href="/signUp"
+            className="font-black hover:underline"
+            data-testid="signInLink"
+          >
             {t('layout:signUp')}
           </Link>
         </div>
