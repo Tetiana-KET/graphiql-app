@@ -80,6 +80,13 @@ export const mockUnAuthContextValue = {
   user: mockUser,
 };
 
+export const mockIsLoadingAuthContextValue = {
+  isLoggedIn: false,
+  loading: true,
+  userName: '',
+  user: mockUser,
+};
+
 export const mockGraphQLFormData: GraphQLFormData = {
   url: DEFAULT_GRAPHQL_URL,
   sdl: `${DEFAULT_GRAPHQL_URL}?sdl`,
