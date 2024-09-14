@@ -78,4 +78,72 @@ describe('createRestSchema', () => {
     const result = schema.safeParse(validData);
     expect(result.success).toBe(true);
   });
+
+  it('should validate with empty body', () => {
+    const validData = {
+      url: DEFAULT_REST_URL,
+      method: RestMethod.Get,
+      body: '',
+    };
+
+    const result = schema.safeParse(validData);
+    expect(result.success).toBe(true);
+  });
+
+  it('should validate with valid JSON body', () => {
+    const validData = {
+      url: DEFAULT_REST_URL,
+      method: RestMethod.Post,
+      body: '{"key": "value"}',
+    };
+
+    const result = schema.safeParse(validData);
+    expect(result.success).toBe(true);
+  });
+
+  it('should invalidate when variables are not valid', () => {
+    const invalidData = {
+      url: DEFAULT_REST_URL,
+      method: RestMethod.Post,
+      body: DEFAULT_REST_BODY,
+      variables: [{ key: '', value: 'value' }],
+    };
+
+    const result = schema.safeParse(invalidData);
+    expect(result.success).toBe(false);
+  });
+
+  it('should invalidate when headers are not valid', () => {
+    const invalidData = {
+      url: DEFAULT_REST_URL,
+      method: RestMethod.Post,
+      body: DEFAULT_REST_BODY,
+      headers: [{ key: '', value: 'value' }],
+    };
+
+    const result = schema.safeParse(invalidData);
+    expect(result.success).toBe(false);
+  });
+
+  it('should validate nested JSON in body', () => {
+    const validData = {
+      url: DEFAULT_REST_URL,
+      method: RestMethod.Post,
+      body: '{"nested": {"key": "value"}}',
+    };
+
+    const result = schema.safeParse(validData);
+    expect(result.success).toBe(true);
+  });
+
+  it('should validate array JSON in body', () => {
+    const validData = {
+      url: DEFAULT_REST_URL,
+      method: RestMethod.Post,
+      body: '["value1", "value2"]',
+    };
+
+    const result = schema.safeParse(validData);
+    expect(result.success).toBe(true);
+  });
 });
