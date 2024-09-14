@@ -1,7 +1,6 @@
 'use client';
 
 import { RequestKeyValuePairs } from '@/app/[locale]/_components/RequestKeyValuePairs/RequestKeyValuePairs';
-import RestBody from '@/app/[locale]/rest/components/RestBody';
 import {
   DEFAULT_REST_BODY,
   DEFAULT_REST_METHOD,
@@ -19,6 +18,7 @@ import { Button, Input, Select, SelectItem } from '@nextui-org/react';
 import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import RestBody from './RestBody';
 
 interface RestFormProps {
   formData?: RestFormData | null;
