@@ -36,16 +36,24 @@ export default function HistoryList() {
   return (
     <div className="flex flex-col gap-4 mt-4 w-full flex-1">
       <div className="flex gap-2">
-        <Button onClick={clearHandler} color="warning">
-          {t('common:Clear')}
-        </Button>
-        <Switch isSelected={isDate} onValueChange={setIsDate}>
-          {t('history:sortBy')}:{' '}
-          {isDate ? t('history:requestDate') : t('history:requestTime')}
-        </Switch>
+        <div className="flex-1">
+          <Button onClick={clearHandler} color="warning">
+            {t('common:Clear')}
+          </Button>
+        </div>
+
         <h2 className="self-center text-lg flex-1 flex justify-center">
           {t('history:requestsHistory')}
         </h2>
+
+        <div className="flex items-center justify-end gap-1 flex-1">
+          {`${t('history:sortBy')}: ${isDate ? t('history:requestDate') : t('history:requestTime')}`}
+          <Switch
+            isSelected={isDate}
+            onValueChange={setIsDate}
+            data-testid="sort-switcher"
+          />
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

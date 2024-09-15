@@ -10,10 +10,12 @@ export const createSignInSchema = (t: TranslationFunction) =>
       .min(PASS_MIN_LENGTH, {
         message: t('auth:passwordMinLength', { length: PASS_MIN_LENGTH }),
       })
-      .regex(/[A-Za-z]/, {
+      .regex(/\p{L}/u, {
         message: t('auth:passLetterMessage'),
       })
-      .regex(/\d/, { message: t('auth:passDigitMessage') })
+      .regex(/\d/, {
+        message: t('auth:passDigitMessage'),
+      })
       .regex(/[!@#%^&*]/, {
         message: t('auth:passSymbolMessage'),
       }),

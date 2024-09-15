@@ -17,7 +17,7 @@ describe('createSignInSchema', () => {
     expect(result.success).toBe(true);
   });
 
-  it('should invalidate when email does n"t follow the format', () => {
+  it(`should invalidate when email doesn't follow the format`, () => {
     const invalidData = {
       email: 'ddd.com',
       password: '22222sssSSSS*',
@@ -39,7 +39,7 @@ describe('createSignInSchema', () => {
     expect(result.error?.issues[0].message).toBe('auth:passwordMinLength');
   });
 
-  it('should invalidate when password does n"t have digits', () => {
+  it(`should invalidate when password doesn't have digits`, () => {
     const invalidData = {
       email: 'test@gmail.com',
       password: 'ddddDDDD*',
