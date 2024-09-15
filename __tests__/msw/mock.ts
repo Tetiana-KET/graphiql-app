@@ -1,11 +1,16 @@
 import {
   DEFAULT_GRAPHQL_QUERY,
   DEFAULT_GRAPHQL_URL,
+  DEFAULT_REST_BODY,
+  DEFAULT_REST_METHOD,
+  DEFAULT_REST_URL,
+  DEFAULT_REST_VARIABLES,
 } from '@/consts/defaultFormData';
 import { RequestType } from '@/enums/RequestType';
 import { ApiResponse } from '@/models/ApiResponse';
 import { GraphQLFormData } from '@/models/GraphQLFormData';
 import { User } from 'firebase/auth';
+import { RestFormData } from '@/models/RestFormData';
 
 export const GraphQLFormDataMock: GraphQLFormData = {
   url: DEFAULT_GRAPHQL_URL,
@@ -93,6 +98,14 @@ export const mockGraphQLFormData: GraphQLFormData = {
   query: DEFAULT_GRAPHQL_QUERY,
   headers: [{ key: 'id', value: '1' }],
   variables: [{ key: 'gender', value: 'male' }],
+};
+
+export const mockRestFormData: RestFormData = {
+  url: DEFAULT_REST_URL,
+  method: DEFAULT_REST_METHOD,
+  body: DEFAULT_REST_BODY,
+  headers: [],
+  variables: DEFAULT_REST_VARIABLES,
 };
 
 export const mockGraphQLRequestHistoryRecord = {

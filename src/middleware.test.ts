@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { middleware } from '@/middleware'; // путь к твоему middleware
+import { middleware } from '@/middleware';
 import { i18nRouter } from 'next-i18n-router';
 import { NextRequest } from 'next/server';
 import i18nConfig from '../i18nConfig';
