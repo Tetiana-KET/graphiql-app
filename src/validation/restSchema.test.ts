@@ -146,4 +146,84 @@ describe('createRestSchema', () => {
     const result = schema.safeParse(validData);
     expect(result.success).toBe(true);
   });
+
+  it('should validate body with only Latin1 characters', () => {
+    const validData = {
+      url: DEFAULT_REST_URL,
+      method: RestMethod.Post,
+      body: '{"key": "value", "latinText": "áéíóúñ"}',
+    };
+
+    const result = schema.safeParse(validData);
+    expect(result.success).toBe(true);
+  });
+
+  it('should invalidate body with non-Latin1 characters', () => {
+    const invalidData = {
+      url: DEFAULT_REST_URL,
+      method: RestMethod.Post,
+      body: '{"key": "value", "unicodeText": "你好"}',
+    };
+
+    const result = schema.safeParse(invalidData);
+    expect(result.success).toBe(false);
+    expect(result.error?.issues[0].message).toBe('common:onlyLatin');
+  });
+
+  it('should validate nested objects in body', () => {
+    const validData = {
+      url: DEFAULT_REST_URL,
+      method: RestMethod.Post,
+      body: '{"nested": {"key": "value", "innerNested": {"innerKey": "innerValue"}}}',
+    };
+
+    const result = schema.safeParse(validData);
+    expect(result.success).toBe(true);
+  });
+
+  it('should validate arrays in body', () => {
+    const validData = {
+      url: DEFAULT_REST_URL,
+      method: RestMethod.Post,
+      body: '{"array": [1, 2, 3, {"key": "value"}]}',
+    };
+
+    const result = schema.safeParse(validData);
+    expect(result.success).toBe(true);
+  });
+
+  it('should validate body with mixed data types (objects, arrays, literals)', () => {
+    const validData = {
+      url: DEFAULT_REST_URL,
+      method: RestMethod.Post,
+      body: '{"array": [1, "text", true, {"key": "value"}], "literal": 123, "nullValue": null}',
+    };
+
+    const result = schema.safeParse(validData);
+    expect(result.success).toBe(true);
+  });
+
+  it('should invalidate when array contains invalid data type', () => {
+    const invalidData = {
+      url: DEFAULT_REST_URL,
+      method: RestMethod.Post,
+      body: '{"array": [undefined]}',
+    };
+
+    const result = schema.safeParse(invalidData);
+    expect(result.success).toBe(false);
+    expect(result.error?.issues[0].message).toBe('rest:invalidBody');
+  });
+
+  it('should invalidate when nested object contains invalid structure', () => {
+    const invalidData = {
+      url: DEFAULT_REST_URL,
+      method: RestMethod.Post,
+      body: '{"nested": {"key": undefined}}',
+    };
+
+    const result = schema.safeParse(invalidData);
+    expect(result.success).toBe(false);
+    expect(result.error?.issues[0].message).toBe('rest:invalidBody');
+  });
 });
