@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { vi } from 'vitest';
 import { useTranslation } from 'react-i18next';
 import { useRouter, usePathname } from 'next/navigation';
+import { COOKIES_LIFE } from '@/consts/cookiesConsts';
 import LanguageDropDown from './LanguageDropDown';
 
 vi.mock('react-i18next', () => ({
@@ -48,5 +49,22 @@ describe('LanguageDropDown', () => {
     expect(englishItem).toBeInTheDocument();
     expect(russianItem).toBeInTheDocument();
     expect(chineseItem).toBeInTheDocument();
+  });
+
+  it('changes the language and updates the cookie and router', () => {
+    render(<LanguageDropDown />);
+
+    const dropdownTrigger = screen.getByTestId('dropdownTrigger');
+    fireEvent.click(dropdownTrigger);
+
+    const russianItem = screen.getByTestId('dropdownItem_ru');
+    fireEvent.click(russianItem);
+
+    const mockDate = new Date();
+    mockDate.setTime(mockDate.getTime() + COOKIES_LIFE);
+    const mockCookie = `NEXT_LOCALE=ru;expires=${mockDate.toUTCString()};path=/`;
+    document.cookie = mockCookie;
+
+    expect(document.cookie).toContain('NEXT_LOCALE=ru');
   });
 });

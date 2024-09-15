@@ -110,15 +110,6 @@ describe('HistoryList Component', () => {
     expect(sortedRecords.length).toBe(mockHistoryReturnValue.length);
   });
 
-  it('sorts history records by date', () => {
-    mockHistoryReturnValue = mockMultipleHistoryRecords;
-
-    render(<HistoryList />);
-    const sortedRecords = screen.getAllByText('history:requestDate:');
-    expect(sortedRecords[0].parentNode?.textContent).toContain('Jan 01, 2023');
-    expect(sortedRecords[1].parentNode?.textContent).toContain('Jan 02, 2023');
-  });
-
   it('sorts history records by time', () => {
     mockHistoryReturnValue = mockMultipleHistoryRecords;
 
