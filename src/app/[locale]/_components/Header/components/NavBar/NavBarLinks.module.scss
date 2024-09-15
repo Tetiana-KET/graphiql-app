@@ -1,0 +1,27 @@
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 10px;
+  text-transform: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.navLink.active {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: aliceblue;
+  pointer-events: none;
+  font-weight: 700;
+}
+
+.navLink.pending {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (hover: hover) {
+  .navLink:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}

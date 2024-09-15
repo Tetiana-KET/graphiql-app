@@ -1,32 +1,38 @@
 # REST/GraphiQL Client
+
 ## [Deployment](https://graphiql-app-ktj5.vercel.app/)
 
 ### Project Overview
+
 This project is an educational initiative aimed at developing a lightweight application that combines the core functionalities of Postman and GraphiQL. The main focus of this task is to provide a practical learning experience in team-based development while deepening knowledge in Next.js and React.
 
 ### Objectives
+
 - **Team Collaboration**: Gain hands-on experience in working collaboratively within a team, including version control, code reviews, and task management.
 - **Next.js Mastery**: Strengthen and solidify understanding of Next.js, particularly focusing on its server-side rendering (SSR) capabilities.
 - **React Best Practices**: Reinforce foundational React concepts, with a focus on hooks, component architecture, and state management.
 - **TypeScript Proficiency**: Improve proficiency in TypeScript, ensuring type safety and better code quality throughout the project.
 - **Quality and Testing**: Implement strict coding standards and aim for a minimum of 80% test coverage to ensure high code quality and reliability.
-  
+
 ### Key Features
+
 - **REST and GraphQL Suppor**t: Enable users to send requests to both REST and GraphQL APIs.
 - **User Authentication**: Include user authentication for accessing protected routes and storing user preferences.
 - **Request History**: Implement a history feature to keep track of previously executed requests, allowing users to revisit and re-execute them.
 - **Error Handling**: Provide robust error handling mechanisms for API requests and user inputs.
 - **Internationalization (i18n)**: Support multiple languages to make the application accessible to a broader audience.
 - **Responsive Design**: Ensure the application is fully responsive, providing an optimal experience across various devices and screen sizes starting from 320px.
-  
+
 ### Key pages in the application include
+
 - Sign In 🔑 / Sign Up 📝
 - Welcome page: 🎉
 - RESTful client page: 🌐
 - GraphiQL client page: 🛠️
 - History page: 📜
-  
+
 ### Project screenshots
+
 ![image](https://github.com/user-attachments/assets/d7870249-1b29-4825-ae09-ccdfdbf19802)
 ![image](https://github.com/user-attachments/assets/a4f3694c-59a1-4da4-bc20-91fd24468034)
 
@@ -48,30 +54,38 @@ This project is an educational initiative aimed at developing a lightweight appl
 ### Setup instructions
 
 - Make sure you have node.js installed on your machine before proceeding with the setup or installation process.
-   We recommend using version 20.9.0 or higher. To check if Node.js is installed, you can use the following command:
+  We recommend using version 20.9.0 or higher. To check if Node.js is installed, you can use the following command:
+
 ```
 node -v
 ```
+
 - Make sure nmp is installed by running
+
 ```
 npm -v
 ```
+
 - Clone this repo.
 - Run `npm ci` in the root directory. This command will install dependencies based on the exact versions specified in the package-lock.json. It ensures a consistent and reproducible environment by installing dependencies exactly as specified, making it ideal for use in development, testing, and deployment workflows.
 
 You can use `npm ci` or `npm i` depending on your specific needs and requirements for dependency management.
 If you want to install dependencies exactly as specified in the package-lock.json file (ensuring consistency and reproducibility), you should use `npm ci`.
 If you're okay with potentially updating dependencies to their latest versions according to the specified version ranges in the package.json file, you can use `npm install` or `npm i`.
+
 - Run `npm run dev` to start the application in development mode
 - Create a new branch from `develop`
+
 ```
 git checkout -b <branch-name>
 ```
+
 Branch name should be in the format feat|fix|chore|refactor/RSS-graphiql-app-issueNumber_short-description
 (e.g., feat/RSS-graphiql-app-07_Implement-History-pages)
+
 - Be careful with commit messages; they should be in the format:
-   `feat|fix|chore|refactor|build/RSS-graphiql-app-07: Description of the change`
-   `(e.g., feat/RSS-graphiql-app-07: Implement History page)`
+  `feat|fix|chore|refactor|build/RSS-graphiql-app-07: Description of the change`
+  `(e.g., feat/RSS-graphiql-app-07: Implement History page)`
 - To test the app run `npm run test` command
 - To run tests and see the test coverage, run `npm run test:coverage`
 
@@ -132,7 +146,6 @@ npm run preview
 This command will first create an optimized production build using `npm run build`, and then start a local server that serves the production build at `http://localhost:3000`.
 
 _It is important to note that `npm run start` is intended for previewing the production build locally and is not meant to be used as a production server._
-
 
 #### Prettier check
 
@@ -195,7 +208,8 @@ npm run validate:all
 npm run test
 ```
 
-#### To run tests and see the test coverage, run 
+#### To run tests and see the test coverage, run
+
 ```
 npm run test:coverage
 ```

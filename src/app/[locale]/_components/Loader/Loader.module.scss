@@ -1,0 +1,30 @@
+@import '@styles/variables';
+
+.loader-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.loader {
+  border: 16px solid $accent-color-hover;
+  border-top: 16px solid $light-color;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

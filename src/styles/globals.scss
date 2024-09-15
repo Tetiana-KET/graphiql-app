@@ -1,0 +1,17 @@
+@import 'normalize.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'variables';
+@import 'elements';
+@import 'error';
+
+*::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $light-grey-bg-color;
+  border-radius: 10px;
+}

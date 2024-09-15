@@ -1,0 +1,9 @@
+.developer-card {
+  flex: 1;
+
+  @media (max-width: 640px) {
+    width: 100%;
+    max-width: 400px;
+    flex: auto;
+  }
+}

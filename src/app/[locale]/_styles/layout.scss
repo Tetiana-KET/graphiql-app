@@ -1,0 +1,38 @@
+@import '@styles/variables';
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+}
+
+body {
+  height: 100dvh;
+  width: 100dvw;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-container {
+  display: flex;
+  flex: 1;
+  padding: 1rem 24px;
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+
+  @media (max-width: 640px) {
+    padding: 8px 10px;
+  }
+}
+
+.welcome-wrapper {
+  padding: 25px 0;
+  display: flex;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}

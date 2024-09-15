@@ -1,0 +1,30 @@
+@import '@styles/variables.scss';
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.divider-line {
+  width: 30vw;
+  flex: 1;
+  border: 0;
+  border-top: 2px solid $accent-color-hover;
+
+  @media (max-width: 400px) {
+    width: 15vw;
+  }
+}
+
+.divider-title {
+  font-size: 20px;
+  padding: 0 1rem;
+  color: $accent-color-hover;
+  font-weight: bold;
+
+  @media (max-width: 640px) {
+    font-size: 16px;
+  }
+}

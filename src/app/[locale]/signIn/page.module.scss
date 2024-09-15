@@ -1,0 +1,74 @@
+@import '@styles/variables';
+
+.login {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login__container {
+  display: flex;
+  gap: 15px;
+  min-width: 250px;
+  flex-basis: 500px;
+  flex-direction: column;
+  text-align: center;
+  background-color: $light-grey-bg-color;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: $box-shadow;
+}
+
+.login__textBox-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .login__textBox {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .validation-error {
+    color: $accent-color;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    height: 25px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.login__btn,
+.login__textBox {
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 10px;
+  line-height: 35px;
+}
+
+.login__btn {
+  border: none;
+  color: $light-color;
+  background-color: $main-color;
+  transition: all 0.5s;
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.login__google {
+  background-color: $accent-color-hover;
+}
+
+@media (hover: hover) {
+  .login__google:hover,
+  .login__btn:hover {
+    background-color: $accent-color;
+  }
+}

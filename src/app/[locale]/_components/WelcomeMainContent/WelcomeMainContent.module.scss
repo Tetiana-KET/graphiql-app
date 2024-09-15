@@ -1,0 +1,18 @@
+.welcome__section {
+  display: flex;
+  row-gap: 30px;
+  padding: 25px 0px;
+
+  .about-description,
+  .about-img-wrap {
+    flex: 1;
+  }
+}
+
+.developers-wrap {
+  justify-content: space-between;
+
+  @media (max-width: 640px) {
+    align-items: center;
+  }
+}

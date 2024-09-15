@@ -1,0 +1,36 @@
+@import '@styles/variables';
+
+.header {
+  box-shadow: $box-shadow;
+}
+
+.header-wrapper {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  transition: all 0.5s ease;
+
+  &.stickyHeader {
+    backdrop-filter: blur(10px);
+    background-color: $light-pink-bg-color;
+    box-shadow: $accent-box-shadow;
+  }
+}
+
+.header_logo-wrapper {
+  & svg {
+    transition: transform 0.5s ease;
+  }
+
+  &:hover svg {
+    transform: rotate(360deg);
+  }
+
+  &:hover svg path:first-of-type {
+    fill: $accent-color-hover;
+  }
+
+  &:hover svg path:last-of-type {
+    fill: $accent-color;
+  }
+}
