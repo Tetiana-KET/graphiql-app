@@ -1,15 +1,16 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import { render } from '@testing-library/react';
 import RootLayout from './layout';
 
 vi.mock('@/components/AuthProvider', () => ({
   AuthProvider: ({ children }: { children: React.ReactNode }) => (
-    <div>{children}</div>
+    <>{children}</>
   ),
 }));
 
 vi.mock('notistack', () => ({
   SnackbarProvider: ({ children }: { children: React.ReactNode }) => (
-    <div>{children}</div>
+    <>{children}</>
   ),
 }));
 
