@@ -64,9 +64,7 @@ describe('HistoryList Component', () => {
 
   it('changes sort order when switch is toggled', () => {
     render(<HistoryList />);
-    const switchElement = screen.getByText(
-      'history:sortBy: history:requestDate',
-    );
+    const switchElement = screen.getByTestId('sort-switcher');
     fireEvent.click(switchElement);
     expect(
       screen.getByText('history:sortBy: history:requestTime'),
@@ -100,9 +98,7 @@ describe('HistoryList Component', () => {
 
   it('renders the correct sort order based on isDate state', () => {
     render(<HistoryList />);
-    const switchElement = screen.getByText(
-      'history:sortBy: history:requestDate',
-    );
+    const switchElement = screen.getByTestId('sort-switcher');
     fireEvent.click(switchElement);
     const sortedRecords = screen.getAllByText(
       mockGraphQLRequestHistoryRecord.formData.url,
@@ -114,9 +110,7 @@ describe('HistoryList Component', () => {
     mockHistoryReturnValue = mockMultipleHistoryRecords;
 
     render(<HistoryList />);
-    const switchElement = screen.getByText(
-      'history:sortBy: history:requestDate',
-    );
+    const switchElement = screen.getByTestId('sort-switcher');
     fireEvent.click(switchElement);
 
     const sortedRecords = screen.getAllByText('history:requestDate:');

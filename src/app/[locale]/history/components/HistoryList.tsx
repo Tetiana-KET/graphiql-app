@@ -47,10 +47,12 @@ export default function HistoryList() {
         </h2>
 
         <div className="flex items-center justify-end gap-1 flex-1">
-          {t('history:sortBy')}
-          {': '}
-          {isDate ? t('history:requestDate') : t('history:requestTime')}
-          <Switch isSelected={isDate} onValueChange={setIsDate} />
+          {`${t('history:sortBy')}: ${isDate ? t('history:requestDate') : t('history:requestTime')}`}
+          <Switch
+            isSelected={isDate}
+            onValueChange={setIsDate}
+            data-testid="sort-switcher"
+          />
         </div>
       </div>
 
